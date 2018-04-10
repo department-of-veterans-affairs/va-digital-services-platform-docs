@@ -1,8 +1,8 @@
-# Front end architecture overview
+# Front end architecture
 
 Welcome to the VA modern platform front end overview. The goal of this article is to provide a high level overview of our front end architecture to get your oriented in the [vets-website](https://github.com/department-of-veterans-affairs/vets-website) repository.
 
-The overall architecture for vets.gov is that we have an API backend written in Ruby on Rails ([vets-api](https://github.com/department-of-veterans-affairs/vets-api)) and a static front end, written in HTML, CSS, and Javascript (`vets-website`). There's no server side rendering or processing for the front end; the build process compiles everything into static resources and uploads them to an S3 bucket on AWS.
+The overall architecture for vets.gov is that we have an API backend written in Ruby on Rails ([vets-api](https://github.com/department-of-veterans-affairs/vets-api)) and a static front end, written in HTML, CSS, and Javascript (`vets-website`). There's no server side rendering or processing for the front end; the build process compiles everything into static resources which are served to users.
 
 ## Build process
 
