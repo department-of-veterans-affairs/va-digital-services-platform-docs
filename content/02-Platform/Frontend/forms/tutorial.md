@@ -33,8 +33,7 @@ You can answer the questions with the [documentation](https://github.com/departm
 
 After you run the generator, run `yarn watch` (or restart it if you already had it running) and navigate to http://localhost:3001/new-form. You should see something like this:
 
-
-TODO: image location
+<img src="/img/docs/forms/initial-form.png"/>
 
 ## Updating your form
 
@@ -105,7 +104,7 @@ page1: {
 
 Now if you go to http://localhost:3001/new-form/first-page you should see this:
 
-TODO: image location
+<img src="/img/docs/forms/first-field.png"/>
 
 That's not the most exciting field, but it's a field! We can add a title to it by adding to `uiSchema`:
 
@@ -131,7 +130,7 @@ page1: {
 
 That makes it look a little more presentable:
 
-TODO: image location
+<img src="/img/docs/forms/field-with-label.png"/>
 
 Note that `uiSchema` doesn't follow exactly the same structure as `schema`: you don't need the `properties` object. This is because `uiSchema` treats everything without a `ui:` prefix as a field name, which one exception for array fields.
 
@@ -163,7 +162,7 @@ page1: {
 
 That will get you a select box with options:
 
-TODO: image location
+<img src="/img/docs/forms/select-field.png"/>
 
 Some types of data might have different valid ways of asking the user for input. For example, a field that uses `enum` could also use radio buttons. You can change that with `ui:widget`:
 
@@ -194,7 +193,7 @@ page1: {
 
 Now the form offers two radio buttons to choose from:
 
-TODO: image location
+<img src="/img/docs/forms/radio-buttons.png"/>
 
 You can also mark fields as required, which will prevent you from moving to the next page without filling them out:
 
@@ -226,7 +225,7 @@ page1: {
 
 If you do fill in the required information and click Continue, you'll end up on the review page. The review page for our forms is generated based on your chapters and pages and provides a quick way to review the data that you've entered:
 
-TODO: image location
+<img src="/img/docs/forms/review.png"/>
 
 Once you've reviewed your form, you have to click the checkbox to agree to the privacy policy and then you can submit! For now, though, that Submit button will fail because there's no api to submit the data to.
 
