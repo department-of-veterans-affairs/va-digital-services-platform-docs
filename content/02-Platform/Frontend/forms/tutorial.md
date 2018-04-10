@@ -4,7 +4,9 @@ In this doc, we'll walk through creating a new form and making some simple chang
 
 ## Setting up
 
-The first step is to get the basic scaffolding set up for a new application. We have a [generator tool](https://github.com/department-of-veterans-affairs/vets-website/blob/master/docs/GeneratorOptions.md) to help you set up the files needed for the new React app and form. In the root of `vets-website`, you should install and run Yeoman and the generator:
+If you haven't already, get [vets-website](https://github.com/department-of-veterans-affairs/vets-website) set up and running on your machine.
+
+The first step after that is to get the basic scaffolding set up for a new application. We have a [generator tool](https://github.com/department-of-veterans-affairs/vets-website/blob/master/docs/GeneratorOptions.md) to help you set up the files needed for the new React app and form. In the root of `vets-website`, you should install and run Yeoman and the generator:
 
 ```bash
 npm install -g yo
@@ -33,6 +35,8 @@ After you run the generator, run `yarn watch` (or restart it if you already had 
 
 
 TODO: image location
+
+## Updating your form
 
 Now that you're up and running, we can add a new page and field to our form. If you open up `src/js/new-form/config.js`, you should see a formConfig variable:
 
