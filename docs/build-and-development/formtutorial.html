@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Search: Default | Veteran-facing Tools Playbook</title>
+<title>Form Tutorial | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -51,324 +51,207 @@
             <div class="Frame-inner" id="pjax-container">
             
 
+<div class="Document">
 
-    
-    
-
-<div class="Pen" data-behaviour="pen" id="pen-f0cee2c7a0d9ea75aa8a9553804e9781">
-
-    
-
-    <div class="Pen-panel Pen-header">
-    <h1 class="Pen-title">
-        <a class="Pen-previewLink" href="../preview/search--default.html" title="Component preview">
-            Search: Default
-            <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-
-        </a>
-    </h1>
-    
-
-<div class="Status Status--tag">
-
-<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
-
-</div>
+    <div class="Document-header">
+        
+        <h1 class="Document-title">Form Tutorial</h1>
+        
 
 
-</div>
-
-
-    <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-f0cee2c7a0d9ea75aa8a9553804e9781">
-    <div class="Preview-wrapper" data-role="resizer">
-        <div class="Preview-resizer">
-            
-             <iframe
-                class="Preview-iframe"
-                data-role="window"
-                src="../preview/search--default.html"
-                sandbox="allow-same-origin allow-scripts allow-forms"
-                 style=""
-                marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
-            </iframe>
-        </div>
-        <div class="Preview-handle" data-role="resize-handle"></div>
-        <div class="Preview-overlay"></div>
-    </div>
-</div>
-
-
-    <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
-
-    <div class="Pen-panel Pen-info" data-role="info">
-    <div class="Browser" data-behaviour="browser" id="browser-f0cee2c7a0d9ea75aa8a9553804e9781">
-
-    
-
-<div class="Browser-controls">
-    <ul class="Browser-tabs">
-        
-        
-        <li class="Browser-tab Browser-tab--notes is-active " data-role="tab">
-            <a href="#browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-notes">Notes</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--props" data-role="tab">
-            <a href="#browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-props">Props</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--html" data-role="tab">
-            <a href="#browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-html">HTML</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--view" data-role="tab">
-            <a href="#browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-view">View</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-context">Context</a>
-        </li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-info">Info</a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-
-    
-    <div class="Browser-panel Browser-notes" data-role="tab-panel" id="browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-notes">
-    <div class="Prose Prose--condensed">
-        
-        <p class="Browser-isEmptyNote">There are no notes for this item.</p>
         
     </div>
-</div>
+
+    <div class="Document-content">
 
     
-    <div class="Browser-panel Browser-props" data-role="tab-panel" id="browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-props">
-    <div class="Prose Prose--condensed">
-        <table>
-          <tr><th>Prop</th><th>Required?</th><th>Type</th><th>Default</th><th>Description</th></tr>
-          
-        </table>
+
+<div class="Prose">
+
+
+
+    
+    
+    <h1 id="tutorial-creating-your-first-form">Tutorial: Creating your first form</h1>
+<p>In this doc, we’ll walk through creating a new form and making some simple changes.</p>
+<h2 id="setting-up">Setting up</h2>
+<p>If you haven’t already, get <a href="https://github.com/department-of-veterans-affairs/vets-website">vets-website</a> set up and running on your machine.</p>
+<p>The first step after that is to get the basic scaffolding set up for a new application. We have a <a href="https://github.com/department-of-veterans-affairs/vets-website/blob/master/docs/GeneratorOptions.md">generator tool</a> to help you set up the files needed for the new React app and form. In the root of <code>vets-website</code>, you should install and run Yeoman and the generator:</p>
+<code class="lang-bash"><pre>npm install -g yo
+npm install -g @department-of-veterans-affairs/generator-vets-website
+
+yo @department-of-veterans-affairs/vets-website</pre></code><p>You can answer the questions with the <a href="https://github.com/department-of-veterans-affairs/vets-website/blob/master/docs/GeneratorOptions.md">documentation</a> as a guide, or if you’re just looking to try things out, here are the answers I’m using for this tutorial:</p>
+<code class="lang-bash"><pre>? What<span class="hljs-string">'s the name of your application? This will be the default page title. My new form
+? What folder in src/js should your app live in? new-form
+? What should be the name of your app'</span>s entry bundle? newForm
+? What<span class="hljs-string">'s the root url for this app? /new-form
+? Is this a form app? Yes
+? What'</span>s your form number? XX-230
+? What<span class="hljs-string">'s the Google Analytics event prefix you want to use? new-form-
+? What'</span>s the respondent burden of this form <span class="hljs-keyword">in</span> minutes? 30
+? What<span class="hljs-string">'s the OMB control number for this form? XX3344
+? What'</span>s the OMB expiration date <span class="hljs-keyword">for</span> this form? 5/31/2018
+? What<span class="hljs-string">'s the benefit description for this form? new form benefits</span></pre></code><p>After you run the generator, run <code>yarn watch</code> (or restart it if you already had it running) and navigate to <a href="http://localhost:3001/new-form">http://localhost:3001/new-form</a>. You should see something like this:</p>
+<p><img src="/img/docs/forms/initial-form.png"/></p>
+<h2 id="updating-your-form">Updating your form</h2>
+<p>Now that you’re up and running, we can add a new page and field to our form. If you open up <code>src/js/new-form/config.js</code>, you should see a formConfig variable:</p>
+<code class="lang-js"><pre><span class="hljs-keyword">const</span> formConfig = {
+  <span class="hljs-attr">urlPrefix</span>: <span class="hljs-string">'/'</span>,
+  <span class="hljs-attr">submitUrl</span>: <span class="hljs-string">'/v0/api'</span>,
+  <span class="hljs-attr">trackingPrefix</span>: <span class="hljs-string">'new-form-'</span>,
+  <span class="hljs-attr">introduction</span>: IntroductionPage,
+  <span class="hljs-attr">confirmation</span>: ConfirmationPage,
+  <span class="hljs-attr">formId</span>: <span class="hljs-string">'XX-230'</span>,
+  <span class="hljs-attr">version</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">prefillEnabled</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">savedFormMessages</span>: {
+    <span class="hljs-attr">notFound</span>: <span class="hljs-string">'Please start over to apply for new form benefits.'</span>,
+    <span class="hljs-attr">noAuth</span>: <span class="hljs-string">'Please sign in again to continue your application for new form benefits.'</span>
+  },
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'My new form'</span>,
+  <span class="hljs-attr">defaultDefinitions</span>: {
+  },
+  <span class="hljs-attr">chapters</span>: {
+    <span class="hljs-attr">chapter1</span>: {
+      <span class="hljs-attr">title</span>: <span class="hljs-string">'Chapter 1'</span>,
+      <span class="hljs-attr">pages</span>: {
+        <span class="hljs-attr">page1</span>: {
+          <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+          <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+          <span class="hljs-attr">uiSchema</span>: {
+          },
+          <span class="hljs-attr">schema</span>: {
+            <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+            <span class="hljs-attr">properties</span>: {
+            }
+          }
+        }
+      }
+    }
+  }
+};</pre></code><p>There’s a lot of information already there, and you can check out the form config specifications to see what each property means. For now, we’re going to look at the content of the form, which lives in <code>chapters</code>.</p>
+<p>At the most basic level, our forms consiste of widgets and fields. Widgets are the basic form controls, things like <code>&lt;input/&gt;</code> and <code>&lt;select/&gt;</code> elements. Fields are the next level up and contain a widget and a <code>&lt;label/&gt;</code>, plus some extra optional description information. We then have pages, which are collections of fields, and then chapters, which are collections of pages.</p>
+<p>We can see in the config that there’s already one chapter, with one page inside it, called <code>page1</code>. In the <code>page1</code> object there are a few pieces of information, which we can mostly ignore for now. The important properties for us right now are <code>uiSchema</code> and <code>schema</code>. <code>schema</code> is the initial structure of our page, in the form of a JSON Schema. This describes the type of data that will result from a user filling in our form. It’s also used by the form library to determine what fields and widgets to display in the application, except when overriden by <code>uiSchema</code>. <code>uiSchema</code> is an object that has extra, user interface focused information to help render the form.</p>
+<p>Let’s add a property to <code>schema</code>:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">myField</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+      }
+    }
+  }
+}</pre></code><p>Now if you go to <a href="http://localhost:3001/new-form/first-page">http://localhost:3001/new-form/first-page</a> you should see this:</p>
+<p><img src="/img/docs/forms/first-field.png"/></p>
+<p>That’s not the most exciting field, but it’s a field! We can add a title to it by adding to <code>uiSchema</code>:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">myField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field label'</span>
+    }
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">myField</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+      }
+    }
+  }
+}</pre></code><p>That makes it look a little more presentable:</p>
+<p><img src="/img/docs/forms/field-with-label.png"/></p>
+<p>Note that <code>uiSchema</code> doesn’t follow exactly the same structure as <code>schema</code>: you don’t need the <code>properties</code> object. This is because <code>uiSchema</code> treats everything without a <code>ui:</code> prefix as a field name, which one exception for array fields.</p>
+<p>Changing the the <code>type</code> property in your field will change the data accepted and also the way it displays on the form. You can change it to be <code>boolean</code> and get a checkbox and <code>number</code> to get a number input. If you want a <code>select</code> box, you use JSON Schema’s <code>enum</code> property:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">myField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field label'</span>
+    }
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">myField</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
+        <span class="hljs-string">'enum'</span>: [
+          <span class="hljs-string">'First option'</span>,
+          <span class="hljs-string">'Second option'</span>
+        ]
+      }
+    }
+  }
+}</pre></code><p>That will get you a select box with options:</p>
+<p><img src="/img/docs/forms/select-field.png"/></p>
+<p>Some types of data might have different valid ways of asking the user for input. For example, a field that uses <code>enum</code> could also use radio buttons. You can change that with <code>ui:widget</code>:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">myField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field label'</span>,
+      <span class="hljs-string">'ui:widget'</span>: <span class="hljs-string">'radio'</span>
+    }
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">myField</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
+        <span class="hljs-string">'enum'</span>: [
+          <span class="hljs-string">'First option'</span>,
+          <span class="hljs-string">'Second option'</span>
+        ]
+      }
+    }
+  }
+}</pre></code><p>Now the form offers two radio buttons to choose from:</p>
+<p><img src="/img/docs/forms/radio-buttons.png"/></p>
+<p>You can also mark fields as required, which will prevent you from moving to the next page without filling them out:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">myField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field label'</span>,
+      <span class="hljs-string">'ui:widget'</span>: <span class="hljs-string">'radio'</span>
+    }
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">required</span>: [<span class="hljs-string">'myField'</span>],
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">myField</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
+        <span class="hljs-string">'enum'</span>: [
+          <span class="hljs-string">'First option'</span>,
+          <span class="hljs-string">'Second option'</span>
+        ]
+      }
+    }
+  }
+}</pre></code><p>If you do fill in the required information and click Continue, you’ll end up on the review page. The review page for our forms is generated based on your chapters and pages and provides a quick way to review the data that you’ve entered:</p>
+<p><img src="/img/docs/forms/review.png"/></p>
+<p>Note that if you refresh in the middle of the form, your data will be lost and the review page won’t have any content to edit.</p>
+<p>Once you’ve reviewed your form, you have to click the checkbox to agree to the privacy policy and then you can submit! For now, though, that Submit button will fail because there’s no api to submit the data to.</p>
+<p>That’s it! Continue on in our documentation to learn about building more complex forms and building out the whole process for building and submitting a new form.</p>
+
+    
+
+
+</div>
+
+
+
     </div>
-</div>
-
-    
-    
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-html">
-    <code class="Code Code--lang-html">
-        
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>
-    Search big<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"search"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-search usa-search-big"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"search-field-big"</span>&gt;</span>Search big<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search-field-big"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"search"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-search-submit-text"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>Search medium<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"search"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-search"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"search-field"</span>&gt;</span>Search medium<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search-field"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"search"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-search-submit-text"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>Search small<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"search"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-search usa-search-small"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"search-field-small"</span>&gt;</span>Search small<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search-field-small"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"search"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
-        
-    </code>
-</div>
-
-    
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-view">
-    <code class="Code Code--lang-text">
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>Search big<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"search"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-search usa-search-big"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"search-field-big"</span>&gt;</span>Search big<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search-field-big"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"search"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-search-submit-text"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>Search medium<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"search"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-search"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"search-field"</span>&gt;</span>Search medium<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search-field"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"search"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-search-submit-text"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>Search small<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-grid"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-width-one-half"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"search"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-search usa-search-small"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"search-field-small"</span>&gt;</span>Search small<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search-field-small"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"search"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-sr-only"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
-    </code>
-</div>
-
-    
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-context">
-    <code class="Code Code--lang-yaml">
-        
-            
-            <pre><span class="hljs-attr">package:</span>
-<span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veteran-affairs/jean-pants</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">0.1</span><span class="hljs-number">.0</span>
-<span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
-<span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
-</pre>
-            
-        
-    </code>
-</div>
-
-    
-    
-
-
-
-
-    
-    <div class="Browser-panel" data-role="tab-panel" id="browser-f0cee2c7a0d9ea75aa8a9553804e9781-panel-info">
-    <ul class="Meta">
-        <li class="Meta-item">
-            <strong class="Meta-key">Handle:</strong>
-            <span class="Meta-value">@search--default</span>
-        </li>
-        
-        
-        
-        
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(2)</em>:</strong>
-            <span class="Meta-value Meta-value--linkList">
-            
-                <a href="">
-                    <span>Default</span>
-                </a>, 
-            
-                <a href="search--header.html">
-                    <span>Header</span>
-                </a>
-            
-            </span>
-        </li>
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Preview:</strong>
-            <span class="Meta-value">
-                <ul>
-                    <li><a data-no-pjax href="../preview/search--default.html"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-</a></li>
-                    <li><a data-no-pjax href="../render/search--default.html"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-</a></li>
-                </ul>
-            </span>
-        </li>
-        <li class="Meta-item">
-            <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">src/components/header/search/search.njk</span>
-        </li>
-        
-        
-    </ul>
-</div>
-
-    
-
-</div>
-
-</div>
-
-
-    
 
 </div>
 
@@ -413,7 +296,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/why-use-this-playbook-and-platform/intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -423,7 +306,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/why-use-this-playbook-and-platform/as-a-va-business-owner.html" data-pjax>
+            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/as-a-va-business-owner.html" data-pjax>
                 <span>As a Business Owner</span>
                 
             </a>
@@ -433,7 +316,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/why-use-this-playbook-and-platform/va-project-manager.html" data-pjax>
+            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/va-project-manager.html" data-pjax>
                 <span>VA Project Manager</span>
                 
             </a>
@@ -443,7 +326,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/why-use-this-playbook-and-platform/va-designer.html" data-pjax>
+            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/va-designer.html" data-pjax>
                 <span>VA Designer</span>
                 
             </a>
@@ -453,7 +336,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/why-use-this-playbook-and-platform/va-developer.html" data-pjax>
+            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/va-developer.html" data-pjax>
                 <span>VA Developer</span>
                 
             </a>
@@ -463,7 +346,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/why-use-this-playbook-and-platform/non-va-team-building-veteran-facing-tools.html" data-pjax>
+            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/non-va-team-building-veteran-facing-tools.html" data-pjax>
                 <span>Non VA Team Building Veteran Facing Tools</span>
                 
             </a>
@@ -489,7 +372,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/including-the-user-in-requirements-planning.html" data-pjax>
+            <a class="Tree-entityLink" href="../including-the-user-in-requirements-planning.html" data-pjax>
                 <span>Starting with Veterans</span>
                 
             </a>
@@ -499,7 +382,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/including-the-user-in-requirements-planning/defining-the-project.html" data-pjax>
+            <a class="Tree-entityLink" href="../including-the-user-in-requirements-planning/defining-the-project.html" data-pjax>
                 <span>Defining The Project</span>
                 
             </a>
@@ -509,7 +392,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/including-the-user-in-requirements-planning/validating-hypotheses-with-users.html" data-pjax>
+            <a class="Tree-entityLink" href="../including-the-user-in-requirements-planning/validating-hypotheses-with-users.html" data-pjax>
                 <span>Validating Hypotheses With Users</span>
                 
             </a>
@@ -535,7 +418,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/project-planning/intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../project-planning/intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -561,7 +444,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/designing-forms/intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../designing-forms/intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -571,7 +454,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/designing-forms/design-patterns.html" data-pjax>
+            <a class="Tree-entityLink" href="../designing-forms/design-patterns.html" data-pjax>
                 <span>Design Patterns</span>
                 
             </a>
@@ -581,7 +464,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/designing-forms/writing-plain-language-copy.html" data-pjax>
+            <a class="Tree-entityLink" href="../designing-forms/writing-plain-language-copy.html" data-pjax>
                 <span>Writing Plain Language Copy</span>
                 
             </a>
@@ -591,7 +474,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/designing-forms/setting-up-helpful-error-messages.html" data-pjax>
+            <a class="Tree-entityLink" href="../designing-forms/setting-up-helpful-error-messages.html" data-pjax>
                 <span>Setting Up Helpful Error Messages</span>
                 
             </a>
@@ -601,7 +484,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/designing-forms/preparing-downtime-notifications.html" data-pjax>
+            <a class="Tree-entityLink" href="../designing-forms/preparing-downtime-notifications.html" data-pjax>
                 <span>Preparing Downtime Notifications</span>
                 
             </a>
@@ -627,7 +510,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/intro.html" data-pjax>
+            <a class="Tree-entityLink" href="intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -637,7 +520,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/visual-component-library.html" data-pjax>
+            <a class="Tree-entityLink" href="visual-component-library.html" data-pjax>
                 <span>Visual Component Library</span>
                 
             </a>
@@ -647,7 +530,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/form-generator.html" data-pjax>
+            <a class="Tree-entityLink" href="form-generator.html" data-pjax>
                 <span>Form Generator</span>
                 
             </a>
@@ -657,7 +540,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/creating-a-url.html" data-pjax>
+            <a class="Tree-entityLink" href="creating-a-url.html" data-pjax>
                 <span>Creating A URL</span>
                 
             </a>
@@ -667,7 +550,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/using-apis.html" data-pjax>
+            <a class="Tree-entityLink" href="using-apis.html" data-pjax>
                 <span>Using APIs</span>
                 
             </a>
@@ -677,7 +560,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/building-for-accessibility.html" data-pjax>
+            <a class="Tree-entityLink" href="building-for-accessibility.html" data-pjax>
                 <span>Building For Accessibility</span>
                 
             </a>
@@ -687,7 +570,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/architecture.html" data-pjax>
+            <a class="Tree-entityLink" href="architecture.html" data-pjax>
                 <span>Architecture</span>
                 
             </a>
@@ -696,8 +579,8 @@
     
         
         
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/formtutorial.html" data-pjax>
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 <span>Form Tutorial</span>
                 
             </a>
@@ -707,7 +590,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/testing-with-users-as-you-go.html" data-pjax>
+            <a class="Tree-entityLink" href="testing-with-users-as-you-go.html" data-pjax>
                 <span>Testing With Users As You Go</span>
                 
             </a>
@@ -733,7 +616,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/how-does-the-platform-work.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/how-does-the-platform-work.html" data-pjax>
                 <span>How does the platform work?</span>
                 
             </a>
@@ -743,7 +626,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/included-with-your-app.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/included-with-your-app.html" data-pjax>
                 <span>Included with any [name].gov app</span>
                 
             </a>
@@ -753,7 +636,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/access-and-onboarding.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/access-and-onboarding.html" data-pjax>
                 <span>Access and onboarding</span>
                 
             </a>
@@ -763,7 +646,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/authorization-and-authentication.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/authorization-and-authentication.html" data-pjax>
                 <span>Authorization and Authentication</span>
                 
             </a>
@@ -773,7 +656,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/platform-frontend.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/platform-frontend.html" data-pjax>
                 <span>Platform Frontend</span>
                 
             </a>
@@ -783,7 +666,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/platform-backend.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/platform-backend.html" data-pjax>
                 <span>Platform Backend</span>
                 
             </a>
@@ -804,7 +687,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/sample-step-by-step-guides/how-to-build-and-launch-a-form-on-name.gov" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/sample-step-by-step-guides/how-to-build-and-launch-a-form-on-name.gov" data-pjax>
                 <span>How to build and launch a form on [Name.gov]</span>
                 
             </a>
@@ -840,7 +723,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="colors.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/colors.html" data-pjax>
                 <span>Color palette</span>
                 
 
@@ -875,7 +758,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="fonts.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/fonts.html" data-pjax>
                 <span>Fonts</span>
                 
 
@@ -899,7 +782,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="links.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/links.html" data-pjax>
                 <span>Links</span>
                 
 
@@ -923,7 +806,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="lists.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/lists.html" data-pjax>
                 <span>Lists</span>
                 
 
@@ -947,7 +830,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="typesetting.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/typesetting.html" data-pjax>
                 <span>Typesetting</span>
                 
 
@@ -976,7 +859,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="grid.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/grid.html" data-pjax>
                 <span>Grid</span>
                 
 
@@ -1000,7 +883,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="buttons.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/buttons.html" data-pjax>
                 <span>Buttons</span>
                 
 
@@ -1024,7 +907,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="tables.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/tables.html" data-pjax>
                 <span>Tables</span>
                 
 
@@ -1059,7 +942,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="alertbox.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/alertbox.html" data-pjax>
                 <span>AlertBox</span>
                 
 
@@ -1083,7 +966,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="crisis-alerts.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/crisis-alerts.html" data-pjax>
                 <span>Crisis Alerts</span>
                 
 
@@ -1107,7 +990,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="standard-alerts.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/standard-alerts.html" data-pjax>
                 <span>Standard Alerts</span>
                 
 
@@ -1147,7 +1030,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="best-practice.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/best-practice.html" data-pjax>
                 <span>How to build a good form</span>
                 
 
@@ -1182,7 +1065,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="address-form.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/address-form.html" data-pjax>
                 <span>Address Form</span>
                 
 
@@ -1206,7 +1089,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="name-form.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/name-form.html" data-pjax>
                 <span>Name Form</span>
                 
 
@@ -1246,7 +1129,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorablecheckbox.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorablecheckbox.html" data-pjax>
                 <span>ErrorableCheckbox</span>
                 
 
@@ -1270,7 +1153,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorabledate.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorabledate.html" data-pjax>
                 <span>Errorable Date</span>
                 
 
@@ -1294,7 +1177,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorablefileinput.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorablefileinput.html" data-pjax>
                 <span>Errorable File Input</span>
                 
 
@@ -1318,7 +1201,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorablenumberinput.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorablenumberinput.html" data-pjax>
                 <span>Errorable Number Input</span>
                 
 
@@ -1342,7 +1225,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorableradiobuttons.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorableradiobuttons.html" data-pjax>
                 <span>Errorable Radio Buttons</span>
                 
 
@@ -1366,7 +1249,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorableselect.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorableselect.html" data-pjax>
                 <span>Errorable Select</span>
                 
 
@@ -1390,7 +1273,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorabletextinput.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorabletextinput.html" data-pjax>
                 <span>Errorable Text Input</span>
                 
 
@@ -1414,7 +1297,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="expandinggroup.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/expandinggroup.html" data-pjax>
                 <span>ExpandingGroup</span>
                 
 
@@ -1438,7 +1321,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="progressbutton.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/progressbutton.html" data-pjax>
                 <span>Progress Button</span>
                 
 
@@ -1467,7 +1350,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="progressbar.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/progressbar.html" data-pjax>
                 <span>Progress bar</span>
                 
 
@@ -1491,7 +1374,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="segmentedprogressbar.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/segmentedprogressbar.html" data-pjax>
                 <span>Segmented progress bar</span>
                 
 
@@ -1531,7 +1414,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="header.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/header.html" data-pjax>
                 <span>Vets.gov Header</span>
                 
 
@@ -1555,7 +1438,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="banner.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/banner.html" data-pjax>
                 <span>U.S. Government banner</span>
                 
 
@@ -1579,7 +1462,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="helpmenu.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/helpmenu.html" data-pjax>
                 <span>Help Menu</span>
                 
 
@@ -1613,8 +1496,8 @@
     
         
         
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../components/detail/search--default.html" data-pjax>
                 <span>Default</span>
                 
 
@@ -1638,7 +1521,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="search--header.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/search--header.html" data-pjax>
                 <span>Header</span>
                 
 
@@ -1667,7 +1550,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="searchmenu.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/searchmenu.html" data-pjax>
                 <span>Search Menu</span>
                 
 
@@ -1691,7 +1574,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vcl.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/vcl.html" data-pjax>
                 <span>Veterans Crisis Line modal</span>
                 
 
@@ -1720,7 +1603,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="footer.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/footer.html" data-pjax>
                 <span>Footer</span>
                 
 
@@ -1744,7 +1627,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="accepttermsprompt.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/accepttermsprompt.html" data-pjax>
                 <span>Accept Terms Prompt</span>
                 
 
@@ -1768,7 +1651,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="additionalinfo.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/additionalinfo.html" data-pjax>
                 <span>Additional Info</span>
                 
 
@@ -1792,7 +1675,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="addressblock.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/addressblock.html" data-pjax>
                 <span>Address block</span>
                 
 
@@ -1816,7 +1699,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="collapsiblepanel.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/collapsiblepanel.html" data-pjax>
                 <span>Collapsible Panel</span>
                 
 
@@ -1851,7 +1734,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout--docs.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/layout--docs.html" data-pjax>
                 <span>Documentation</span>
                 
 
@@ -1875,7 +1758,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout--landing.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/layout--landing.html" data-pjax>
                 <span>Landing</span>
                 
 
@@ -1899,7 +1782,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-l2.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/vets-l2.html" data-pjax>
                 <span>Vets.gov Level 2</span>
                 
 
@@ -1923,7 +1806,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-l3.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/vets-l3.html" data-pjax>
                 <span>Vets.gov Level 3</span>
                 
 
@@ -1952,7 +1835,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="loadingindicator.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/loadingindicator.html" data-pjax>
                 <span>Loading Indicator</span>
                 
 
@@ -1976,7 +1859,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="modal.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/modal.html" data-pjax>
                 <span>Modal</span>
                 
 
@@ -2011,7 +1894,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="navigation.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/navigation.html" data-pjax>
                 <span>Global Navigation</span>
                 
 
@@ -2035,7 +1918,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="breadcrumbs.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/breadcrumbs.html" data-pjax>
                 <span>Breadcrumbs</span>
                 
 
@@ -2059,7 +1942,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="dropdownpanel.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/dropdownpanel.html" data-pjax>
                 <span>Dropdown Panel</span>
                 
 
@@ -2083,7 +1966,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="pagination.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/pagination.html" data-pjax>
                 <span>Pagination</span>
                 
 
@@ -2107,7 +1990,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="sidenav.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/sidenav.html" data-pjax>
                 <span>Side navigation</span>
                 
 
@@ -2136,7 +2019,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="omb-info.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/omb-info.html" data-pjax>
                 <span>OMB Info</span>
                 
 
@@ -2160,7 +2043,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="privacyagreement.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/privacyagreement.html" data-pjax>
                 <span>PrivacyAgreement</span>
                 
 
@@ -2184,7 +2067,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="sortabletable.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/sortabletable.html" data-pjax>
                 <span>Sortable Table</span>
                 
 
@@ -2219,7 +2102,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="iconhelp.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/iconhelp.html" data-pjax>
                 <span>IconHelp</span>
                 
 
@@ -2243,7 +2126,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="iconsearch.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/iconsearch.html" data-pjax>
                 <span>IconSearch</span>
                 
 
@@ -2267,7 +2150,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="iconuser.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/iconuser.html" data-pjax>
                 <span>IconUser</span>
                 
 
@@ -2296,7 +2179,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="systemdownview.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/systemdownview.html" data-pjax>
                 <span>System Down View</span>
                 
 
@@ -2320,7 +2203,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="tooltip.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/tooltip.html" data-pjax>
                 <span>Tooltip</span>
                 
 
