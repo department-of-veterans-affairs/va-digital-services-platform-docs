@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Platform Backend | Veteran-facing Tools Playbook</title>
+<title>Defining The Project | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Platform Backend</h1>
+        <h1 class="Document-title">Defining The Project</h1>
         
 
 
@@ -72,74 +72,22 @@
 
     
     
-    <h3 id="overview">Overview</h3>
+    <p>When starting a project, it’s important to understand the problem your team is trying to solve. To develop this foundation we start by answering  a few basic questions.</p>
 <ul>
-<li>Proxy supplemented by additional functionality<ul>
-<li>Authentication / Authorization</li>
-<li>Save in Progress</li>
-<li>Prefill</li>
-<li>Notifications</li>
-<li>Monitoring</li>
-<li>Downtime Notifications</li>
+<li>Who is the end user?</li>
+<li>What are they trying to achieve?</li>
+<li>How do they achieve this now?</li>
+<li>How do they describe the challenges they face?</li>
 </ul>
-</li>
-<li>Diagram with major components</li>
-<li>Anatomy of an API request</li>
-</ul>
-<h3 id="development">Development</h3>
-<ul>
-<li>Style Guides</li>
-<li>Development Process</li>
-<li>Automated Testing</li>
-<li>Load Testing</li>
-<li>Security</li>
-</ul>
-<h3 id="routing-guide-">Routing (Guide)</h3>
-<ul>
-<li>Authentication (Overview)</li>
-<li>Authorization <a href="https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Engineering/Design%20Docs/authorization%20design%20doc.md">Guide</a></li>
-</ul>
-<h3 id="request-processing-guide-">Request Processing (Guide)</h3>
-<ul>
-<li>Minimal controller logic</li>
-<li>External service client instantiation</li>
-<li>Caching</li>
-<li>Instrumentation</li>
-</ul>
-<h3 id="forms">Forms</h3>
-<ul>
-<li>Form Schema Validation (Guide)</li>
-<li>PDF Generation (Guide) [Future?]</li>
-</ul>
-<h3 id="external-service-client-guide-">External Service Client (Guide)</h3>
-<ul>
-<li>Configuration</li>
-<li>Service Object</li>
-<li>Models</li>
-<li>Instrumentation</li>
-<li>Maintenance Windows</li>
-</ul>
-<h3 id="response-serialization-guide-">Response Serialization (Guide)</h3>
-<h3 id="handling-errors-guide-">Handling Errors (Guide)</h3>
-<ul>
-<li>Definition / Internal || External</li>
-<li>Responses</li>
-<li>Tracking</li>
-</ul>
-<h3 id="documentation-guide-">Documentation (Guide)</h3>
-<h3 id="overall-instrumentation-guide-">Overall Instrumentation (Guide)</h3>
-<h3 id="asynchronous-processing-additional-information-">Asynchronous Processing (Additional Information)</h3>
-<h3 id="support-incident-response-additional-information-">Support / Incident Response (Additional Information)</h3>
-<h3 id="notes-from-alastair-to-be-considered-for-be-guide-">Notes from Alastair to be considered for BE guide:</h3>
-<ul>
-<li>Config/settings.yml entry for base urls and other options that change per environment</li>
-<li>Configuration class (REST or SOAP) to load the above settings and initialize a Faraday connection</li>
-<li>Service class to call endpoints on the sub-system’s API</li>
-<li>Response class that validates and parses the response (sometimes doubles as a model)</li>
-<li>Model class (if the response isn’t doing double duty)</li>
-<li>Serializer to filter and serialize model attributes to the json-api spec</li>
-<li>Route definition map paths to controller actions</li>
-</ul>
+<p>Here is an example of how the answers to these questions can be put together to form a problem statement from the end user’s perspective:</p>
+<blockquote>
+<p><em>As a Veteran, I want to be able to receive benefits and discounts that I’m entitled to with my Veteran status. Right now, I have to carry around my DD214 to prove my Veteran stature, but it’s risky to do so because it contains a lot of personal information that if I lost could be very bad.</em></p>
+</blockquote>
+<p>With a problem statement defined, it can be used to establish a solution hypothesis that answers the question - How create a user experience that solves this problem? This can look something like:</p>
+<blockquote>
+<p><em>By letting Veterans apply for a Veteran ID Card on [name.gov], we can provide users with a simple way to prove their Veteran status without having to carry around their DD214.</em></p>
+</blockquote>
+<p>In the next section, you’ll find details into how to validate your hypotheses with users to ensure that your team has identified the right problem and are working toward the optimal solution.</p>
 
     
 
@@ -173,7 +121,7 @@
         
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../../index.html" data-pjax>
-                <span>Introduction</span>
+                <span>Getting Started</span>
                 
             </a>
         </li>
@@ -201,21 +149,10 @@
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-use-cases">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Use Cases</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/use-cases/non-va-team-building-veteran-facing-tools.html" data-pjax>
-                <span>Non VA Team Building Veteran Facing Tools</span>
+            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/as-a-va-business-owner.html" data-pjax>
+                <span>As a Business Owner</span>
                 
             </a>
         </li>
@@ -224,8 +161,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/use-cases/va-business-owner.html" data-pjax>
-                <span>VA Business Owner</span>
+            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/va-project-manager.html" data-pjax>
+                <span>VA Project Manager</span>
                 
             </a>
         </li>
@@ -234,7 +171,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/use-cases/va-designer.html" data-pjax>
+            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/va-designer.html" data-pjax>
                 <span>VA Designer</span>
                 
             </a>
@@ -244,7 +181,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/use-cases/va-developer.html" data-pjax>
+            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/va-developer.html" data-pjax>
                 <span>VA Developer</span>
                 
             </a>
@@ -254,8 +191,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/use-cases/va-project-manager.html" data-pjax>
-                <span>VA Project Manager</span>
+            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/non-va-team-building-veteran-facing-tools.html" data-pjax>
+                <span>Non VA Team Building Veteran Facing Tools</span>
                 
             </a>
         </li>
@@ -266,34 +203,8 @@
         </li>
         
     
-
-            </ul>
-        </li>
         
-    
-        
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-requirements-gathering">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Requirements Gathering</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../requirements-gathering/intro.html" data-pjax>
-                <span>Intro</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-including-the-user-in-requirements-planning">
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-including-the-user-in-requirements-planning">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 <span>Including The User In Requirements Planning</span>
             </h4>
@@ -306,7 +217,17 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../requirements-gathering/including-the-user-in-requirements-planning/defining-the-project.html" data-pjax>
+            <a class="Tree-entityLink" href="../including-the-user-in-requirements-planning.html" data-pjax>
+                <span>Starting with Veterans</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 <span>Defining The Project</span>
                 
             </a>
@@ -316,15 +237,10 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../requirements-gathering/including-the-user-in-requirements-planning/validating-hypotheses-with-users.html" data-pjax>
+            <a class="Tree-entityLink" href="validating-hypotheses-with-users.html" data-pjax>
                 <span>Validating Hypotheses With Users</span>
                 
             </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -360,6 +276,72 @@
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-designing-forms">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Designing Forms</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../designing-forms/intro.html" data-pjax>
+                <span>Intro</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../designing-forms/design-patterns.html" data-pjax>
+                <span>Design Patterns</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../designing-forms/writing-plain-language-copy.html" data-pjax>
+                <span>Writing Plain Language Copy</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../designing-forms/setting-up-helpful-error-messages.html" data-pjax>
+                <span>Setting Up Helpful Error Messages</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../designing-forms/preparing-downtime-notifications.html" data-pjax>
+                <span>Preparing Downtime Notifications</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
         <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-build-and-development">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 <span>Build And Development</span>
@@ -381,54 +363,12 @@
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-design-patterns">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Design Patterns</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../build-and-development/design-patterns/intro.html" data-pjax>
-                <span>Intro</span>
-                
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-visual-component-library">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+            <a class="Tree-entityLink" href="../build-and-development/visual-component-library.html" data-pjax>
                 <span>Visual Component Library</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../build-and-development/visual-component-library/intro.html" data-pjax>
-                <span>Intro</span>
                 
             </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -463,52 +403,6 @@
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-clearly-communicating-with-users">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Clearly Communicating With Users</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../build-and-development/clearly-communicating-with-users/writing-plain-language-copy.html" data-pjax>
-                <span>Writing Plain Language Copy</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../build-and-development/clearly-communicating-with-users/preparing-downtime-notifications.html" data-pjax>
-                <span>Preparing Downtime Notifications</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../build-and-development/clearly-communicating-with-users/setting-up-helpful-error-messages.html" data-pjax>
-                <span>Setting Up Helpful Error Messages</span>
-                
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
         
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../build-and-development/building-for-accessibility.html" data-pjax>
@@ -534,9 +428,9 @@
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-launch-your-app-on-name">
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-launch-your-app-on-namedotgov">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Launch Your App On Name</span>
+                <span>Launch Your App On Namedotgov</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -547,7 +441,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="how-does-the-platform-work.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/how-does-the-platform-work.html" data-pjax>
                 <span>How does the platform work?</span>
                 
             </a>
@@ -557,7 +451,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="included-with-your-app.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/included-with-your-app.html" data-pjax>
                 <span>Included with any [name].gov app</span>
                 
             </a>
@@ -567,7 +461,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="access-and-onboarding.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/access-and-onboarding.html" data-pjax>
                 <span>Access and onboarding</span>
                 
             </a>
@@ -577,7 +471,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="authorization-and-authentication.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/authorization-and-authentication.html" data-pjax>
                 <span>Authorization and Authentication</span>
                 
             </a>
@@ -587,7 +481,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="platform-frontend.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/platform-frontend.html" data-pjax>
                 <span>Platform Frontend</span>
                 
             </a>
@@ -596,8 +490,8 @@
     
         
         
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/platform-backend.html" data-pjax>
                 <span>Platform Backend</span>
                 
             </a>
@@ -618,7 +512,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="sample-step-by-step-guides/how-to-build-and-launch-a-form-on-name.gov" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/sample-step-by-step-guides/how-to-build-and-launch-a-form-on-name.gov" data-pjax>
                 <span>How to build and launch a form on [Name.gov]</span>
                 
             </a>
