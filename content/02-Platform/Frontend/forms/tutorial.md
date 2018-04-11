@@ -79,7 +79,7 @@ const formConfig = {
 
 There's a lot of information already there, and you can check out the form config specifications to see what each property means. For now, we're going to look at the content of the form, which lives in `chapters`.
 
-At the most basic level, our forms consiste of widgets and fields. Widgets are the basic form controls, things like `<input/>` and `<select/>` elements. Fields are the next level up and contain a widget and a `<label/>, plus some extra optional description information. We then have pages, which are collections of fields, and then chapters, which are collections of pages.
+At the most basic level, our forms consiste of widgets and fields. Widgets are the basic form controls, things like `<input/>` and `<select/>` elements. Fields are the next level up and contain a widget and a `<label/>`, plus some extra optional description information. We then have pages, which are collections of fields, and then chapters, which are collections of pages.
 
 We can see in the config that there's already one chapter, with one page inside it, called `page1`. In the `page1` object there are a few pieces of information, which we can mostly ignore for now. The important properties for us right now are `uiSchema` and `schema`. `schema` is the initial structure of our page, in the form of a JSON Schema. This describes the type of data that will result from a user filling in our form. It's also used by the form library to determine what fields and widgets to display in the application, except when overriden by `uiSchema`. `uiSchema` is an object that has extra, user interface focused information to help render the form.
 
