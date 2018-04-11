@@ -227,6 +227,8 @@ If you do fill in the required information and click Continue, you'll end up on 
 
 <img src="/img/docs/forms/review.png"/>
 
+Note that if you refresh in the middle of the form, your data will be lost and the review page won't have any content to edit.
+
 Once you've reviewed your form, you have to click the checkbox to agree to the privacy policy and then you can submit! For now, though, that Submit button will fail because there's no api to submit the data to.
 
 That's it! Continue on in our documentation to learn about building more complex forms and building out the whole process for building and submitting a new form.
