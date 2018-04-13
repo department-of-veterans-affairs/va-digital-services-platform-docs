@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Architecture | Veteran-facing Tools Playbook</title>
+<title>How to build and launch a form on [Name.gov] | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Architecture</h1>
+        <h1 class="Document-title">How to build and launch a form on [Name.gov]</h1>
         
 
 
@@ -72,19 +72,62 @@
 
     
     
-    <h1 id="front-end-architecture">Front end architecture</h1>
-<p>Welcome to the VA digital services platform front-end overview. The goal of this article is to provide a high level overview of our front end architecture to get you oriented with the <a href="https://github.com/department-of-veterans-affairs/vets-website">vets-website</a> repository.</p>
-<p>The overall architecture for Vets.gov is comprised of an API backend written in Ruby on Rails (<a href="https://github.com/department-of-veterans-affairs/vets-api">vets-api</a>) and a static front-end, written in HTML, CSS, and Javascript (<code>vets-website</code>). There’s no server-side rendering or processing for the front-end; the build process compiles everything into static resources which are served to users.</p>
-<h2 id="build-process">Build process</h2>
-<p>The build process for this is controlled by a tool called <a href="http://www.metalsmith.io/">Metalsmith</a>, which is a pluggable Node.js static site generator. In general, everything in Metalsmith is a plugin, so if you’re looking for specific parts of the build process, expect to check out a plugin or two. We use Metalsmith because it’s flexible and because it’s Javascript based, it’s easy to integrate with the rest of our tools.</p>
-<p>The build process has two primary kinds of functionality that it processes: static content pages and Javascript applications. Most of Vets.gov consists of content that lives in Markdown files and is converted into HTML by a Metalsmith plugin. There are shared templates and other enhancements to make this content easier to structure. This content lives in <code>content/pages</code>, which also provides the basic URL structure of the site.</p>
-<h2 id="javascript-applications">Javascript applications</h2>
-<p>Javascript applications are the other type of functionality in vets-website. These applications are written in <a href="https://reactjs.org/">React</a> and <a href="https://redux.js.org/">Redux</a> and live in <code>src/js/</code> in <code>vets-website</code>. For each app you’ll find a <code>manifest.json</code> file that contains application information. You’ll find the root url of the application, which you can use to navigate to that application on the site. These applications also usually have client-side routes, so opening that root url may allow you to click to other pages that are fully client-side, and not based on pages in <code>content/pages</code>.</p>
-<p>If you’re a developer, most of your time will likely be spent working on a React application. We use React because it’s widely used by front end developers and provides a good balance of performance and approachability. We also use Redux to manage application state, also because it’s commonly used with React and fits most of the applications on Vets.gov well. We use <a href="https://reacttraining.com/react-router/">React Router</a> for client-side routing and <a href="https://webpack.js.org/">Webpack</a> as a build tool, both of which are the <em>de facto</em> standards in the Javascript world. For styles we use <a href="https://sass-lang.com/">Sass</a> and for dependency management we use <a href="https://yarnpkg.com/en/">Yarn</a>.</p>
-<h2 id="jean-pants-design-system-">Jean Pants (design system)</h2>
-<p>You will also find that our visual components and site-wide styles live in an external design system named <a href="https://department-of-veterans-affairs.github.io/design-system/">Jean Pants</a>. This design system is based on the <a href="https://designsystem.digital.gov/">US Web Design System</a>, with some additional modifications by our team. As part of that design system, we provide a set of React components covering common patterns, which is <a href="https://www.npmjs.com/package/@department-of-veterans-affairs/jean-pants">published to npm</a>. You’ll likely use these components to make your apps accessible and consistent with the rest of Vets.gov.</p>
-<h2 id="further-reading">Further reading</h2>
-<p>You’ll find lots more front end documentation to go through on this site. The most helpful place to start is probably the tutorials for building a basic React app and a content page. If you’re brand new to React or other parts of our front end stack, we have an article with some good getting started resources.</p>
+    <ol>
+<li>Perform preliminary user and policy research</li>
+<li>[Put together form IA] (link to that chapter template thing we use)</li>
+<li>Do project planning and documentation (link to that section of the Playbook)</li>
+<li>Submit ATO documentation to Vets.gov Privacy and ATO Officers <strong>Required</strong><ul>
+<li>If using an existing API, there’s a certain amount of ATO already in place. The additional things you’d need to get in place to be covered are:<ul>
+<li>Add new section to System Security Plan<ul>
+<li>[Examples / how to]</li>
+</ul>
+</li>
+<li>Add new fields to the PIA and PTA docs<ul>
+<li>[Examples / how to]</li>
+</ul>
+</li>
+<li>If there’s a new connection involved, then need an MOU (otherwise no MOU needed)<ul>
+<li>[Examples / how to]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>[link to existing Vets.gov ATO docs]</li>
+</ul>
+</li>
+<li>Send email to the platform/devops team to kick off storage and connection configurations <strong>Required</strong><ul>
+<li>There will likely be questions about architecture and data review needed at this point to set up infrastructure, so there’ll likely be an app walkthrough meeting that the Platform team will coordinate.</li>
+</ul>
+</li>
+<li>Refer to design system to see what UI elements you may want to use for different parts of the form<ul>
+<li>Radio buttons vs check-boxes</li>
+<li>Free-text vs date-picker</li>
+<li>Etc</li>
+</ul>
+</li>
+<li>[Form samples to look at before you get started - both schema, FE, any design system components that make sense]</li>
+<li>Create your own branch off of vets-json-schema <strong>Required</strong></li>
+<li>Create your own branch off of vets-website <strong>Required</strong></li>
+<li>Create your own branch off of vets-api that takes in the form data and saves it  <strong>Required</strong></li>
+<li>Build your app by submitting PRs iteratively to have code merged to master <strong>Required</strong></li>
+<li>Schedule a demo and security review <strong>Required</strong></li>
+<li>When it’s robust enough, perform <a href="link">usability testing</a></li>
+<li>When it’s fully built and ready for launch, submit your Launch Prep PR…</li>
+<li>Perform 508 testing to make sure your application is accessible [link] <strong>Required</strong></li>
+<li>The Veteran-facing tools platform will provide:<ul>
+<li>QA testing</li>
+<li>Load testing specs</li>
+<li>Supplementary 508 reviews</li>
+<li>[User Acceptance testing? Or should they do that?]</li>
+</ul>
+</li>
+<li>Coordinate with Call Center and Web Comms teams</li>
+<li>Deploy to production behind a password</li>
+<li>Remove password and add to navigation</li>
+<li>Building the API to submit to (Maybe? Not sure how much backend documentation makes sense)</li>
+<li>Implement form pre-fill feature (link to that component documentation?)</li>
+<li>Production support for form</li>
+</ol>
 
     
 
@@ -115,19 +158,45 @@
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-introduction">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Introduction</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../index.html" data-pjax>
+            <a class="Tree-entityLink" href="../introduction/why-use-this.html" data-pjax>
+                <span>Why use this?</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../introduction/get-started.html" data-pjax>
                 <span>Getting Started</span>
                 
             </a>
         </li>
         
     
+
+            </ul>
+        </li>
         
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-why-use-this-playbook-and-platform">
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-defining-the-project">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Why Use This Playbook And Platform</span>
+                <span>Defining The Project</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -138,7 +207,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../defining-the-project/intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -148,8 +217,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/as-a-va-business-owner.html" data-pjax>
-                <span>As a Business Owner</span>
+            <a class="Tree-entityLink" href="../defining-the-project/including-the-user-in-requirements-planning.html" data-pjax>
+                <span>Including the User in Requirements Planning</span>
                 
             </a>
         </li>
@@ -158,110 +227,28 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/va-project-manager.html" data-pjax>
-                <span>VA Project Manager</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/va-designer.html" data-pjax>
-                <span>VA Designer</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/va-developer.html" data-pjax>
-                <span>VA Developer</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../why-use-this-playbook-and-platform/non-va-team-building-veteran-facing-tools.html" data-pjax>
-                <span>Non VA Team Building Veteran Facing Tools</span>
-                
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-including-the-user-in-requirements-planning">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Including The User In Requirements Planning</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../including-the-user-in-requirements-planning.html" data-pjax>
-                <span>Starting with Veterans</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../including-the-user-in-requirements-planning/defining-the-project.html" data-pjax>
-                <span>Defining The Project</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../including-the-user-in-requirements-planning/validating-hypotheses-with-users.html" data-pjax>
+            <a class="Tree-entityLink" href="../defining-the-project/validating-hypotheses-with-users.html" data-pjax>
                 <span>Validating Hypotheses With Users</span>
                 
             </a>
         </li>
         
     
-
-            </ul>
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../defining-the-project/turning-insights-into-a-project-plan.html" data-pjax>
+                <span>Turning Insights Into A Project Plan</span>
+                
+            </a>
         </li>
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-project-planning">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Project Planning</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../project-planning/intro.html" data-pjax>
-                <span>Intro</span>
+            <a class="Tree-entityLink" href="../defining-the-project/breaking-work-into-epics.html" data-pjax>
+                <span>Breaking Work Into Epics</span>
                 
             </a>
         </li>
@@ -273,9 +260,9 @@
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-designing-forms">
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-design">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Designing Forms</span>
+                <span>Design</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -286,7 +273,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../designing-forms/intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../design/intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -296,7 +283,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../designing-forms/design-patterns.html" data-pjax>
+            <a class="Tree-entityLink" href="../design/design-patterns.html" data-pjax>
                 <span>Design Patterns</span>
                 
             </a>
@@ -306,8 +293,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../designing-forms/writing-plain-language-copy.html" data-pjax>
-                <span>Writing Plain Language Copy</span>
+            <a class="Tree-entityLink" href="../design/form-design.html" data-pjax>
+                <span>Form Design</span>
                 
             </a>
         </li>
@@ -316,7 +303,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../designing-forms/setting-up-helpful-error-messages.html" data-pjax>
+            <a class="Tree-entityLink" href="../design/setting-up-helpful-error-messages.html" data-pjax>
                 <span>Setting Up Helpful Error Messages</span>
                 
             </a>
@@ -326,8 +313,18 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../designing-forms/preparing-downtime-notifications.html" data-pjax>
+            <a class="Tree-entityLink" href="../design/preparing-downtime-notifications.html" data-pjax>
                 <span>Preparing Downtime Notifications</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../design/writing-plain-language-copy.html" data-pjax>
+                <span>Writing Plain Language Copy</span>
                 
             </a>
         </li>
@@ -352,7 +349,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../build-and-development/intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -362,8 +359,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="visual-component-library.html" data-pjax>
-                <span>Visual Component Library</span>
+            <a class="Tree-entityLink" href="../build-and-development/frontend-component-library.html" data-pjax>
+                <span>Frontend Component Library</span>
                 
             </a>
         </li>
@@ -372,7 +369,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="form-generator.html" data-pjax>
+            <a class="Tree-entityLink" href="../build-and-development/form-generator.html" data-pjax>
                 <span>Form Generator</span>
                 
             </a>
@@ -382,7 +379,37 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="creating-a-url.html" data-pjax>
+            <a class="Tree-entityLink" href="../build-and-development/referencing-apis.html" data-pjax>
+                <span>Referencing APIs</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../build-and-development/building-for-accessibility.html" data-pjax>
+                <span>Building For Accessibility</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../build-and-development/testing-with-users-as-you-go.html" data-pjax>
+                <span>Testing With Users As You Go</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../build-and-development/creating-a-url.html" data-pjax>
                 <span>Creating A URL</span>
                 
             </a>
@@ -392,48 +419,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="using-apis.html" data-pjax>
-                <span>Using APIs</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="building-for-accessibility.html" data-pjax>
-                <span>Building For Accessibility</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
-                <span>Architecture</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="formtutorial.html" data-pjax>
-                <span>Form Tutorial</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="testing-with-users-as-you-go.html" data-pjax>
-                <span>Testing With Users As You Go</span>
+            <a class="Tree-entityLink" href="../build-and-development/formintermediate.html" data-pjax>
+                <span>Form Intermediate</span>
                 
             </a>
         </li>
@@ -454,6 +441,16 @@
             
             
             
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/intro.html" data-pjax>
+                <span>Intro</span>
+                
+            </a>
+        </li>
+        
     
         
         
@@ -515,10 +512,15 @@
         </li>
         
     
+
+            </ul>
+        </li>
         
-        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-sample-step-by-step-guides">
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-step-by-step-guides">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Sample Step By Step Guides</span>
+                <span>Step By Step Guides</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -528,16 +530,11 @@
     
         
         
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/sample-step-by-step-guides/how-to-build-and-launch-a-form-on-name.gov" data-pjax>
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="how-to-build-and-launch-a-form-on-name.gov" data-pjax>
                 <span>How to build and launch a form on [Name.gov]</span>
                 
             </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
