@@ -4,7 +4,7 @@ Now that you've gone through and created a really simple form using the tutorial
 
 ## Custom validation
 
-Because our forms are based on JSON Schema, you can rely a lot of the built in types and pattern property to do a lot of validation. However, sometimes you need validation rules that go beyond what JSON Schema offers. To write custom validation, we have a `ui:validation` helper:
+Because our forms are based on JSON Schema, you can rely on the built in types and pattern property to do a lot of your validation. However, sometimes you need validation rules that go beyond what JSON Schema offers. To write custom validation, we have a `ui:validation` helper:
 
 ```js
 page1: {
