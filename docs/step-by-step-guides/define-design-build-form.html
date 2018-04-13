@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Form Intermediate | Veteran-facing Tools Playbook</title>
+<title>Define, Design, and Build the form | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Form Intermediate</h1>
+        <h1 class="Document-title">Define, Design, and Build the form</h1>
         
 
 
@@ -72,258 +72,81 @@
 
     
     
-    <h1 id="beyond-the-basics-form-validation-and-conditional-fields">Beyond the basics: form validation and conditional fields</h1>
-<p>Now that you’ve gone through and created a really simple form using the tutorial, let’s take a look at how to handle some common use cases on forms.</p>
-<h2 id="custom-validation">Custom validation</h2>
-<p>Because our forms are based on JSON Schema, you can rely on the built in types and pattern property to do a lot of your validation. However, sometimes you need validation rules that go beyond what JSON Schema offers. To write custom validation, we have a <code>ui:validation</code> helper:</p>
-<code class="lang-js"><pre>page1: {
-  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
-  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
-  <span class="hljs-attr">uiSchema</span>: {
-    <span class="hljs-attr">myField</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field label'</span>,
-      <span class="hljs-string">'ui:validation'</span>: [
-        <span class="hljs-function">(<span class="hljs-params">errors, field</span>) =&gt;</span> {
-          <span class="hljs-keyword">if</span> (field &amp;&amp; field.startsWith(<span class="hljs-string">'bad'</span>)) {
-            errors.addError(<span class="hljs-string">"Sorry, you can't start this field with 'bad'"</span>);
-          }
-        }
-      ]
-    }
-  },
-  <span class="hljs-attr">schema</span>: {
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
-    <span class="hljs-attr">properties</span>: {
-      <span class="hljs-attr">myField</span>: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
-      }
-    }
-  }
-}</pre></code><p><code>ui:validation</code> takes an array of functions, each of which is passed an errors object and the field data (plus some other parameters). So in the above example, if a user puts ‘badString’ in <code>myField</code>, then the form will display a validation error with the message passed in <code>addError()</code>.</p>
-<p>One thing to note is that you can add <code>ui:validation</code> on any field or object in <code>uiSchema</code>, which allows you to validate groups of fields together:</p>
-<code class="lang-js"><pre>page1: {
-  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
-  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
-  <span class="hljs-attr">uiSchema</span>: {
-    <span class="hljs-attr">email</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Email'</span>,
-    },
-    <span class="hljs-attr">confirmEmail</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Confirm email'</span>
-    },
-    <span class="hljs-string">'ui:validation'</span>: [
-      <span class="hljs-function">(<span class="hljs-params">errors, field</span>) =&gt;</span> {
-        <span class="hljs-keyword">if</span> (field.email !== field.confirmEmail) {
-          errors.confirmEmail.addError(<span class="hljs-string">'Sorry, your emails must match'</span>);
-        }
-      }
-    ]
-  },
-  <span class="hljs-attr">schema</span>: {
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
-    <span class="hljs-attr">properties</span>: {
-      <span class="hljs-attr">email</span>: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
-      },
-      <span class="hljs-attr">confirmEmail</span>: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
-      }
-    }
-  }
-}</pre></code><p>Since we moved the validation array up to the root of <code>uiSchema</code>, the field data it is passed is an object containing both <code>email</code> and <code>confirmEmail</code>, and we can set validation errors on either field.</p>
-<h2 id="custom-validation-error-messages">Custom validation error messages</h2>
-<p>In addition to the above custom validation, you can also customize the messages for the built in JSON Schema validation. For example, if I have some pattern validation, I can set an understandable message:</p>
-<code class="lang-js"><pre>page1: {
-  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
-  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
-  <span class="hljs-attr">uiSchema</span>: {
-    <span class="hljs-attr">myField</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
-      <span class="hljs-string">'ui:errorMessages'</span>: {
-        <span class="hljs-attr">pattern</span>: <span class="hljs-string">'Sorry, you must enter all digits'</span>
-      }
-    },
-  },
-  <span class="hljs-attr">schema</span>: {
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
-    <span class="hljs-attr">properties</span>: {
-      <span class="hljs-attr">myField</span>: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
-        <span class="hljs-attr">pattern</span>: <span class="hljs-string">'^\d+$'</span>
-      }
-    }
-  }
-}</pre></code><h2 id="conditional-required-fields">Conditional required fields</h2>
-<p>In some cases you may want to have fields be required only under certain conditions. To handle that, you can use the <code>ui:required</code> helper:</p>
-<code class="lang-js"><pre>page1: {
-  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
-  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
-  <span class="hljs-attr">uiSchema</span>: {
-    <span class="hljs-attr">myField</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
-    },
-    <span class="hljs-attr">myOtherField</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
-      <span class="hljs-string">'ui:required'</span>: <span class="hljs-function">(<span class="hljs-params">formData</span>) =&gt;</span> formData.myField === <span class="hljs-string">'test'</span>
-    },
-  },
-  <span class="hljs-attr">schema</span>: {
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
-    <span class="hljs-attr">properties</span>: {
-      <span class="hljs-attr">myField</span>: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
-      }
-      myOtherField: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
-      }
-    }
-  }
-}</pre></code><p>In the above config, <code>myOtherField</code> will be required if <code>myField</code> equals “test”. The <code>formData</code> parameter contains all of the form data, across all pages, so your conditional logic can be based on any other data in the form.</p>
-<h2 id="conditionally-displayed-fields">Conditionally displayed fields</h2>
-<p>Often when building forms you’ll need to hide and show fields based on form data or other information. Our form system has three ways of doing so.</p>
-<h3 id="expand-under-fields">Expand under fields</h3>
-<p>A common pattern is to expand some fields “underneath” others, when a user enters information in a field that requires more information to be collected:</p>
-<p>TODO: expandUnder image</p>
-<p>To do that, you can use the <code>expandUnder</code> option:</p>
-<code class="lang-js"><pre>page1: {
-  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
-  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
-  <span class="hljs-attr">uiSchema</span>: {
-    <span class="hljs-attr">myField</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
-      <span class="hljs-string">'ui:widget'</span>: <span class="hljs-string">'yesNo'</span>
-    },
-    <span class="hljs-attr">myConditionalField</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My conditional field'</span>,
-      <span class="hljs-string">'ui:options'</span>: {
-        <span class="hljs-attr">expandUnder</span>: <span class="hljs-string">'myField'</span>
-      }
-    },
-  },
-  <span class="hljs-attr">schema</span>: {
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
-    <span class="hljs-attr">properties</span>: {
-      <span class="hljs-attr">myField</span>: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'boolean'</span>,
-      }
-      myOtherField: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
-      }
-    }
-  }
-}</pre></code><p>In the above example, <code>myConditionalField</code> will display whenever <code>myField</code> has a truthy value. You can add this to mutiple fields and all of them will be grouped under the <code>expandUnder</code> field. Note, however, that if any of these hidden fields are required when visible, you’ll have to use <code>ui:required</code> to make sure they’re not required when they’re not displayed.</p>
-<h3 id="conditionally-hidden-fields">Conditionally hidden fields</h3>
-<p>If you just need to hide or show a field, without the expand under treatment, you can use <code>hideIf</code>:</p>
-<code class="lang-js"><pre>page1: {
-  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
-  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
-  <span class="hljs-attr">uiSchema</span>: {
-    <span class="hljs-attr">myField</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
-      <span class="hljs-string">'ui:widget'</span>: <span class="hljs-string">'yesNo'</span>
-    },
-    <span class="hljs-attr">myConditionalField</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My conditional field'</span>,
-      <span class="hljs-string">'ui:options'</span>: {
-        <span class="hljs-attr">hideIf</span>: <span class="hljs-function">(<span class="hljs-params">formData</span>) =&gt;</span> formData.myField !== <span class="hljs-literal">true</span>
-      }
-    },
-  },
-  <span class="hljs-attr">schema</span>: {
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
-    <span class="hljs-attr">properties</span>: {
-      <span class="hljs-attr">myField</span>: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'boolean'</span>
-      }
-      myOtherField: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
-      }
-    }
-  }
-}</pre></code><p>In the above example, <code>myConditionalField</code> is hidden when <code>myField</code> is not true (meaning it’s false or undefined).</p>
-<h2 id="conditional-pages">Conditional pages</h2>
-<p>Another situation you may encounter is needing to make an entire page of the form conditional. You can do that with the <code>depends</code> property:</p>
-<code class="lang-js"><pre>page1: {
-  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
-  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
-  <span class="hljs-attr">depends</span>: <span class="hljs-function">(<span class="hljs-params">form</span>) =&gt;</span> form.fieldOnAnotherPage !== <span class="hljs-string">'test'</span>,
-  <span class="hljs-attr">uiSchema</span>: {
-    <span class="hljs-attr">myField</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
-      <span class="hljs-string">'ui:widget'</span>: <span class="hljs-string">'yesNo'</span>
-    }
-  },
-  <span class="hljs-attr">schema</span>: {
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
-    <span class="hljs-attr">properties</span>: {
-      <span class="hljs-attr">myField</span>: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'boolean'</span>
-      }
-    }
-  }
-}</pre></code><p>The depends function is passed the current form data, so you can check different conditions and return false if want to skip a page. Note that you want to make sure you’re checking data a user would enter before potentially reaching this page, otherwise they won’t ever see it.</p>
-<h2 id="view-only-data">View only data</h2>
-<p>In some cases, you may have fields that you don’t need to submit along with the form data. A confirmation email field, for example. In other cases you may also want to group fields into objects but not have that grouping reflected in the submitted data. This can be useful if you need to conditionally hide a group of fields and don’t want to write hideIf functions every individual field.</p>
-<p>To keep a field from being submitted, you can prefix it with <code>view:</code>:</p>
-<code class="lang-js"><pre>page1: {
-  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
-  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
-  <span class="hljs-attr">uiSchema</span>: {
-    <span class="hljs-attr">email</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Email'</span>,
-    },
-    <span class="hljs-string">'view:confirmEmail'</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Confirm email'</span>
-    }
-  },
-  <span class="hljs-attr">schema</span>: {
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
-    <span class="hljs-attr">properties</span>: {
-      <span class="hljs-attr">email</span>: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
-      },
-      <span class="hljs-string">'view:confirmEmail'</span>: {
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
-      }
-    }
-  }
-}</pre></code><p>Since we’ve prefixed <code>confirmEmail</code> with <code>view:</code>, that field will be removed before submitting the completed form.</p>
-<p>If you prefix an object with <code>view:</code>, some slightly different will happen:</p>
-<code class="lang-js"><pre>page1: {
-  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
-  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
-  <span class="hljs-attr">uiSchema</span>: {
-    <span class="hljs-attr">email</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Email'</span>,
-    },
-    <span class="hljs-string">'view:confirmEmail'</span>: {
-      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Confirm email'</span>
-    }
-  },
-  <span class="hljs-attr">schema</span>: {
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
-    <span class="hljs-attr">properties</span>: {
-      <span class="hljs-string">'view:emails'</span>: {
-        <span class="hljs-attr">email</span>: {
-          <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
-        },
-        <span class="hljs-string">'confirmEmail'</span>: {
-          <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
-        }
-      }
-    }
-  }
-}</pre></code><p>In this case, the form data that’s submitted when a user completes a form would be:</p>
-<code class="lang-js"><pre>{
-  <span class="hljs-attr">email</span>: <span class="hljs-string">'test@test.com'</span>,
-  <span class="hljs-attr">confirmEmail</span>: <span class="hljs-string">'test@test.com'</span>
-}</pre></code><p>If we had left off the <code>view:</code> prefix it would be:</p>
-<code class="lang-js"><pre>{
-  <span class="hljs-attr">emails</span>: {
-    <span class="hljs-attr">email</span>: <span class="hljs-string">'test@test.com'</span>,
-    <span class="hljs-attr">confirmEmail</span>: <span class="hljs-string">'test@test.com'</span>
-  }
-}</pre></code><p>That should get you started with some of the common validation and conditional field scenarios. Many of the options above have extra parameters or options that may help with some less common scenarios, so make sure to check the form config spec for a full picture of all the options offered.</p>
+    <ol>
+<li><a href="jump link to Define section">Define the project and requirements</a></li>
+<li><strong>Email Angela Gantt-Curtis and Marvoureen Dolor to get the green light to start building <em>Required</em></strong></li>
+<li><a href="jump link to Design section">Design the form</a>, referring to the various <a href="jump link">design components</a> to see what you may want to use for the various form interactions.<ul>
+<li>[Form samples to look at before you get started - both schema, FE, any design system components that make sense]</li>
+</ul>
+</li>
+<li><strong>Email ATO documentation to Vets.gov Privacy and ATO Officers <em>Required</em></strong><ul>
+<li>If using an existing API, there’s a certain amount of ATO already in place. The additional things you’d need to get in place to be covered are:<ul>
+<li>Add a new section to <a href="link?">System Security Plan</a><ul>
+<li>[Examples / how to]</li>
+</ul>
+</li>
+<li>Add new fields to the <a href="link?">PIA and PTA docs</a><ul>
+<li>[Examples / how to]</li>
+</ul>
+</li>
+<li>If there’s a new connection involved, then you’ll need an MOU<ul>
+<li>[Examples / how to]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Email the Platform team to kick off storage and connection configurations <em>Required</em></strong><ul>
+<li>There will likely be questions about architecture and data review needed at this point to set up infrastructure, so there’ll likely be an app walkthrough meeting that the Platform team will coordinate.</li>
+<li><strong>NOTE: at this time, any features that require direct database access within vets-api are not supported.</strong></li>
+</ul>
+</li>
+<li><strong>Create your own branch off of vets-json-schema <em>Required</em></strong><ul>
+<li><a href="link to doc enumerating schema details...">Reference this schema development guide to ensure your PR will pass the various merge requirements</a></li>
+<li>This is for the back-end: set up the form schema there to incorporate into your form</li>
+<li>This is for the basic structure for submission to the API and contains some required fields and some basic validation</li>
+<li>Use common definitions for schema elements</li>
+</ul>
+</li>
+<li><strong>Create your own branch off of vets-website <em>Required</em></strong><ul>
+<li><a href="link to doc enumerating details from Jeff">Reference this front-end development guide to ensure your PR will pass the various merge requirements</a></li>
+<li>This is where you’ll build the front-end of the form</li>
+<li>This is where you’ll incorporate most of the validation and conditional fields</li>
+<li><strong>Use this <a href="https://github.com/department-of-veterans-affairs/generator-vets-website">Yeoman form generator</a> to create a React skeleton for the form on your new vets-website branch <em>Required</em></strong></li>
+</ul>
+</li>
+<li><strong>Create your own branch off of vets-api that takes in the form data and saves it <em>Required</em></strong><ul>
+<li>Reference this <a href="need link from James">back-end development guide</a> to ensure your PR will pass the various merge requirements</li>
+<li>This normally will happen in parallel with the vets-website build</li>
+</ul>
+</li>
+<li><strong>Build your app by submitting PRs iteratively to have code merged to master <em>Required</em></strong><ul>
+<li>Submit PRs for vets-json-schema, vets-website, and vets-api when you’ve completed enough code that you’re ready to start verifying your progress in staging.<ul>
+<li>If the PRs are related to or dependent on each other, make sure they reference each other</li>
+<li>Use [WIP] in your PR titles if you have a PR open but aren’t ready for it to be reviewed and merged to master.</li>
+<li>Request a Review from [who? how?]</li>
+<li>[Naming convention or label needed]</li>
+<li><strong>RISK: since other teams don’t use our same tracking system (Rational vs GitHub), we won’t be able to have context for code reviews. We’ll be limited to checking architecture, regression testing, and code cleanliness.</strong></li>
+</ul>
+</li>
+<li>You’ll get a code review from the digital service team for each PR you merge<ul>
+<li>Reviewer will perform a code review: <a href="https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Engineering/Code%20Review%20Norms.md#specific-questions-to-ask-when-code-reviewing">https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Engineering/Code%20Review%20Norms.md#specific-questions-to-ask-when-code-reviewing</a>) including things like regression testing, checking code style, unit test coverage, etc.</li>
+<li>Expect some collaborative conversation with the Reviewer as this is underway</li>
+</ul>
+</li>
+<li>Once approved, your PRs will be merged into master, and your app will be deployed to the Dev and Staging environments<ul>
+<li>Note: by default, all forms built using the Form Generator will have a gate on them to prevent the application from appearing in production</li>
+<li><strong>RISK: right now, the team building this could remove the production:false flag on their own if they wanted to (i.e. without the app going through the proper reviews etc). Do we want to prevent that systematically, or not?</strong></li>
+<li>NOTE: may want to consider moving to a fork model long term, while just putting a cap on the volume of app builds in the short term so that it can be handled in the manner described here.</li>
+<li>QUESTION: do we want to set up GitHub roles for non-DS teams such that they don’t have Review or Approve access? Not sure if it’s possible…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>When it’s robust enough, perform <a href="jump link">usability testing</a></li>
+<li>Send a product guide to the Call Center and chat with them so they can prepare their scripts and train their teams</li>
+</ol>
 
     
 
@@ -450,6 +273,16 @@
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../defining-the-project/planning-implementation.html" data-pjax>
+                <span>Planning Implementation</span>
+                
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -469,16 +302,6 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../design/intro.html" data-pjax>
-                <span>Intro</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../design/design-patterns.html" data-pjax>
                 <span>Design Patterns</span>
                 
@@ -491,6 +314,16 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../design/form-design.html" data-pjax>
                 <span>Form Design</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../design/writing-plain-language-copy.html" data-pjax>
+                <span>Writing Plain Language Copy</span>
                 
             </a>
         </li>
@@ -516,16 +349,6 @@
         </li>
         
     
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../design/writing-plain-language-copy.html" data-pjax>
-                <span>Writing Plain Language Copy</span>
-                
-            </a>
-        </li>
-        
-    
 
             </ul>
         </li>
@@ -545,7 +368,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../build-and-development/intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -555,7 +378,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="frontend-component-library.html" data-pjax>
+            <a class="Tree-entityLink" href="../build-and-development/frontend-component-library.html" data-pjax>
                 <span>Frontend Component Library</span>
                 
             </a>
@@ -565,7 +388,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="form-generator.html" data-pjax>
+            <a class="Tree-entityLink" href="../build-and-development/form-generator.html" data-pjax>
                 <span>Form Generator</span>
                 
             </a>
@@ -575,7 +398,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="referencing-apis.html" data-pjax>
+            <a class="Tree-entityLink" href="../build-and-development/referencing-apis.html" data-pjax>
                 <span>Referencing APIs</span>
                 
             </a>
@@ -585,7 +408,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="building-for-accessibility.html" data-pjax>
+            <a class="Tree-entityLink" href="../build-and-development/building-for-accessibility.html" data-pjax>
                 <span>Building For Accessibility</span>
                 
             </a>
@@ -595,7 +418,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="testing-with-users-as-you-go.html" data-pjax>
+            <a class="Tree-entityLink" href="../build-and-development/testing-with-users-as-you-go.html" data-pjax>
                 <span>Testing With Users As You Go</span>
                 
             </a>
@@ -605,7 +428,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="creating-a-url.html" data-pjax>
+            <a class="Tree-entityLink" href="../build-and-development/creating-a-url.html" data-pjax>
                 <span>Creating A URL</span>
                 
             </a>
@@ -614,8 +437,8 @@
     
         
         
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../build-and-development/form-intermediate.html" data-pjax>
                 <span>Form Intermediate</span>
                 
             </a>
@@ -681,6 +504,16 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/ato.html" data-pjax>
+                <span>ATO</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/authorization-and-authentication.html" data-pjax>
                 <span>Authorization and Authentication</span>
                 
@@ -708,6 +541,26 @@
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/pull-requests-and-code-reviews.html" data-pjax>
+                <span>Pull Requests And Code Reviews</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/deploying-to-production.html" data-pjax>
+                <span>Deploying To Production</span>
+                
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -727,8 +580,28 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../step-by-step-guides/how-to-build-and-launch-a-form-on-name.gov" data-pjax>
-                <span>How to build and launch a form on [Name.gov]</span>
+            <a class="Tree-entityLink" href="how-to-build-and-launch-a-form.html" data-pjax>
+                <span>How To Build and Launch a Form on Name.gov</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                <span>Define, Design, and Build the form</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="launch-your-form.html" data-pjax>
+                <span>Launch Your Form!</span>
                 
             </a>
         </li>

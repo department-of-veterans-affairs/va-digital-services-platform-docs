@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>How to build and launch a form on [Name.gov] | Veteran-facing Tools Playbook</title>
+<title>Launch Your Form! | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">How to build and launch a form on [Name.gov]</h1>
+        <h1 class="Document-title">Launch Your Form!</h1>
         
 
 
@@ -73,60 +73,35 @@
     
     
     <ol>
-<li>Perform preliminary user and policy research</li>
-<li>[Put together form IA] (link to that chapter template thing we use)</li>
-<li>Do project planning and documentation (link to that section of the Playbook)</li>
-<li>Submit ATO documentation to Vets.gov Privacy and ATO Officers <strong>Required</strong><ul>
-<li>If using an existing API, there’s a certain amount of ATO already in place. The additional things you’d need to get in place to be covered are:<ul>
-<li>Add new section to System Security Plan<ul>
-<li>[Examples / how to]</li>
+<li><strong>Email the platform team to schedule a walkthrough and security review <em>Required</em></strong><ul>
+<li>Include the <a href="link to James’s template">integration expectations</a> in your mail</li>
+<li>[Who to reach out to in order to schedule? Or do we reach out to them? What to have prepared to show in the walkthrough?]</li>
 </ul>
 </li>
-<li>Add new fields to the PIA and PTA docs<ul>
-<li>[Examples / how to]</li>
+<li><strong>Submit your Launch Prep PR…<em>Required</em></strong><ul>
+<li>[What to call this bc Launch Prep PR isn’t right. Labels / title standards to apply so we know it’s the finished product?]</li>
 </ul>
 </li>
-<li>If there’s a new connection involved, then need an MOU (otherwise no MOU needed)<ul>
-<li>[Examples / how to]</li>
+<li><strong>Perform 508 testing to make sure your application is accessible [jump link] <em>Required</em></strong><ul>
+<li>[Where do we recommend they do this, in staging?]</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>[link to existing Vets.gov ATO docs]</li>
-</ul>
-</li>
-<li>Send email to the platform/devops team to kick off storage and connection configurations <strong>Required</strong><ul>
-<li>There will likely be questions about architecture and data review needed at this point to set up infrastructure, so there’ll likely be an app walkthrough meeting that the Platform team will coordinate.</li>
-</ul>
-</li>
-<li>Refer to design system to see what UI elements you may want to use for different parts of the form<ul>
-<li>Radio buttons vs check-boxes</li>
-<li>Free-text vs date-picker</li>
-<li>Etc</li>
-</ul>
-</li>
-<li>[Form samples to look at before you get started - both schema, FE, any design system components that make sense]</li>
-<li>Create your own branch off of vets-json-schema <strong>Required</strong></li>
-<li>Create your own branch off of vets-website <strong>Required</strong></li>
-<li>Create your own branch off of vets-api that takes in the form data and saves it  <strong>Required</strong></li>
-<li>Build your app by submitting PRs iteratively to have code merged to master <strong>Required</strong></li>
-<li>Schedule a demo and security review <strong>Required</strong></li>
-<li>When it’s robust enough, perform <a href="link">usability testing</a></li>
-<li>When it’s fully built and ready for launch, submit your Launch Prep PR…</li>
-<li>Perform 508 testing to make sure your application is accessible [link] <strong>Required</strong></li>
 <li>The Veteran-facing tools platform will provide:<ul>
 <li>QA testing</li>
-<li>Load testing specs</li>
+<li>Load testing specs?</li>
 <li>Supplementary 508 reviews</li>
 <li>[User Acceptance testing? Or should they do that?]</li>
 </ul>
 </li>
-<li>Coordinate with Call Center and Web Comms teams</li>
 <li>Deploy to production behind a password</li>
+<li>Confirm that Call Center is ready to handle the new traffic to this tool</li>
 <li>Remove password and add to navigation</li>
 <li>Building the API to submit to (Maybe? Not sure how much backend documentation makes sense)</li>
-<li>Implement form pre-fill feature (link to that component documentation?)</li>
 <li>Production support for form</li>
+<li>What happens when there’s an error in production?<ul>
+<li>Related ^ is our call center process (i.e. Aubrey) supporting these apps?</li>
+</ul>
+</li>
 </ol>
 
     
@@ -254,6 +229,16 @@
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../defining-the-project/planning-implementation.html" data-pjax>
+                <span>Planning Implementation</span>
+                
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -269,16 +254,6 @@
             
             
             
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../design/intro.html" data-pjax>
-                <span>Intro</span>
-                
-            </a>
-        </li>
-        
     
         
         
@@ -303,6 +278,16 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../design/writing-plain-language-copy.html" data-pjax>
+                <span>Writing Plain Language Copy</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../design/setting-up-helpful-error-messages.html" data-pjax>
                 <span>Setting Up Helpful Error Messages</span>
                 
@@ -315,16 +300,6 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../design/preparing-downtime-notifications.html" data-pjax>
                 <span>Preparing Downtime Notifications</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../design/writing-plain-language-copy.html" data-pjax>
-                <span>Writing Plain Language Copy</span>
                 
             </a>
         </li>
@@ -419,7 +394,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../build-and-development/formintermediate.html" data-pjax>
+            <a class="Tree-entityLink" href="../build-and-development/form-intermediate.html" data-pjax>
                 <span>Form Intermediate</span>
                 
             </a>
@@ -485,6 +460,16 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/ato.html" data-pjax>
+                <span>ATO</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/authorization-and-authentication.html" data-pjax>
                 <span>Authorization and Authentication</span>
                 
@@ -512,6 +497,26 @@
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/pull-requests-and-code-reviews.html" data-pjax>
+                <span>Pull Requests And Code Reviews</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/deploying-to-production.html" data-pjax>
+                <span>Deploying To Production</span>
+                
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -530,9 +535,29 @@
     
         
         
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="how-to-build-and-launch-a-form.html" data-pjax>
+                <span>How To Build and Launch a Form on Name.gov</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="define-design-build-form.html" data-pjax>
+                <span>Define, Design, and Build the form</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="how-to-build-and-launch-a-form-on-name.gov" data-pjax>
-                <span>How to build and launch a form on [Name.gov]</span>
+            <a class="Tree-entityLink" href="" data-pjax>
+                <span>Launch Your Form!</span>
                 
             </a>
         </li>

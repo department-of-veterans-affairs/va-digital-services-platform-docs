@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Buttons: Focus | Veteran-facing Tools Playbook</title>
+<title>Form Intermediate | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -51,257 +51,288 @@
             <div class="Frame-inner" id="pjax-container">
             
 
+<div class="Document">
 
-    
-    
-
-<div class="Pen" data-behaviour="pen" id="pen-b0022328002029150ecaa3ad92f5576c">
-
-    
-
-    <div class="Pen-panel Pen-header">
-    <h1 class="Pen-title">
-        <a class="Pen-previewLink" href="../preview/buttons--focus.html" title="Component preview">
-            Buttons: Focus
-            <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-
-        </a>
-    </h1>
-    
-
-<div class="Status Status--tag">
-
-<label class="Status-label" style="background-color: #f9c642; border-color: #f9c642;">WIP</label>
-
-</div>
+    <div class="Document-header">
+        
+        <h1 class="Document-title">Form Intermediate</h1>
+        
 
 
-</div>
-
-
-    <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-b0022328002029150ecaa3ad92f5576c">
-    <div class="Preview-wrapper" data-role="resizer">
-        <div class="Preview-resizer">
-            
-             <iframe
-                class="Preview-iframe"
-                data-role="window"
-                src="../preview/buttons--focus.html"
-                sandbox="allow-same-origin allow-scripts allow-forms"
-                 style=""
-                marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
-            </iframe>
-        </div>
-        <div class="Preview-handle" data-role="resize-handle"></div>
-        <div class="Preview-overlay"></div>
-    </div>
-</div>
-
-
-    <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
-
-    <div class="Pen-panel Pen-info" data-role="info">
-    <div class="Browser" data-behaviour="browser" id="browser-b0022328002029150ecaa3ad92f5576c">
-
-    
-
-<div class="Browser-controls">
-    <ul class="Browser-tabs">
-        
-        
-        <li class="Browser-tab Browser-tab--notes is-active " data-role="tab">
-            <a href="#browser-b0022328002029150ecaa3ad92f5576c-panel-notes">Notes</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--props" data-role="tab">
-            <a href="#browser-b0022328002029150ecaa3ad92f5576c-panel-props">Props</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--html" data-role="tab">
-            <a href="#browser-b0022328002029150ecaa3ad92f5576c-panel-html">HTML</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--view" data-role="tab">
-            <a href="#browser-b0022328002029150ecaa3ad92f5576c-panel-view">View</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-b0022328002029150ecaa3ad92f5576c-panel-context">Context</a>
-        </li>
-        
-        
-        
-        
-        
-        
-        
-        <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-b0022328002029150ecaa3ad92f5576c-panel-info">Info</a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-
-    
-    <div class="Browser-panel Browser-notes" data-role="tab-panel" id="browser-b0022328002029150ecaa3ad92f5576c-panel-notes">
-    <div class="Prose Prose--condensed">
-        
-        <p class="Browser-isEmptyNote">There are no notes for this item.</p>
         
     </div>
-</div>
+
+    <div class="Document-content">
 
     
-    <div class="Browser-panel Browser-props" data-role="tab-panel" id="browser-b0022328002029150ecaa3ad92f5576c-panel-props">
-    <div class="Prose Prose--condensed">
-        <table>
-          <tr><th>Prop</th><th>Required?</th><th>Type</th><th>Default</th><th>Description</th></tr>
-          
-        </table>
+
+<div class="Prose">
+
+
+
+    
+    
+    <h1 id="beyond-the-basics-form-validation-and-conditional-fields">Beyond the basics: form validation and conditional fields</h1>
+<p>Now that you’ve gone through and created a really simple form using the tutorial, let’s take a look at how to handle some common use cases on forms.</p>
+<h2 id="custom-validation">Custom validation</h2>
+<p>Because our forms are based on JSON Schema, you can rely on the built in types and pattern property to do a lot of your validation. However, sometimes you need validation rules that go beyond what JSON Schema offers. To write custom validation, we have a <code>ui:validation</code> helper:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">myField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field label'</span>,
+      <span class="hljs-string">'ui:validation'</span>: [
+        <span class="hljs-function">(<span class="hljs-params">errors, field</span>) =&gt;</span> {
+          <span class="hljs-keyword">if</span> (field &amp;&amp; field.startsWith(<span class="hljs-string">'bad'</span>)) {
+            errors.addError(<span class="hljs-string">"Sorry, you can't start this field with 'bad'"</span>);
+          }
+        }
+      ]
+    }
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">myField</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+      }
+    }
+  }
+}</pre></code><p><code>ui:validation</code> takes an array of functions, each of which is passed an errors object and the field data (plus some other parameters). So in the above example, if a user puts ‘badString’ in <code>myField</code>, then the form will display a validation error with the message passed in <code>addError()</code>.</p>
+<p>One thing to note is that you can add <code>ui:validation</code> on any field or object in <code>uiSchema</code>, which allows you to validate groups of fields together:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">email</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Email'</span>,
+    },
+    <span class="hljs-attr">confirmEmail</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Confirm email'</span>
+    },
+    <span class="hljs-string">'ui:validation'</span>: [
+      <span class="hljs-function">(<span class="hljs-params">errors, field</span>) =&gt;</span> {
+        <span class="hljs-keyword">if</span> (field.email !== field.confirmEmail) {
+          errors.confirmEmail.addError(<span class="hljs-string">'Sorry, your emails must match'</span>);
+        }
+      }
+    ]
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">email</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+      },
+      <span class="hljs-attr">confirmEmail</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+      }
+    }
+  }
+}</pre></code><p>Since we moved the validation array up to the root of <code>uiSchema</code>, the field data it is passed is an object containing both <code>email</code> and <code>confirmEmail</code>, and we can set validation errors on either field.</p>
+<h2 id="custom-validation-error-messages">Custom validation error messages</h2>
+<p>In addition to the above custom validation, you can also customize the messages for the built in JSON Schema validation. For example, if I have some pattern validation, I can set an understandable message:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">myField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
+      <span class="hljs-string">'ui:errorMessages'</span>: {
+        <span class="hljs-attr">pattern</span>: <span class="hljs-string">'Sorry, you must enter all digits'</span>
+      }
+    },
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">myField</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
+        <span class="hljs-attr">pattern</span>: <span class="hljs-string">'^\d+$'</span>
+      }
+    }
+  }
+}</pre></code><h2 id="conditional-required-fields">Conditional required fields</h2>
+<p>In some cases you may want to have fields be required only under certain conditions. To handle that, you can use the <code>ui:required</code> helper:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">myField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
+    },
+    <span class="hljs-attr">myOtherField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
+      <span class="hljs-string">'ui:required'</span>: <span class="hljs-function">(<span class="hljs-params">formData</span>) =&gt;</span> formData.myField === <span class="hljs-string">'test'</span>
+    },
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">myField</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
+      }
+      myOtherField: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
+      }
+    }
+  }
+}</pre></code><p>In the above config, <code>myOtherField</code> will be required if <code>myField</code> equals “test”. The <code>formData</code> parameter contains all of the form data, across all pages, so your conditional logic can be based on any other data in the form.</p>
+<h2 id="conditionally-displayed-fields">Conditionally displayed fields</h2>
+<p>Often when building forms you’ll need to hide and show fields based on form data or other information. Our form system has three ways of doing so.</p>
+<h3 id="expand-under-fields">Expand under fields</h3>
+<p>A common pattern is to expand some fields “underneath” others, when a user enters information in a field that requires more information to be collected:</p>
+<p>TODO: expandUnder image</p>
+<p>To do that, you can use the <code>expandUnder</code> option:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">myField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
+      <span class="hljs-string">'ui:widget'</span>: <span class="hljs-string">'yesNo'</span>
+    },
+    <span class="hljs-attr">myConditionalField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My conditional field'</span>,
+      <span class="hljs-string">'ui:options'</span>: {
+        <span class="hljs-attr">expandUnder</span>: <span class="hljs-string">'myField'</span>
+      }
+    },
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">myField</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'boolean'</span>,
+      }
+      myOtherField: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,
+      }
+    }
+  }
+}</pre></code><p>In the above example, <code>myConditionalField</code> will display whenever <code>myField</code> has a truthy value. You can add this to mutiple fields and all of them will be grouped under the <code>expandUnder</code> field. Note, however, that if any of these hidden fields are required when visible, you’ll have to use <code>ui:required</code> to make sure they’re not required when they’re not displayed.</p>
+<h3 id="conditionally-hidden-fields">Conditionally hidden fields</h3>
+<p>If you just need to hide or show a field, without the expand under treatment, you can use <code>hideIf</code>:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">myField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
+      <span class="hljs-string">'ui:widget'</span>: <span class="hljs-string">'yesNo'</span>
+    },
+    <span class="hljs-attr">myConditionalField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My conditional field'</span>,
+      <span class="hljs-string">'ui:options'</span>: {
+        <span class="hljs-attr">hideIf</span>: <span class="hljs-function">(<span class="hljs-params">formData</span>) =&gt;</span> formData.myField !== <span class="hljs-literal">true</span>
+      }
+    },
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">myField</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'boolean'</span>
+      }
+      myOtherField: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+      }
+    }
+  }
+}</pre></code><p>In the above example, <code>myConditionalField</code> is hidden when <code>myField</code> is not true (meaning it’s false or undefined).</p>
+<h2 id="conditional-pages">Conditional pages</h2>
+<p>Another situation you may encounter is needing to make an entire page of the form conditional. You can do that with the <code>depends</code> property:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">depends</span>: <span class="hljs-function">(<span class="hljs-params">form</span>) =&gt;</span> form.fieldOnAnotherPage !== <span class="hljs-string">'test'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">myField</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
+      <span class="hljs-string">'ui:widget'</span>: <span class="hljs-string">'yesNo'</span>
+    }
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">myField</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'boolean'</span>
+      }
+    }
+  }
+}</pre></code><p>The depends function is passed the current form data, so you can check different conditions and return false if want to skip a page. Note that you want to make sure you’re checking data a user would enter before potentially reaching this page, otherwise they won’t ever see it.</p>
+<h2 id="view-only-data">View only data</h2>
+<p>In some cases, you may have fields that you don’t need to submit along with the form data. A confirmation email field, for example. In other cases you may also want to group fields into objects but not have that grouping reflected in the submitted data. This can be useful if you need to conditionally hide a group of fields and don’t want to write hideIf functions every individual field.</p>
+<p>To keep a field from being submitted, you can prefix it with <code>view:</code>:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">email</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Email'</span>,
+    },
+    <span class="hljs-string">'view:confirmEmail'</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Confirm email'</span>
+    }
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">email</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+      },
+      <span class="hljs-string">'view:confirmEmail'</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+      }
+    }
+  }
+}</pre></code><p>Since we’ve prefixed <code>confirmEmail</code> with <code>view:</code>, that field will be removed before submitting the completed form.</p>
+<p>If you prefix an object with <code>view:</code>, some slightly different will happen:</p>
+<code class="lang-js"><pre>page1: {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
+  <span class="hljs-attr">uiSchema</span>: {
+    <span class="hljs-attr">email</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Email'</span>,
+    },
+    <span class="hljs-string">'view:confirmEmail'</span>: {
+      <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'Confirm email'</span>
+    }
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-string">'view:emails'</span>: {
+        <span class="hljs-attr">email</span>: {
+          <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+        },
+        <span class="hljs-string">'confirmEmail'</span>: {
+          <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+        }
+      }
+    }
+  }
+}</pre></code><p>In this case, the form data that’s submitted when a user completes a form would be:</p>
+<code class="lang-js"><pre>{
+  <span class="hljs-attr">email</span>: <span class="hljs-string">'test@test.com'</span>,
+  <span class="hljs-attr">confirmEmail</span>: <span class="hljs-string">'test@test.com'</span>
+}</pre></code><p>If we had left off the <code>view:</code> prefix it would be:</p>
+<code class="lang-js"><pre>{
+  <span class="hljs-attr">emails</span>: {
+    <span class="hljs-attr">email</span>: <span class="hljs-string">'test@test.com'</span>,
+    <span class="hljs-attr">confirmEmail</span>: <span class="hljs-string">'test@test.com'</span>
+  }
+}</pre></code><p>That should get you started with some of the common validation and conditional field scenarios. Many of the options above have extra parameters or options that may help with some less common scenarios, so make sure to check the form config spec for a full picture of all the options offered.</p>
+
+    
+
+
+</div>
+
+
+
     </div>
-</div>
-
-    
-    
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-b0022328002029150ecaa3ad92f5576c-panel-html">
-    <code class="Code Code--lang-html">
-        
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-button-focus"</span>&gt;</span>Button focus<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-button-focus usa-button-active"</span>&gt;</span>Active<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-button-focus usa-button-hover"</span>&gt;</span>Hover<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
-        
-    </code>
-</div>
-
-    
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-b0022328002029150ecaa3ad92f5576c-panel-view">
-    <code class="Code Code--lang-text">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ classes }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> (category != 'disabled') and (category != 'big') %}</span><span class="xml">
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ classes }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> usa-button-active"</span>&gt;</span>Active<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ classes }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> usa-button-hover"</span>&gt;</span>Hover<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml"></span></pre>
-    </code>
-</div>
-
-    
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-b0022328002029150ecaa3ad92f5576c-panel-context">
-    <code class="Code Code--lang-yaml">
-        
-            
-            <pre><span class="hljs-attr">package:</span>
-<span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veteran-affairs/jean-pants</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">0.1</span><span class="hljs-number">.0</span>
-<span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
-<span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">category:</span> <span class="hljs-string">focus</span>
-<span class="hljs-attr">label:</span> <span class="hljs-string">Button</span> <span class="hljs-string">focus</span>
-<span class="hljs-attr">classes:</span> <span class="hljs-string">usa-button-focus</span>
-</pre>
-            
-        
-    </code>
-</div>
-
-    
-    
-
-
-    
-    <div class="Browser-panel" data-role="tab-panel" id="browser-b0022328002029150ecaa3ad92f5576c-panel-info">
-    <ul class="Meta">
-        <li class="Meta-item">
-            <strong class="Meta-key">Handle:</strong>
-            <span class="Meta-value">@buttons--focus</span>
-        </li>
-        
-        
-        
-        
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(7)</em>:</strong>
-            <span class="Meta-value Meta-value--linkList">
-            
-                <a href="buttons--primary.html">
-                    <span>Primary</span>
-                </a>, 
-            
-                <a href="buttons--primary-alt.html">
-                    <span>Primary Alt</span>
-                </a>, 
-            
-                <a href="buttons--secondary.html">
-                    <span>Secondary</span>
-                </a>, 
-            
-                <a href="buttons--outline.html">
-                    <span>Outline</span>
-                </a>, 
-            
-                <a href="">
-                    <span>Focus</span>
-                </a>, 
-            
-                <a href="buttons--disabled.html">
-                    <span>Disabled</span>
-                </a>, 
-            
-                <a href="buttons--big.html">
-                    <span>Big</span>
-                </a>
-            
-            </span>
-        </li>
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Preview:</strong>
-            <span class="Meta-value">
-                <ul>
-                    <li><a data-no-pjax href="../preview/buttons--focus.html"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-</a></li>
-                    <li><a data-no-pjax href="../render/buttons--focus.html"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-</a></li>
-                </ul>
-            </span>
-        </li>
-        <li class="Meta-item">
-            <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">src/components/buttons/buttons.njk</span>
-        </li>
-        
-        
-    </ul>
-</div>
-
-    
-
-</div>
-
-</div>
-
-
-    
 
 </div>
 
@@ -336,7 +367,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/introduction/why-use-this.html" data-pjax>
+            <a class="Tree-entityLink" href="../introduction/why-use-this.html" data-pjax>
                 <span>Why use this?</span>
                 
             </a>
@@ -346,7 +377,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/introduction/get-started.html" data-pjax>
+            <a class="Tree-entityLink" href="../introduction/get-started.html" data-pjax>
                 <span>Getting Started</span>
                 
             </a>
@@ -372,7 +403,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/defining-the-project/intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../defining-the-project/intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -382,7 +413,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/defining-the-project/including-the-user-in-requirements-planning.html" data-pjax>
+            <a class="Tree-entityLink" href="../defining-the-project/including-the-user-in-requirements-planning.html" data-pjax>
                 <span>Including the User in Requirements Planning</span>
                 
             </a>
@@ -392,7 +423,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/defining-the-project/validating-hypotheses-with-users.html" data-pjax>
+            <a class="Tree-entityLink" href="../defining-the-project/validating-hypotheses-with-users.html" data-pjax>
                 <span>Validating Hypotheses With Users</span>
                 
             </a>
@@ -402,7 +433,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/defining-the-project/turning-insights-into-a-project-plan.html" data-pjax>
+            <a class="Tree-entityLink" href="../defining-the-project/turning-insights-into-a-project-plan.html" data-pjax>
                 <span>Turning Insights Into A Project Plan</span>
                 
             </a>
@@ -412,7 +443,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/defining-the-project/breaking-work-into-epics.html" data-pjax>
+            <a class="Tree-entityLink" href="../defining-the-project/breaking-work-into-epics.html" data-pjax>
                 <span>Breaking Work Into Epics</span>
                 
             </a>
@@ -422,7 +453,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/defining-the-project/planning-implementation.html" data-pjax>
+            <a class="Tree-entityLink" href="../defining-the-project/planning-implementation.html" data-pjax>
                 <span>Planning Implementation</span>
                 
             </a>
@@ -448,7 +479,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/design/design-patterns.html" data-pjax>
+            <a class="Tree-entityLink" href="../design/design-patterns.html" data-pjax>
                 <span>Design Patterns</span>
                 
             </a>
@@ -458,7 +489,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/design/form-design.html" data-pjax>
+            <a class="Tree-entityLink" href="../design/form-design.html" data-pjax>
                 <span>Form Design</span>
                 
             </a>
@@ -468,7 +499,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/design/writing-plain-language-copy.html" data-pjax>
+            <a class="Tree-entityLink" href="../design/writing-plain-language-copy.html" data-pjax>
                 <span>Writing Plain Language Copy</span>
                 
             </a>
@@ -478,7 +509,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/design/setting-up-helpful-error-messages.html" data-pjax>
+            <a class="Tree-entityLink" href="../design/setting-up-helpful-error-messages.html" data-pjax>
                 <span>Setting Up Helpful Error Messages</span>
                 
             </a>
@@ -488,7 +519,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/design/preparing-downtime-notifications.html" data-pjax>
+            <a class="Tree-entityLink" href="../design/preparing-downtime-notifications.html" data-pjax>
                 <span>Preparing Downtime Notifications</span>
                 
             </a>
@@ -514,7 +545,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/intro.html" data-pjax>
+            <a class="Tree-entityLink" href="intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -524,7 +555,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/frontend-component-library.html" data-pjax>
+            <a class="Tree-entityLink" href="frontend-component-library.html" data-pjax>
                 <span>Frontend Component Library</span>
                 
             </a>
@@ -534,7 +565,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/form-generator.html" data-pjax>
+            <a class="Tree-entityLink" href="form-generator.html" data-pjax>
                 <span>Form Generator</span>
                 
             </a>
@@ -544,7 +575,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/referencing-apis.html" data-pjax>
+            <a class="Tree-entityLink" href="referencing-apis.html" data-pjax>
                 <span>Referencing APIs</span>
                 
             </a>
@@ -554,7 +585,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/building-for-accessibility.html" data-pjax>
+            <a class="Tree-entityLink" href="building-for-accessibility.html" data-pjax>
                 <span>Building For Accessibility</span>
                 
             </a>
@@ -564,7 +595,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/testing-with-users-as-you-go.html" data-pjax>
+            <a class="Tree-entityLink" href="testing-with-users-as-you-go.html" data-pjax>
                 <span>Testing With Users As You Go</span>
                 
             </a>
@@ -574,7 +605,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/creating-a-url.html" data-pjax>
+            <a class="Tree-entityLink" href="creating-a-url.html" data-pjax>
                 <span>Creating A URL</span>
                 
             </a>
@@ -583,8 +614,8 @@
     
         
         
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/build-and-development/form-intermediate.html" data-pjax>
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 <span>Form Intermediate</span>
                 
             </a>
@@ -610,7 +641,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -620,7 +651,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/how-does-the-platform-work.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/how-does-the-platform-work.html" data-pjax>
                 <span>How does the platform work?</span>
                 
             </a>
@@ -630,7 +661,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/included-with-your-app.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/included-with-your-app.html" data-pjax>
                 <span>Included with any [name].gov app</span>
                 
             </a>
@@ -640,7 +671,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/access-and-onboarding.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/access-and-onboarding.html" data-pjax>
                 <span>Access and onboarding</span>
                 
             </a>
@@ -650,7 +681,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/ato.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/ato.html" data-pjax>
                 <span>ATO</span>
                 
             </a>
@@ -660,7 +691,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/authorization-and-authentication.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/authorization-and-authentication.html" data-pjax>
                 <span>Authorization and Authentication</span>
                 
             </a>
@@ -670,7 +701,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/platform-frontend.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/platform-frontend.html" data-pjax>
                 <span>Platform Frontend</span>
                 
             </a>
@@ -680,7 +711,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/platform-backend.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/platform-backend.html" data-pjax>
                 <span>Platform Backend</span>
                 
             </a>
@@ -690,7 +721,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/pull-requests-and-code-reviews.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/pull-requests-and-code-reviews.html" data-pjax>
                 <span>Pull Requests And Code Reviews</span>
                 
             </a>
@@ -700,7 +731,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/launch-your-app-on-namedotgov/deploying-to-production.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-your-app-on-namedotgov/deploying-to-production.html" data-pjax>
                 <span>Deploying To Production</span>
                 
             </a>
@@ -726,7 +757,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/step-by-step-guides/how-to-build-and-launch-a-form.html" data-pjax>
+            <a class="Tree-entityLink" href="../step-by-step-guides/how-to-build-and-launch-a-form.html" data-pjax>
                 <span>How To Build and Launch a Form on Name.gov</span>
                 
             </a>
@@ -736,7 +767,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/step-by-step-guides/define-design-build-form.html" data-pjax>
+            <a class="Tree-entityLink" href="../step-by-step-guides/define-design-build-form.html" data-pjax>
                 <span>Define, Design, and Build the form</span>
                 
             </a>
@@ -746,7 +777,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/step-by-step-guides/launch-your-form.html" data-pjax>
+            <a class="Tree-entityLink" href="../step-by-step-guides/launch-your-form.html" data-pjax>
                 <span>Launch Your Form!</span>
                 
             </a>
@@ -777,7 +808,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="colors.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/colors.html" data-pjax>
                 <span>Color palette</span>
                 
 
@@ -812,7 +843,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="fonts.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/fonts.html" data-pjax>
                 <span>Fonts</span>
                 
 
@@ -836,7 +867,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="links.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/links.html" data-pjax>
                 <span>Links</span>
                 
 
@@ -860,7 +891,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="lists.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/lists.html" data-pjax>
                 <span>Lists</span>
                 
 
@@ -884,7 +915,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="typesetting.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/typesetting.html" data-pjax>
                 <span>Typesetting</span>
                 
 
@@ -913,7 +944,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="grid.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/grid.html" data-pjax>
                 <span>Grid</span>
                 
 
@@ -937,7 +968,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="buttons.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/buttons.html" data-pjax>
                 <span>Buttons</span>
                 
 
@@ -961,7 +992,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="tables.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/tables.html" data-pjax>
                 <span>Tables</span>
                 
 
@@ -996,7 +1027,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="alertbox.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/alertbox.html" data-pjax>
                 <span>AlertBox</span>
                 
 
@@ -1020,7 +1051,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="crisis-alerts.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/crisis-alerts.html" data-pjax>
                 <span>Crisis Alerts</span>
                 
 
@@ -1044,7 +1075,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="standard-alerts.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/standard-alerts.html" data-pjax>
                 <span>Standard Alerts</span>
                 
 
@@ -1084,7 +1115,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="best-practice.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/best-practice.html" data-pjax>
                 <span>How to build a good form</span>
                 
 
@@ -1119,7 +1150,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="address-form.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/address-form.html" data-pjax>
                 <span>Address Form</span>
                 
 
@@ -1143,7 +1174,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="name-form.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/name-form.html" data-pjax>
                 <span>Name Form</span>
                 
 
@@ -1183,7 +1214,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorablecheckbox.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorablecheckbox.html" data-pjax>
                 <span>ErrorableCheckbox</span>
                 
 
@@ -1207,7 +1238,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorabledate.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorabledate.html" data-pjax>
                 <span>Errorable Date</span>
                 
 
@@ -1231,7 +1262,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorablefileinput.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorablefileinput.html" data-pjax>
                 <span>Errorable File Input</span>
                 
 
@@ -1255,7 +1286,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorablenumberinput.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorablenumberinput.html" data-pjax>
                 <span>Errorable Number Input</span>
                 
 
@@ -1279,7 +1310,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorableradiobuttons.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorableradiobuttons.html" data-pjax>
                 <span>Errorable Radio Buttons</span>
                 
 
@@ -1303,7 +1334,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorableselect.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorableselect.html" data-pjax>
                 <span>Errorable Select</span>
                 
 
@@ -1327,7 +1358,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorabletextinput.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorabletextinput.html" data-pjax>
                 <span>Errorable Text Input</span>
                 
 
@@ -1351,7 +1382,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="expandinggroup.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/expandinggroup.html" data-pjax>
                 <span>ExpandingGroup</span>
                 
 
@@ -1375,7 +1406,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="progressbutton.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/progressbutton.html" data-pjax>
                 <span>Progress Button</span>
                 
 
@@ -1404,7 +1435,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="progressbar.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/progressbar.html" data-pjax>
                 <span>Progress bar</span>
                 
 
@@ -1428,7 +1459,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="segmentedprogressbar.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/segmentedprogressbar.html" data-pjax>
                 <span>Segmented progress bar</span>
                 
 
@@ -1468,7 +1499,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="header.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/header.html" data-pjax>
                 <span>Vets.gov Header</span>
                 
 
@@ -1492,7 +1523,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="banner.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/banner.html" data-pjax>
                 <span>U.S. Government banner</span>
                 
 
@@ -1516,7 +1547,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="helpmenu.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/helpmenu.html" data-pjax>
                 <span>Help Menu</span>
                 
 
@@ -1551,7 +1582,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="search--default.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/search--default.html" data-pjax>
                 <span>Default</span>
                 
 
@@ -1575,7 +1606,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="search--header.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/search--header.html" data-pjax>
                 <span>Header</span>
                 
 
@@ -1604,7 +1635,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="searchmenu.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/searchmenu.html" data-pjax>
                 <span>Search Menu</span>
                 
 
@@ -1628,7 +1659,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vcl.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/vcl.html" data-pjax>
                 <span>Veterans Crisis Line modal</span>
                 
 
@@ -1657,7 +1688,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="footer.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/footer.html" data-pjax>
                 <span>Footer</span>
                 
 
@@ -1681,7 +1712,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="accepttermsprompt.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/accepttermsprompt.html" data-pjax>
                 <span>Accept Terms Prompt</span>
                 
 
@@ -1705,7 +1736,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="additionalinfo.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/additionalinfo.html" data-pjax>
                 <span>Additional Info</span>
                 
 
@@ -1729,7 +1760,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="addressblock.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/addressblock.html" data-pjax>
                 <span>Address block</span>
                 
 
@@ -1753,7 +1784,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="collapsiblepanel.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/collapsiblepanel.html" data-pjax>
                 <span>Collapsible Panel</span>
                 
 
@@ -1788,7 +1819,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout--docs.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/layout--docs.html" data-pjax>
                 <span>Documentation</span>
                 
 
@@ -1812,7 +1843,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout--landing.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/layout--landing.html" data-pjax>
                 <span>Landing</span>
                 
 
@@ -1836,7 +1867,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-l2.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/vets-l2.html" data-pjax>
                 <span>Vets.gov Level 2</span>
                 
 
@@ -1860,7 +1891,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-l3.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/vets-l3.html" data-pjax>
                 <span>Vets.gov Level 3</span>
                 
 
@@ -1889,7 +1920,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="loadingindicator.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/loadingindicator.html" data-pjax>
                 <span>Loading Indicator</span>
                 
 
@@ -1913,7 +1944,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="modal.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/modal.html" data-pjax>
                 <span>Modal</span>
                 
 
@@ -1948,7 +1979,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="navigation.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/navigation.html" data-pjax>
                 <span>Global Navigation</span>
                 
 
@@ -1972,7 +2003,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="breadcrumbs.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/breadcrumbs.html" data-pjax>
                 <span>Breadcrumbs</span>
                 
 
@@ -1996,7 +2027,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="dropdownpanel.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/dropdownpanel.html" data-pjax>
                 <span>Dropdown Panel</span>
                 
 
@@ -2020,7 +2051,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="pagination.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/pagination.html" data-pjax>
                 <span>Pagination</span>
                 
 
@@ -2044,7 +2075,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="sidenav.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/sidenav.html" data-pjax>
                 <span>Side navigation</span>
                 
 
@@ -2073,7 +2104,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="omb-info.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/omb-info.html" data-pjax>
                 <span>OMB Info</span>
                 
 
@@ -2097,7 +2128,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="privacyagreement.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/privacyagreement.html" data-pjax>
                 <span>PrivacyAgreement</span>
                 
 
@@ -2121,7 +2152,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="sortabletable.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/sortabletable.html" data-pjax>
                 <span>Sortable Table</span>
                 
 
@@ -2156,7 +2187,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="iconhelp.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/iconhelp.html" data-pjax>
                 <span>IconHelp</span>
                 
 
@@ -2180,7 +2211,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="iconsearch.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/iconsearch.html" data-pjax>
                 <span>IconSearch</span>
                 
 
@@ -2204,7 +2235,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="iconuser.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/iconuser.html" data-pjax>
                 <span>IconUser</span>
                 
 
@@ -2233,7 +2264,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="systemdownview.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/systemdownview.html" data-pjax>
                 <span>System Down View</span>
                 
 
@@ -2257,7 +2288,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="tooltip.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/tooltip.html" data-pjax>
                 <span>Tooltip</span>
                 
 
