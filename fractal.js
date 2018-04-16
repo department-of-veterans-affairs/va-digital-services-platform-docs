@@ -139,6 +139,6 @@ web.theme(theme);
 // web.set('static.path', path.join(__dirname, '/dist'));
 web.set('static.path', __dirname, +'/dist');
 // output files to /build
-web.set('builder.dest', 'dist');
+web.set('builder.dest', 'build');
 
 module.exports = fractal;
