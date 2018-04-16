@@ -10,7 +10,7 @@ const context = {
     name: pkg.name.replace('@', ''), // fractal interprets @ as component references when its injected into their contexts
     version: pkg.version,
   },
-  assetPath: process.env.NODE_ENV === 'production' ? '/design-system/' : '/',
+  assetPath: process.env.NODE_ENV === 'production' ? '/va-digital-services-platform-docs/' : '/dist/',
   isProduction: process.env.NODE_ENV === 'production'
 };
 
@@ -82,6 +82,7 @@ const theme = require('@frctl/mandelbrot')({
 });
 
 theme.addLoadPath(`${__dirname}/theme-overrides`);
+theme.addStatic(`${__dirname}/dist`);
 
 theme.on('init', (env) => {
   env.engine.addFilter('generateProps', generatePropDocs);
@@ -95,7 +96,7 @@ fractal.cli.command('watch', () => {
   });
   server.on('error', err => logger.error(err.message));
 
-  ncp('./src/img', './dist/img', (err) => {
+  ncp('./src/img', './dist/img', './build/img', (err) => {
     if (err) {
       logger.error(`Failed to copy images: ${err}`);
     }
@@ -123,7 +124,7 @@ fractal.cli.command('build-site', (args, done) => {
     logger.update('Building React components');
     createWebpackBundle(logger, fractal.components, false);
 
-    ncp('./src/img', './dist/img', (err) => {
+    ncp('./src/img', './dist/img', './build/img', (err) => {
       if (err) {
         logger.error(`Failed to copy images: ${err}`);
         throw new Error(err);
@@ -135,7 +136,6 @@ fractal.cli.command('build-site', (args, done) => {
 });
 
 web.theme(theme);
-
 web.set('static.path', path.join(__dirname, '/public'));
 // output files to /build
 web.set('builder.dest', 'build');
