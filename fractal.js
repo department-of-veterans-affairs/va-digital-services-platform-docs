@@ -96,7 +96,7 @@ fractal.cli.command('watch', () => {
   });
   server.on('error', err => logger.error(err.message));
 
-  ncp('./src/img', './dist/img', './build/img', (err) => {
+  ncp('./src/img', './dist/img', (err) => {
     if (err) {
       logger.error(`Failed to copy images: ${err}`);
     }
@@ -124,7 +124,7 @@ fractal.cli.command('build-site', (args, done) => {
     logger.update('Building React components');
     createWebpackBundle(logger, fractal.components, false);
 
-    ncp('./src/img', './dist/img', './build/img', (err) => {
+    ncp('./src/img', './dist/img', (err) => {
       if (err) {
         logger.error(`Failed to copy images: ${err}`);
         throw new Error(err);
