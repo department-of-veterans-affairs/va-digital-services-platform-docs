@@ -38,7 +38,7 @@ function createWebpackBundle(logger, fractalComponents, watch = true) {
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.join(__dirname, 'dist', 'public')
+      path: path.join(__dirname, 'dist')
     },
     resolve: {
       extensions: ['.js', '.json', '.jsx']

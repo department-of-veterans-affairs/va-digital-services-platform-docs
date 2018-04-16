@@ -136,8 +136,8 @@ fractal.cli.command('build-site', (args, done) => {
 });
 
 web.theme(theme);
-web.set('static.path', path.join(__dirname, '/public'));
+web.set('static.path', path.join(__dirname, '/dist'));
 // output files to /build
-web.set('builder.dest', 'build');
+web.set('builder.dest', 'dist');
 
 module.exports = fractal;

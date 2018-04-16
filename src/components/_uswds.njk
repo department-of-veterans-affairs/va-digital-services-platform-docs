@@ -3,6 +3,10 @@
   <head>
     <title>{{ _self.title }}</title>
     <link rel="stylesheet" href="{{ assetPath }}styles.css">
+    <script>
+    console.log({{ assetPath }});
+    console.log({{ path }});
+    </script>
   </head>
   <body>
     {% block body %}{{ yield }}{% endblock %}
