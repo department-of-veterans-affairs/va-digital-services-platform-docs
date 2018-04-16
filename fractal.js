@@ -1,5 +1,5 @@
 const { ncp } = require('ncp');
-const path = require('path');
+// const path = require('path');
 const pkg = require('./package.json');
 const fractal = require('@frctl/fractal').create();
 const generatePropDocs = require('./lib/helpers/generatePropDocs');
@@ -136,7 +136,8 @@ fractal.cli.command('build-site', (args, done) => {
 });
 
 web.theme(theme);
-web.set('static.path', path.join(__dirname, '/dist'));
+// web.set('static.path', path.join(__dirname, '/dist'));
+web.set('static.path', __dirname, +'/dist');
 // output files to /build
 web.set('builder.dest', 'dist');
 
