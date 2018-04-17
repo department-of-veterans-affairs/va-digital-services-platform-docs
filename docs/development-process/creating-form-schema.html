@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>ATO | Veteran-facing Tools Playbook</title>
+<title>Creating a Form Schema in Vets-JSON-Schema | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">ATO</h1>
+        <h1 class="Document-title">Creating a Form Schema in Vets-JSON-Schema</h1>
         
 
 
@@ -72,7 +72,167 @@
 
     
     
-    <p>This needs to be further discussed as a group and refined for scalability</p>
+    <p>When building a form, you’ll need to create a JSON Schema document that lives in the <a href="https://github.com/department-of-veterans-affairs/vets-json-schema">vets-json-schema</a> repo and is shared by both the front-end and back-end. This schema will be the contract for data submitted by the front-end to the back-end API.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>Our schemas live in <a href="https://github.com/department-of-veterans-affairs/vets-json-schema/tree/master/src/schemas">src/schemas</a> and are named by your form’s official form number. Or, if your form isn’t being built off of a paper form, it can be named by another id that you come up with.</p>
+<p>Let’s say we’re creating a schema for form 21-22. We could create a file at <code>src/schema/21-22/schema.js</code> that looks like this:</p>
+<code class="lang-js"><pre><span class="hljs-keyword">import</span> schemaHelpers <span class="hljs-keyword">from</span> <span class="hljs-string">'../../common/schema-helpers'</span>;
+
+<span class="hljs-keyword">let</span> schema = {
+  <span class="hljs-attr">$schema</span>: <span class="hljs-string">'http://json-schema.org/draft-04/schema#'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'APPOINTMENT OF VETERANS SERVICE ORGANIZATION AS CLAIMANT\'S REPRESENTATIVE'</span>,
+  <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+  <span class="hljs-attr">additionalProperties</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">definitions</span>: {
+  },
+  <span class="hljs-attr">properties</span>: {
+  },
+  <span class="hljs-attr">required</span>: [<span class="hljs-string">'privacyAgreementAccepted'</span>]
+};
+
+[
+  [<span class="hljs-string">'privacyAgreementAccepted'</span>]
+].forEach(<span class="hljs-function">(<span class="hljs-params">args</span>) =&gt;</span> {
+  schemaHelpers.addDefinitionToSchema(schema, ...args);
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> schema;</pre></code><p>We’ve filled in the title from the paper form, and left the definitions and properties empty. The <code>vets-json-schema</code> codebase has some helpers for adding common definitions, which you see in the code around <code>addDefinitionToSchema</code>. We’re pulling in the common definition for <code>privacyAgreementAccepted</code>, which is in <code>src/common/definitions/js</code>. This is required for all of our forms.</p>
+<h2 id="defining-your-fields">Defining your fields</h2>
+<p>Once you have the basic file structure, you’ll want to start adding the fields you need. You’ll probably want to dive into learning JSON Schema at this point, but the basics aren’t too complicated (the non-basics can definitely be complicated!). Often we will start from the paper form and start adding fields for all of the data in the form.</p>
+<p>So, for example, the 21-22 form has a name field. We have a common name definition, so we can add that to our schema:</p>
+<code class="lang-js"><pre>[
+  [<span class="hljs-string">'privacyAgreementAccepted'</span>],
+  [<span class="hljs-string">'fullName'</span>, <span class="hljs-string">'veteranFullName'</span>]
+].forEach(<span class="hljs-function">(<span class="hljs-params">args</span>) =&gt;</span> {
+  schemaHelpers.addDefinitionToSchema(schema, ...args);
+});</pre></code><p>We’re pulling in the <code>fullName</code> definition, and by adding a second item called <code>veteranFullName</code> to the array, we’re adding it to the schema with that name, instead of <code>fullName</code>. If you were to run <code>npm run build</code> at this point, you would see a schema in <code>dist/21-22.schema.json</code> that looked like:</p>
+<code class="lang-json"><pre>{
+  <span class="hljs-attr">"$schema"</span>: <span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"APPOINTMENT OF VETERANS SERVICE ORGANIZATION AS CLAIMANT'S REPRESENTATIVE"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+  <span class="hljs-attr">"additionalProperties"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"definitions"</span>: {
+    <span class="hljs-attr">"privacyAgreementAccepted"</span>: {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"boolean"</span>,
+      <span class="hljs-attr">"enum"</span>: [
+        <span class="hljs-literal">true</span>
+      ]
+    },
+    <span class="hljs-attr">"fullName"</span>: {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+      <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"first"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+          <span class="hljs-attr">"minLength"</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-attr">"maxLength"</span>: <span class="hljs-number">30</span>
+        },
+        <span class="hljs-attr">"middle"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+        },
+        <span class="hljs-attr">"last"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+          <span class="hljs-attr">"minLength"</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-attr">"maxLength"</span>: <span class="hljs-number">30</span>
+        },
+        <span class="hljs-attr">"suffix"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+          <span class="hljs-attr">"enum"</span>: [
+            <span class="hljs-string">"Jr."</span>,
+            <span class="hljs-string">"Sr."</span>,
+            <span class="hljs-string">"II"</span>,
+            <span class="hljs-string">"III"</span>,
+            <span class="hljs-string">"IV"</span>
+          ]
+        }
+      },
+      <span class="hljs-attr">"required"</span>: [
+        <span class="hljs-string">"first"</span>,
+        <span class="hljs-string">"last"</span>
+      ]
+    }
+  },
+  <span class="hljs-attr">"properties"</span>: {
+    <span class="hljs-attr">"privacyAgreementAccepted"</span>: {
+      <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/privacyAgreementAccepted"</span>
+    },
+    <span class="hljs-attr">"veteranFullName"</span>: {
+      <span class="hljs-attr">"$ref"</span>: <span class="hljs-string">"#/definitions/fullName"</span>
+    }
+  },
+  <span class="hljs-attr">"required"</span>: [
+    <span class="hljs-string">"privacyAgreementAccepted"</span>
+  ]
+}</pre></code><p>You can see that we have a <code>veteranFullName</code> field and the definition for it pulled in now. You can also add your custom fields, that aren’t common definitions. The 21-22 form has a “Name and Job Title of Official Representative” field, so we can add that as a string field:</p>
+<code class="lang-js"><pre><span class="hljs-keyword">import</span> schemaHelpers <span class="hljs-keyword">from</span> <span class="hljs-string">'../../common/schema-helpers'</span>;
+
+<span class="hljs-keyword">let</span> schema = {
+  <span class="hljs-attr">$schema</span>: <span class="hljs-string">'http://json-schema.org/draft-04/schema#'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'APPOINTMENT OF VETERANS SERVICE ORGANIZATION AS CLAIMANT\'S REPRESENTATIVE'</span>,
+  <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+  <span class="hljs-attr">additionalProperties</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">definitions</span>: {
+  },
+  <span class="hljs-attr">properties</span>: {
+    <span class="hljs-attr">nameAndTitle</span>: {
+      <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+    }
+  },
+  <span class="hljs-attr">required</span>: [<span class="hljs-string">'privacyAgreementAccepted'</span>]
+};
+
+[
+  [<span class="hljs-string">'privacyAgreementAccepted'</span>]
+].forEach(<span class="hljs-function">(<span class="hljs-params">args</span>) =&gt;</span> {
+  schemaHelpers.addDefinitionToSchema(schema, ...args);
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> schema;</pre></code><p>You can continue on adding fields until you have all the data in the form covered.</p>
+<h2 id="schema-tips">Schema tips</h2>
+<p>A couple of rules of thumb will help make the schema easier to use on both the front-end and the back-end:</p>
+<ol>
+<li>Use the common definitions as much as possible. Many of these definitions have matching front-end components, so it’ll make the development process quicker to re-use as much as possible.</li>
+<li>Favor our common definitions and simpler structures over trying to match a third-party API 1:1. Often, you’ll be writing a schema for a form that a <code>vets-api</code> service will be submitting to another VA API. An important purpose of APIs we build in <code>vets-api</code> is to do data transformation, so you don’t have to match an internal VA API with your schema. You can start from our common definitions and make small tweaks to make sure you get all the data you need, then leave it to the code in <code>vets-api</code> to translate the form data into the submission to another API.</li>
+</ol>
+<h2 id="testing">Testing</h2>
+<p>Once you’ve got your schema written, you can write some unit tests for it. Unit tests go in <code>/test</code>, so for the 21-22 form we would create a file at <code>test/21-22/schema.spec.js</code> that looks like:</p>
+<code class="lang-js"><pre><span class="hljs-keyword">import</span> SchemaTestHelper <span class="hljs-keyword">from</span> <span class="hljs-string">'../../support/schema-test-helper'</span>;
+<span class="hljs-keyword">import</span> schemas <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../dist/schemas'</span>;
+<span class="hljs-keyword">import</span> fixtures <span class="hljs-keyword">from</span> <span class="hljs-string">'../../support/fixtures'</span>;
+<span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
+<span class="hljs-keyword">import</span> SharedTests <span class="hljs-keyword">from</span> <span class="hljs-string">'../../support/shared-tests'</span>;
+
+<span class="hljs-keyword">const</span> schema = schemas[<span class="hljs-string">'21-22'</span>];
+
+<span class="hljs-keyword">let</span> schemaTestHelper = <span class="hljs-keyword">new</span> SchemaTestHelper(
+  schema,
+  {
+    <span class="hljs-attr">privacyAgreementAccepted</span>: <span class="hljs-literal">true</span>
+  }
+);
+<span class="hljs-keyword">let</span> sharedTests = <span class="hljs-keyword">new</span> SharedTests(schemaTestHelper);
+
+describe(<span class="hljs-string">'21-22 schema'</span>, () =&gt; {
+  sharedTests.runTest(<span class="hljs-string">'fullName'</span>, [<span class="hljs-string">'veteranFullName'</span>]);
+});
+
+schemaTestHelper.testValidAndInvalid(<span class="hljs-string">'nameAndTitle'</span>, {
+  <span class="hljs-attr">valid</span>: [
+    <span class="hljs-string">'Title'</span>
+  ],
+  <span class="hljs-attr">invalid</span>: [
+    <span class="hljs-number">3</span>
+  ]
+});</pre></code><p>There are two main parts in that file. You can run tests for the common definitions in the <code>describe</code> block. And you can run tests for specific fields by calling <code>schemaTestHelper.testValidAndInvalid</code>. Since our <code>nameAndTitle</code> field is a string, it should be valid when you pass it a string, but invalid when you pass it a number.</p>
+<h2 id="finishing-up">Finishing up</h2>
+<p>Once you have your tests written, you can submit a PR with your changes. In that PR, make sure to bump the version of <code>vets-json-schema</code> in <code>package.json</code>, so the front-end will pick it up correctly.</p>
+<h2 id="updating-vets-website-and-vets-api">Updating vets-website and vets-api</h2>
+<p>Once you’ve merged your changes to master, you’ll need to update the front-end and back-end repos to use the new schema. This doesn’t need to happen immediately, but you’ll have to do at some point.</p>
+<h3 id="vets-website">vets-website</h3>
+<p>In <code>vets-website</code> you should run these two commands:</p>
+<code class="lang-bash"><pre>yarn remove vets-json-schema
+yarn add https://github.com/department-of-veterans-affairs/vets-json-schema.git\<span class="hljs-comment">#&lt;commit&gt;</span></pre></code><p>You will need to replace <code>&lt;commit&gt;</code> with the Git hash for the commit where your changes were merged into master.</p>
+<h3 id="vets-api">vets-api</h3>
+<p>Run <code>bundle update vets_json_schema</code> and everything should be updated correctly.</p>
 
     
 
@@ -249,7 +409,7 @@
         
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../design/using-plain-language.html" data-pjax>
-                <span>Writing clearly</span>
+                <span>Using Plain Language</span>
                 
             </a>
         </li>
@@ -294,7 +454,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/getting-started.html" data-pjax>
+            <a class="Tree-entityLink" href="getting-started.html" data-pjax>
                 <span>Getting Started</span>
                 
             </a>
@@ -304,7 +464,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/environments.html" data-pjax>
+            <a class="Tree-entityLink" href="environments.html" data-pjax>
                 <span>Environments</span>
                 
             </a>
@@ -314,7 +474,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/development-workflow.html" data-pjax>
+            <a class="Tree-entityLink" href="development-workflow.html" data-pjax>
                 <span>Development Workflow</span>
                 
             </a>
@@ -324,8 +484,18 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/internal-tools-access.html" data-pjax>
+            <a class="Tree-entityLink" href="internal-tools-access.html" data-pjax>
                 <span>Internal Tools Access</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                <span>Creating Form Schema</span>
                 
             </a>
         </li>
@@ -345,7 +515,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-api/readme.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/readme.html" data-pjax>
                 <span>ReadMe</span>
                 
             </a>
@@ -355,7 +525,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-api/authentication.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/authentication.html" data-pjax>
                 <span>Authentication</span>
                 
             </a>
@@ -365,7 +535,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-api/authorization.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/authorization.html" data-pjax>
                 <span>Authorization</span>
                 
             </a>
@@ -375,7 +545,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-api/development.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/development.html" data-pjax>
                 <span>Development</span>
                 
             </a>
@@ -385,7 +555,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-api/documentation.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/documentation.html" data-pjax>
                 <span>Documentation</span>
                 
             </a>
@@ -395,7 +565,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-api/forms.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/forms.html" data-pjax>
                 <span>Forms</span>
                 
             </a>
@@ -405,7 +575,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-api/pdf-generation.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/pdf-generation.html" data-pjax>
                 <span>PDF Generation</span>
                 
             </a>
@@ -415,7 +585,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-api/request-processing.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/request-processing.html" data-pjax>
                 <span>Request Processing</span>
                 
             </a>
@@ -425,7 +595,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-api/response-serialization.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/response-serialization.html" data-pjax>
                 <span>Response Serialization</span>
                 
             </a>
@@ -435,7 +605,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-api/service-objects.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/service-objects.html" data-pjax>
                 <span>Service Objects</span>
                 
             </a>
@@ -445,7 +615,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-api/settings.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/settings.html" data-pjax>
                 <span>Settings</span>
                 
             </a>
@@ -471,7 +641,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-website/readme.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/readme.html" data-pjax>
                 <span>ReadMe</span>
                 
             </a>
@@ -481,7 +651,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-website/architecture.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/architecture.html" data-pjax>
                 <span>Architecture</span>
                 
             </a>
@@ -491,7 +661,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-website/development.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/development.html" data-pjax>
                 <span>Development</span>
                 
             </a>
@@ -501,7 +671,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-website/form-tutorial.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/form-tutorial.html" data-pjax>
                 <span>Form Tutorial</span>
                 
             </a>
@@ -511,8 +681,18 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-process/vets-website/form-intermediate.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/form-intermediate.html" data-pjax>
                 <span>Form Intermediate</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/common-definitions.html" data-pjax>
+                <span>Common Definitions</span>
                 
             </a>
         </li>
@@ -529,9 +709,9 @@
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-launch-your-app-on-namedotgov">
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-launch-prep">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Launch Your App On Namedotgov</span>
+                <span>Launch Prep</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -542,7 +722,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../launch-prep/intro.html" data-pjax>
                 <span>Intro</span>
                 
             </a>
@@ -552,37 +732,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="how-does-the-platform-work.html" data-pjax>
-                <span>How does the platform work?</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="included-with-your-app.html" data-pjax>
-                <span>Included with any [name].gov app</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="access-and-onboarding.html" data-pjax>
-                <span>Access and onboarding</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+            <a class="Tree-entityLink" href="../launch-prep/ato.html" data-pjax>
                 <span>ATO</span>
                 
             </a>
@@ -592,8 +742,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="authorization-and-authentication.html" data-pjax>
-                <span>Authorization and Authentication</span>
+            <a class="Tree-entityLink" href="../launch-prep/pre-launch-testing.html" data-pjax>
+                <span>Pre-Launch Testing</span>
                 
             </a>
         </li>
@@ -602,8 +752,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="platform-frontend.html" data-pjax>
-                <span>Platform Frontend</span>
+            <a class="Tree-entityLink" href="../launch-prep/analytics.html" data-pjax>
+                <span>Analytics</span>
                 
             </a>
         </li>
@@ -612,8 +762,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="platform-backend.html" data-pjax>
-                <span>Platform Backend</span>
+            <a class="Tree-entityLink" href="../launch-prep/url-creation.html" data-pjax>
+                <span>URL Creation</span>
                 
             </a>
         </li>
@@ -622,8 +772,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="pull-requests-and-code-reviews.html" data-pjax>
-                <span>Pull Requests And Code Reviews</span>
+            <a class="Tree-entityLink" href="../launch-prep/contact-call-center.html" data-pjax>
+                <span>Contact Call Center</span>
                 
             </a>
         </li>
@@ -632,8 +782,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="deploying-to-production.html" data-pjax>
-                <span>Deploying To Production</span>
+            <a class="Tree-entityLink" href="../launch-prep/prepare-marketing-material.html" data-pjax>
+                <span>Prepare Marketing Material</span>
                 
             </a>
         </li>
