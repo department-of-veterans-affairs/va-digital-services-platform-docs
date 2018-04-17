@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Referencing APIs | Veteran-facing Tools Playbook</title>
+<title>Internal Tools Access | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Referencing APIs</h1>
+        <h1 class="Document-title">Internal Tools Access</h1>
         
 
 
@@ -72,7 +72,196 @@
 
     
     
-    <p><a href="https://department-of-veterans-affairs.github.io/va-digital-services-platform-docs/api-reference/#/facilities">https://department-of-veterans-affairs.github.io/va-digital-services-platform-docs/api-reference/#/facilities</a></p>
+    <p>This document describes tools available to [name].gov developers, and configuration required to access them. You’ll need access to these tools if you need:</p>
+<ul>
+<li>Build logs and details from Jenkins (linked to from GitHub PRs for each project)</li>
+<li>System metrics for diagnostic/troubleshooting purposes (Grafana/Prometheus)</li>
+<li>Exception reports and tracebacks (Sentry)</li>
+</ul>
+<p>These internal tools are available on the <code>vetsgov-internal</code> domain, which is only accessible while your system is running a SOCKS proxy locally. Your SOCKS proxy will tunnel traffic over a secure channel to vets.gov servers, providing access to:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jenkins</td>
+<td><a href="http://jenkins.vetsgov-internal">http://jenkins.vetsgov-internal</a></td>
+<td>Build Details</td>
+</tr>
+<tr>
+<td>Grafana</td>
+<td><a href="http://grafana.vetsgov-internal">http://grafana.vetsgov-internal</a></td>
+<td>Metrics / Dashboards</td>
+</tr>
+<tr>
+<td>Sentry</td>
+<td><a href="http://sentry.vetsgov-internal">http://sentry.vetsgov-internal</a></td>
+<td>Exception Tracking</td>
+</tr>
+<tr>
+<td>Prometheus (dev)</td>
+<td><a href="http://prometheus-dev.vetsgov-internal:9090/">http://prometheus-dev.vetsgov-internal:9090/</a></td>
+<td>Metrics/Alerts (Detailed)</td>
+</tr>
+<tr>
+<td>Prometheus (staging)</td>
+<td><a href="http://prometheus-staging.vetsgov-internal:9090/">http://prometheus-staging.vetsgov-internal:9090/</a></td>
+<td>Metrics/Alerts (Detailed)</td>
+</tr>
+<tr>
+<td>Prometheus (prod)</td>
+<td><a href="http://prometheus-prod.vetsgov-internal:9090/">http://prometheus-prod.vetsgov-internal:9090/</a></td>
+<td>Metrics/Alerts (Detailed)</td>
+</tr>
+</tbody>
+</table>
+<p>You do not need to run the SOCKS proxy while you’re developing unless you need access to one of the above tools.</p>
+<h2 id="requirements">Requirements</h2>
+<h3 id="ssh-key">SSH Key</h3>
+<p>You’ll need to submit your SSH public key to DSVA as part of your onboarding process. If you don’t already have a SSH public key, or you’re not sure if you do, here are the steps to create one:</p>
+<ol>
+<li><p>First run the following comman in your terminal: <code>cd ~/.ssh</code>.
+If this command returns the following error message, <code>cd: no such file or directory</code>,
+you will need to create a .ssh directory by following these steps:</p>
+<ol>
+<li>Create the directory by running <code>mkdir ~/.ssh</code>.</li>
+<li>Run <code>chmod 700 .ssh</code>. This sets the permissions on that directory to readable
+only by you since it has your private keys.</li>
+<li>Once the directory exists, cd into that directory by running <code>cd ~/.ssh</code>.</li>
+</ol>
+</li>
+<li><p>Once you have cd-ed into <code>~/.ssh</code>, check to see if you already have your
+SSH keys by running <code>ls</code>. If you see <code>id_rsa_vetsgov</code> and <code>id_rsa_vetsgov.pub</code>
+returned, you already have your keys and you can skip steps 3 and 4. If you don’t see
+<code>id_rsa_vetsgov</code> or <code>id_rsa_vetsgov.pub</code> continue onto the next steps.</p>
+</li>
+<li><p>Run the following command <code>ssh-keygen -f id_rsa_vetsgov</code> to generate your public
+and private keys. It will prompt you for a passphrase; you should enter a secure passphrase
+to protect your private key.</p>
+</li>
+<li><p>Run <code>ls ~/.ssh</code> and confirm that you see <code>id_rsa_vetsgov</code> and <code>id_rsa_vetsgov.pub</code>.
+It’s normal to see several other files, as well. Seeing <code>id_rsa_vetsgov</code> and <code>id_rsa_vetsgov.pub</code>
+means you now have your private and public (the one with the <code>.pub</code> extension) keys! Your
+private key should never leave your computer, and it’s unnecessary and inadvisable to share it
+with anybody.</p>
+</li>
+</ol>
+<h2 id="configuring-the-socks-proxy">Configuring the SOCKS proxy</h2>
+<p>These steps assume you’re running on Linux or OSX. There are slightly
+different commands to connect to the proxy depending on whether you
+are connected to the VA network or not. You will need to run the SOCKS
+proxy on your local system whenever you need access to tools on the
+<code>vetsgov-internal</code> domain.</p>
+<p>With your SSH Public Key, follow these steps:</p>
+<ol>
+<li><p>Add the following to your <code>~/.ssh/config</code> file:</p>
+<code><pre>   ### Access <span class="hljs-keyword">to</span><span class="hljs-built_in"> SOCKS proxy </span><span class="hljs-keyword">from</span> public internet, by way of dev jumpbox
+   Host<span class="hljs-built_in"> socks
+</span>      HostName 172.31.2.171
+      ProxyCommand ssh -l dsva -A 52.222.32.121 -W %h:%p
+     <span class="hljs-built_in"> User socks
+</span>
+   ### Access <span class="hljs-keyword">to</span><span class="hljs-built_in"> SOCKS proxy </span><span class="hljs-keyword">from</span> VA network, by way of dev jumpbox
+   Host socks-va
+      HostName 172.31.2.171
+      ProxyCommand ssh -l dsva -A 10.238.66.162 -W %h:%p
+     <span class="hljs-built_in"> User socks
+</span>
+   Host *
+     AddKeysToAgent <span class="hljs-literal">yes</span>
+     #UseKeychain <span class="hljs-literal">yes</span>            # Uncomment <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> using OSX
+     IdentityFile ~/.ssh/id_rsa_vetsgov # This must match the public key that you provide during onboarding</pre></code></li>
+<li>Add your SSH key to your local agent with <code>ssh-add -K ~/.ssh/id_rsa_vetsgov</code>.</li>
+</ol>
+<h3 id="accessing-socks-proxy-from-va-network">Accessing SOCKS proxy from VA network</h3>
+<p>The <code>~/.ssh/config</code> file on your local system contains configuration to access the SOCKS proxy from the VA network.</p>
+<ol>
+<li><p>Run <code>ssh socks-va -D 2001 -N &amp;</code>
+<em>Note: the first time you connect to the jumpbox, ssh will prompt to ask
+if you are sure you want to connect to a new host. You will be unable to
+respond “yes” if ssh is in the background, so either bring it to the
+foreground with <code>fg</code> or omit the <code>&amp;</code> character from the above command.</em></p>
+</li>
+<li><p>Follow the instructions below to configure your browser.</p>
+</li>
+</ol>
+<h3 id="accessing-socks-proxy-from-the-internet">Accessing SOCKS proxy from the internet</h3>
+<p>The <code>~/.ssh/config</code> file on your local system contains configuration to access the SOCKS proxy from outside the VA network.</p>
+<ol>
+<li><p>Run <code>ssh socks -D 2001 -N &amp;</code>
+<em>Note: the first time you connect to the jumpbox, ssh will prompt to ask
+if you are sure you want to connect to a new host. You will be unable to
+respond “yes” if ssh is in the background, so either bring it to the
+foreground with <code>fg</code> or omit the <code>&amp;</code> character from the above command.</em></p>
+</li>
+<li><p>Follow the instructions below to configure your browser.</p>
+</li>
+</ol>
+<h2 id="testing-and-using-the-socks-proxy">Testing and Using the SOCKS proxy</h2>
+<p>Use the following steps to verify that the proxy connection is working, and to configure your
+browser to use the proxy connection. Note that the proxy only allows access to our internal
+tools, not to the internet at large. So you need to configure your browser to either use the proxy
+only for the <code>vetsgov-internal</code> domain (as described below for Chrome); enable/disable the proxy
+connection as needed; or use a separate browser for accessing the internal tools vs. for general
+use.</p>
+<h3 id="curl">Curl</h3>
+<p>To test your proxy connectivity, the best option is to run the following command:</p>
+<p><code>$ curl -v --proxy socks5h://127.0.0.1:2001 sentry.vetsgov-internal</code></p>
+<p>You should get output that includes <code>HTTP/1.1 302 FOUND</code>. If not, check that the
+SOCKS proxy server is running. You can <code>$ nc -z 127.0.0.1 2001</code> as a first step.</p>
+<h3 id="chrome">Chrome</h3>
+<ol>
+<li><p>Install Proxy SwitchyOmega</p>
+<p><a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif">https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif</a></p>
+</li>
+<li><p>Configure the <code>proxy</code> profile like this:</p>
+<p><img src="images/switchy-omega-config-1.png" alt=""></p>
+</li>
+<li><p>Configure the <code>auto switch</code> profile like this:</p>
+<p><img src="images/switchy-omega-config-2.png" alt=""></p>
+</li>
+<li><p>In Chrome’s menu bar, click on the proxy app and change the setting to ‘auto switch’:</p>
+<p><img src="images/switch-omega-auto-switch.png" alt=""></p>
+</li>
+<li><p>NOTE: You may have to uncheck a settings flag in Chrome, see</p>
+<p><a href="https://github.com/FelisCatus/SwitchyOmega/wiki/DNS-and-SOCKS-proxy">https://github.com/FelisCatus/SwitchyOmega/wiki/DNS-and-SOCKS-proxy</a></p>
+</li>
+<li><p>Check your connection by navigating to Sentry at
+<a href="http://sentry.vetsgov-internal">http://sentry.vetsgov-internal</a>.</p>
+</li>
+</ol>
+<h3 id="firefox">Firefox</h3>
+<ol>
+<li>Install Proxy Switcher
+<a href="https://addons.mozilla.org/en-US/firefox/addon/proxy-switcher/">https://addons.mozilla.org/en-US/firefox/addon/proxy-switcher/</a></li>
+<li>create a file on your system with the following contents<code><pre> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">FindProxyForURL</span><span class="hljs-params">(url, host)</span> </span>{
+          <span class="hljs-keyword">if</span>( /.*\.vetsgov-<span class="hljs-keyword">internal</span>$/.test(host) ) {
+               <span class="hljs-keyword">return</span> <span class="hljs-string">'SOCKS5 localhost:2001'</span>;
+          }
+          <span class="hljs-keyword">return</span> <span class="hljs-string">'DIRECT'</span>;
+ }</pre></code></li>
+<li>Configure the <code>automatic</code> tab by setting the path to be the file created above</li>
+<li>Press the reload button in the proxy switcher configuration dialog</li>
+<li>Check your connection by navigating to Sentry at
+<a href="http://sentry.vetsgov-internal">http://sentry.vetsgov-internal</a>.</li>
+</ol>
+<h2 id="tools">Tools</h2>
+<h3 id="jenkins">Jenkins</h3>
+<p>With the Socks proxy set up and running, go to <a href="http://jenkins.vetsgov-internal">http://jenkins.vetsgov-internal</a>. You can see the builds without logging in, but will need to authenticate (with GitHub) to re-run failed builds.</p>
+<h3 id="sentry">Sentry</h3>
+<p>With the Socks proxy set up and running, go to <a href="http://sentry.vetsgov-internal">http://sentry.vetsgov-internal</a>. You will need to register for Sentry, but after creating any username/password, you will have access. We do not really use Sentry teams except to separate production, staging, and dev errors. To view the most recent production errors, which is the most common thing to do while on call, go to <a href="http://sentry.vetsgov-internal/vets-gov/platform-api-production/">http://sentry.vetsgov-internal/vets-gov/platform-api-production/</a></p>
+<h3 id="grafana">Grafana</h3>
+<p>With the Socks proxy set up and running, go to <a href="http://grafana.vetsgov-internal">http://grafana.vetsgov-internal</a>. You will need to register for Grafana, but after creating any username/password, you will have access.</p>
+<p>There are many dashboards and you should click around to get familiar with the variety of metrics being collected and visualized (make sure Data Source is set to Production). A few highlights are:</p>
+<ul>
+<li><a href="http://grafana.vetsgov-internal/dashboard/db/site">Site</a> to see overall metrics about the health of the overall site.</li>
+<li><a href="http://grafana.vetsgov-internal/dashboard/db/external-service-status">External Service Status</a> to see the availability of external services vets.gov depends on.</li>
+</ul>
 
     
 
@@ -281,9 +470,9 @@
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-build-and-development">
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-development-process">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Build And Development</span>
+                <span>Development Process</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -294,8 +483,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="intro.html" data-pjax>
-                <span>Intro</span>
+            <a class="Tree-entityLink" href="getting-started.html" data-pjax>
+                <span>Getting Started</span>
                 
             </a>
         </li>
@@ -304,8 +493,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="frontend-component-library.html" data-pjax>
-                <span>Frontend Component Library</span>
+            <a class="Tree-entityLink" href="environments.html" data-pjax>
+                <span>Environments</span>
                 
             </a>
         </li>
@@ -314,8 +503,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="form-generator.html" data-pjax>
-                <span>Form Generator</span>
+            <a class="Tree-entityLink" href="development-workflow.html" data-pjax>
+                <span>Development Workflow</span>
                 
             </a>
         </li>
@@ -325,7 +514,28 @@
         
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
-                <span>Referencing APIs</span>
+                <span>Internal Tools Access</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-vets-api">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Vets Api</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/readme.html" data-pjax>
+                <span>ReadMe</span>
                 
             </a>
         </li>
@@ -334,8 +544,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="building-for-accessibility.html" data-pjax>
-                <span>Building For Accessibility</span>
+            <a class="Tree-entityLink" href="vets-api/authentication.html" data-pjax>
+                <span>Authentication</span>
                 
             </a>
         </li>
@@ -344,8 +554,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="testing-with-users-as-you-go.html" data-pjax>
-                <span>Testing With Users As You Go</span>
+            <a class="Tree-entityLink" href="vets-api/authorization.html" data-pjax>
+                <span>Authorization</span>
                 
             </a>
         </li>
@@ -354,8 +564,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="creating-a-url.html" data-pjax>
-                <span>Creating A URL</span>
+            <a class="Tree-entityLink" href="vets-api/development.html" data-pjax>
+                <span>Development</span>
                 
             </a>
         </li>
@@ -364,10 +574,141 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="form-intermediate.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/documentation.html" data-pjax>
+                <span>Documentation</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/forms.html" data-pjax>
+                <span>Forms</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/pdf-generation.html" data-pjax>
+                <span>PDF Generation</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/request-processing.html" data-pjax>
+                <span>Request Processing</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/response-serialization.html" data-pjax>
+                <span>Response Serialization</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/service-objects.html" data-pjax>
+                <span>Service Objects</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/settings.html" data-pjax>
+                <span>Settings</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-vets-website">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Vets Website</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/readme.html" data-pjax>
+                <span>ReadMe</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/architecture.html" data-pjax>
+                <span>Architecture</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/development.html" data-pjax>
+                <span>Development</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/form-tutorial.html" data-pjax>
+                <span>Form Tutorial</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/form-intermediate.html" data-pjax>
                 <span>Form Intermediate</span>
                 
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     

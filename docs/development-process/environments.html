@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Building For Accessibility | Veteran-facing Tools Playbook</title>
+<title>Environments | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Building For Accessibility</h1>
+        <h1 class="Document-title">Environments</h1>
         
 
 
@@ -72,23 +72,33 @@
 
     
     
-    <p>Making your Veteran facing user experience accessible is critical</p>
-<ul>
-<li>Discuss the particular importance of accessibility to veterans</li>
-<li>Particular things to be aware of (forms, document attachments)</li>
-</ul>
-<p>The VA accessibility office is a great resource for validating that your tool won’t exclude Veterans who need help from assistive devices, but there are some things you can do to make their review work easier.</p>
-<p>We have some guides and checklists that can help [LINK TO TREVOR A11Y DOCS]
-<a href="https://github.com/adhocteam/a11y-snippets/tree/master/worksheets">https://github.com/adhocteam/a11y-snippets/tree/master/worksheets</a>
-<a href="https://docs.google.com/spreadsheets/d/1K9GAIXW7ZCNnVdiTYfGEHA4c6pvRZVLrAzdY1Tzfcww/edit">https://docs.google.com/spreadsheets/d/1K9GAIXW7ZCNnVdiTYfGEHA4c6pvRZVLrAzdY1Tzfcww/edit</a></p>
-<h2 id="best-practices-for-designing-with-access-in-mind">Best practices for designing with access in mind</h2>
-<p><a href="https://github.com/adhocteam/a11y-snippets">Tips for avoiding accessibility pitfalls</a></p>
-<h2 id="automated-testing-tools">Automated testing tools</h2>
-<p><a href="https://github.com/department-of-veterans-affairs/vets-website/blob/955f59dc226a8a443dc11f89dae2dc8e55ff7daa/docs/Keyboard_e2e.md">https://github.com/department-of-veterans-affairs/vets-website/blob/955f59dc226a8a443dc11f89dae2dc8e55ff7daa/docs/Keyboard_e2e.md</a></p>
-<h2 id="manual-testing-guide">Manual testing guide</h2>
-<p><a href="https://github.com/adhocteam/a11y-snippets">Guide to things that matter but get missed by automated testing</a></p>
-<h2 id="accessibility-evaluation-checklist">Accessibility evaluation checklist</h2>
-<p><a href="https://github.com/adhocteam/a11y-snippets">End to end checklist for validating your application.</a> A mix of automated and manual processes</p>
+    <p>Vets-API and Vets-Website are automatically deployed to three shared environments. Additionally, the latest changes on all Pull Requests are automatically deployed to a <a href="https://github.com/department-of-veterans-affairs/vets-contrib/blob/master/Developer%20Process/Workflow.md#review-instances">Review Instance</a>. Each of these deployments is connected with External Services within the VA to facilitate testing.</p>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>Vets-API</th>
+<th>Vets-Website</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>development</td>
+<td>dev-api.vets.gov</td>
+<td>dev.vets.gov</td>
+</tr>
+<tr>
+<td>staging</td>
+<td>staging-api.vets.gov</td>
+<td>staging.vets.gov</td>
+</tr>
+<tr>
+<td>production</td>
+<td>api.vets.gov</td>
+<td><a href="http://www.vets.gov">www.vets.gov</a></td>
+</tr>
+</tbody>
+</table>
 
     
 
@@ -297,9 +307,9 @@
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-build-and-development">
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-development-process">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Build And Development</span>
+                <span>Development Process</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -310,38 +320,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="intro.html" data-pjax>
-                <span>Intro</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="frontend-component-library.html" data-pjax>
-                <span>Frontend Component Library</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="form-generator.html" data-pjax>
-                <span>Form Generator</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="referencing-apis.html" data-pjax>
-                <span>Referencing APIs</span>
+            <a class="Tree-entityLink" href="getting-started.html" data-pjax>
+                <span>Getting Started</span>
                 
             </a>
         </li>
@@ -351,7 +331,7 @@
         
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
-                <span>Building For Accessibility</span>
+                <span>Environments</span>
                 
             </a>
         </li>
@@ -360,8 +340,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="testing-with-users-as-you-go.html" data-pjax>
-                <span>Testing With Users As You Go</span>
+            <a class="Tree-entityLink" href="development-workflow.html" data-pjax>
+                <span>Development Workflow</span>
                 
             </a>
         </li>
@@ -370,8 +350,29 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="creating-a-url.html" data-pjax>
-                <span>Creating A URL</span>
+            <a class="Tree-entityLink" href="internal-tools-access.html" data-pjax>
+                <span>Internal Tools Access</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-vets-api">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Vets Api</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/readme.html" data-pjax>
+                <span>ReadMe</span>
                 
             </a>
         </li>
@@ -380,10 +381,171 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="form-intermediate.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/authentication.html" data-pjax>
+                <span>Authentication</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/authorization.html" data-pjax>
+                <span>Authorization</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/development.html" data-pjax>
+                <span>Development</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/documentation.html" data-pjax>
+                <span>Documentation</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/forms.html" data-pjax>
+                <span>Forms</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/pdf-generation.html" data-pjax>
+                <span>PDF Generation</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/request-processing.html" data-pjax>
+                <span>Request Processing</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/response-serialization.html" data-pjax>
+                <span>Response Serialization</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/service-objects.html" data-pjax>
+                <span>Service Objects</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-api/settings.html" data-pjax>
+                <span>Settings</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-vets-website">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Vets Website</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/readme.html" data-pjax>
+                <span>ReadMe</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/architecture.html" data-pjax>
+                <span>Architecture</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/development.html" data-pjax>
+                <span>Development</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/form-tutorial.html" data-pjax>
+                <span>Form Tutorial</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/form-intermediate.html" data-pjax>
                 <span>Form Intermediate</span>
                 
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
