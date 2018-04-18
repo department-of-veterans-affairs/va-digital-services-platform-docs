@@ -1,5 +1,5 @@
 const { ncp } = require('ncp');
-const path = require('path');
+// const path = require('path');
 const pkg = require('./package.json');
 const fractal = require('@frctl/fractal').create();
 const generatePropDocs = require('./lib/helpers/generatePropDocs');
@@ -10,7 +10,7 @@ const context = {
     name: pkg.name.replace('@', ''), // fractal interprets @ as component references when its injected into their contexts
     version: pkg.version,
   },
-  assetPath: process.env.NODE_ENV === 'production' ? '/design-system/' : '/',
+  assetPath: process.env.NODE_ENV === 'production' ? '/va-digital-services-platform-docs/' : '/dist/',
   isProduction: process.env.NODE_ENV === 'production'
 };
 
@@ -82,6 +82,7 @@ const theme = require('@frctl/mandelbrot')({
 });
 
 theme.addLoadPath(`${__dirname}/theme-overrides`);
+theme.addStatic(`${__dirname}/dist`);
 
 theme.on('init', (env) => {
   env.engine.addFilter('generateProps', generatePropDocs);
@@ -135,8 +136,8 @@ fractal.cli.command('build-site', (args, done) => {
 });
 
 web.theme(theme);
-
-web.set('static.path', path.join(__dirname, '/public'));
+// web.set('static.path', path.join(__dirname, '/dist'));
+web.set('static.path', __dirname, +'/dist');
 // output files to /build
 web.set('builder.dest', 'build');
 

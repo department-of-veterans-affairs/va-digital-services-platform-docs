@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .fractal-vets-logo {
   display: block;
   height: inherit;
@@ -30,25 +32,28 @@
   background-color: #ffffff;
 }
 
-
 /* Override Fractal left-nav */
 
 /* Suppress caret */
+
 .Tree-collectionLabel span::before {
   content: none;
 }
 
 /* Expose submenus */
+
 #tree-docs .Tree-collection.is-closed .Tree-collectionItems {
   display: block;
 }
 
 /* Hide Documentation title */
+
 #tree-docs .Tree-title {
   display: none;
 }
 
 /* Space sections out */
+
 #tree-docs .Tree-depth-2 {
   margin-top: 1rem;
 }
@@ -59,15 +64,18 @@
 }
 
 /* Don’t make the sections headers clickable */
+
 #tree-docs .Tree-depth-2 > h4 {
   background: transparent;
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
 }
+
 #tree-docs .Tree-depth-2 > h4 span {
   padding-left: 1.7rem !important;
 }
+
 #tree-docs .Tree-depth-2 > h4:hover {
   background: transparent;
   cursor: default;
@@ -95,6 +103,7 @@
 }
 
 /* Link size and spacing */
+
 #tree-docs a.Tree-entityLink {
   font-size: 1rem;
   margin: 0;
@@ -102,6 +111,7 @@
 }
 
 /* You are here */
+
 .is-current .Tree-entityLink {
-  background-color: rgba(251,217,128,.25);
+  background-color: rgba(251, 217, 128, 0.25);
 }
