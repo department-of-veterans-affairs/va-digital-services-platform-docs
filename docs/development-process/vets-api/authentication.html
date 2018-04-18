@@ -84,7 +84,7 @@
     <span class="hljs-keyword">end</span>
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span></pre></code><h2 id="levels-of-assurance">Levels of Assurance</h2>
-<p>Vets-API provides guarantees that the user initiating the request is correlated to the identifying information within the User object. There are four possible Levels of Assurance provided based on the mechanism by which the user authenticated. Ensure you are familiar with each of them, and validate the proper LOA requirements appropriately in your integration’s policies. Please see <a href="./Authorization.md">Authorization</a> for details on how to provide services only to users authenticated with the proper LOA.</p>
+<p>Vets-API provides guarantees that the user initiating the request is correlated to the identifying information within the User object. There are four possible Levels of Assurance provided based on the mechanism by which the user authenticated. Ensure you are familiar with each of them, and validate the proper LOA requirements appropriately in your integration’s policies. Please see <a href="./authorization">Authorization</a> for details on how to provide services only to users authenticated with the proper LOA.</p>
 <p><strong>Level 1:</strong> There is no identity proofing requirement at this level. However, the fact that the user is able to authenticate to the identity provider gives some assurance. It means the identity provider has some relationship with the user because they have issued them a credential (username and password). Credentials are required to login.</p>
 <p><strong>Level 2:</strong> In addition to level 1, identity proofing requirements are introduced, requiring presentation of identifying materials or information. Credentials are required to login. (Vets.gov does not support this level of assurance currently).</p>
 <p><strong>Level 3:</strong> In addition to level 2, identity proofing procedures require verification of identifying materials and information. Both in-person and remote registration are permitted. Level 3 requires the same evidence for issuing credentials as Level 2; however at this level verification of the documents or references through record checks is required. ID.me facilitiates this through an industry recognized standard known as FICAM. Credentials are required are to login.</p>
@@ -442,6 +442,16 @@ namespace <span class="hljs-symbol">:v0</span>, <span class="hljs-symbol">defaul
     
         
         
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="development.html" data-pjax>
+                <span>Development</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
                 <span>Authentication</span>
@@ -455,16 +465,6 @@ namespace <span class="hljs-symbol">:v0</span>, <span class="hljs-symbol">defaul
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="authorization.html" data-pjax>
                 <span>Authorization</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="development.html" data-pjax>
-                <span>Development</span>
                 
             </a>
         </li>
@@ -569,8 +569,8 @@ namespace <span class="hljs-symbol">:v0</span>, <span class="hljs-symbol">defaul
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/architecture.html" data-pjax>
-                <span>Architecture</span>
+            <a class="Tree-entityLink" href="../vets-website/development.html" data-pjax>
+                <span>Development</span>
                 
             </a>
         </li>
@@ -579,8 +579,8 @@ namespace <span class="hljs-symbol">:v0</span>, <span class="hljs-symbol">defaul
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/development.html" data-pjax>
-                <span>Development</span>
+            <a class="Tree-entityLink" href="../vets-website/architecture.html" data-pjax>
+                <span>Architecture</span>
                 
             </a>
         </li>

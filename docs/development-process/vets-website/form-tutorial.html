@@ -91,7 +91,7 @@ yo @department-of-veterans-affairs/vets-website</pre></code><p>You can answer th
 ? What<span class="hljs-string">'s the OMB control number for this form? XX3344
 ? What'</span>s the OMB expiration date <span class="hljs-keyword">for</span> this form? 5/31/2018
 ? What<span class="hljs-string">'s the benefit description for this form? new form benefits</span></pre></code><p>After you run the generator, run <code>yarn watch</code> (or restart it if you already had it running) and navigate to <a href="http://localhost:3001/new-form">http://localhost:3001/new-form</a>. You should see something like this:</p>
-<p><img src="../images/forms/initial-form.png"/></p>
+<p><img src="/assets/develop/images/forms/initial-form.png" alt=""></p>
 <h2 id="updating-your-form">Updating your form</h2>
 <p>Now that you’re up and running, we can add a new page and field to our form. If you open up <code>src/js/new-form/config.js</code>, you should see a formConfig variable:</p>
 <code class="lang-js"><pre><span class="hljs-keyword">const</span> formConfig = {
@@ -146,7 +146,7 @@ yo @department-of-veterans-affairs/vets-website</pre></code><p>You can answer th
     }
   }
 }</pre></code><p>Now if you go to <a href="http://localhost:3001/new-form/first-page">http://localhost:3001/new-form/first-page</a> you should see this:</p>
-<p><img src="../images/forms/first-field.png"/></p>
+<p><img src="/assets/develop/images/forms/first-field.png" alt=""></p>
 <p>That’s not the most exciting field, but it’s a field! We can add a title to it by adding to <code>uiSchema</code>:</p>
 <code class="lang-js"><pre>page1: {
   <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
@@ -165,7 +165,7 @@ yo @department-of-veterans-affairs/vets-website</pre></code><p>You can answer th
     }
   }
 }</pre></code><p>That makes it look a little more presentable:</p>
-<p><img src="../images/forms/field-with-label.png"/></p>
+<p><img src="/assets/develop/images/forms/field-with-label.png" alt=""></p>
 <p>Note that <code>uiSchema</code> doesn’t follow exactly the same structure as <code>schema</code>: you don’t need the <code>properties</code> object. This is because <code>uiSchema</code> treats everything without a <code>ui:</code> prefix as a field name, which one exception for array fields.</p>
 <p>Changing the the <code>type</code> property in your field will change the data accepted and also the way it displays on the form. You can change it to be <code>boolean</code> and get a checkbox and <code>number</code> to get a number input. If you want a <code>select</code> box, you use JSON Schema’s <code>enum</code> property:</p>
 <code class="lang-js"><pre>page1: {
@@ -189,7 +189,7 @@ yo @department-of-veterans-affairs/vets-website</pre></code><p>You can answer th
     }
   }
 }</pre></code><p>That will get you a select box with options:</p>
-<p><img src="../images/forms/select-field.png"/></p>
+<p><img src="/assets/develop/images/forms/select-field.png" alt=""></p>
 <p>Some types of data might have different valid ways of asking the user for input. For example, a field that uses <code>enum</code> could also use radio buttons. You can change that with <code>ui:widget</code>:</p>
 <code class="lang-js"><pre>page1: {
   <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
@@ -213,7 +213,7 @@ yo @department-of-veterans-affairs/vets-website</pre></code><p>You can answer th
     }
   }
 }</pre></code><p>Now the form offers two radio buttons to choose from:</p>
-<p><img src="../images/forms/radio-buttons.png"/></p>
+<p><img src="/assets/develop/images/forms/radio-buttons.png" alt=""></p>
 <p>You can also mark fields as required, which will prevent you from moving to the next page without filling them out:</p>
 <code class="lang-js"><pre>page1: {
   <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
@@ -238,7 +238,7 @@ yo @department-of-veterans-affairs/vets-website</pre></code><p>You can answer th
     }
   }
 }</pre></code><p>If you do fill in the required information and click Continue, you’ll end up on the review page. The review page for our forms is generated based on your chapters and pages and provides a quick way to review the data that you’ve entered:</p>
-<p><img src="../images/forms/review.png"/></p>
+<p><img src="/assets/develop/images/forms/review.png" alt=""></p>
 <p>Note that if you refresh in the middle of the form, your data will be lost and the review page won’t have any content to edit.</p>
 <p>Once you’ve reviewed your form, you have to click the checkbox to agree to the privacy policy and then you can submit! For now, though, that Submit button will fail because there’s no api to submit the data to.</p>
 <p>That’s it! Continue on in our documentation to learn about building more complex forms and building out the whole process for building and submitting a new form.</p>
@@ -534,6 +534,16 @@ yo @department-of-veterans-affairs/vets-website</pre></code><p>You can answer th
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../vets-api/development.html" data-pjax>
+                <span>Development</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../vets-api/authentication.html" data-pjax>
                 <span>Authentication</span>
                 
@@ -546,16 +556,6 @@ yo @department-of-veterans-affairs/vets-website</pre></code><p>You can answer th
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../vets-api/authorization.html" data-pjax>
                 <span>Authorization</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-api/development.html" data-pjax>
-                <span>Development</span>
                 
             </a>
         </li>
@@ -660,8 +660,8 @@ yo @department-of-veterans-affairs/vets-website</pre></code><p>You can answer th
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="architecture.html" data-pjax>
-                <span>Architecture</span>
+            <a class="Tree-entityLink" href="development.html" data-pjax>
+                <span>Development</span>
                 
             </a>
         </li>
@@ -670,8 +670,8 @@ yo @department-of-veterans-affairs/vets-website</pre></code><p>You can answer th
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="development.html" data-pjax>
-                <span>Development</span>
+            <a class="Tree-entityLink" href="architecture.html" data-pjax>
+                <span>Architecture</span>
                 
             </a>
         </li>

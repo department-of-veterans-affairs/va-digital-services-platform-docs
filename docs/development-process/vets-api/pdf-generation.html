@@ -73,7 +73,7 @@
     
     
     <p>Vet-API provides PDF generation options that can be used to convert
-<a href="./Forms.md">Form</a> submissions into PDFs that are more easily handled by
+<a href="./forms">Form</a> submissions into PDFs that are more easily handled by
 existing VA processes. VBA forms may be submitted to the Central Mail API.</p>
 <ol>
 <li>Add the blank form to <code>lib/pdf_fill/forms/pdfs/#{form_id}.pdf</code></li>
@@ -112,18 +112,20 @@ existing VA processes. VBA forms may be submitted to the Central Mail API.</p>
  <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span></pre></code></li>
-<li>Add your new class to the <code>PdfFill::Filler::FORM_CLASSES</code> constant.<code class="lang-ruby"><pre>FORM_CLASSES = {
-<span class="hljs-string">'21P-530'</span> =&gt; PdfFill::Forms::Va21p53<span class="hljs-number">0</span>
-}.freeze</pre></code></li>
-<li>Run <code>PdfFill::Filler.fill_form</code>
-<code>`</code>ruby
-burial_claim = SavedClaim::Burial.find(1)<h1 id="lib-pdf_fill-forms-pdfs-form_id-pdf-must-point-to-the-empty-pdf">lib/pdf_fill/forms/pdfs/#{form_id}.pdf must point to the empty pdf</h1>
-<h1 id="and-pdffill-filler-form_classes-form_id-must-point-to-the-processing-class-you-made">and PdfFill::Filler::FORM_CLASSES[form_id] must point to the processing class you made</h1>
-burial_claim.form_id # =&gt; ‘21P-530’<h1 id="returns-the-path-to-a-filled-out-pdf">returns the path to a filled out pdf</h1>
-PdfFill::Filler.fill_form(burial_claim) # =&gt; “tmp/pdfs/21P-530_1.pdf”</li>
+<li>Add your new class to the <code>PdfFill::Filler::FORM_CLASSES</code> constant.</li>
 </ol>
-<p><code>`</code></p>
-
+<code class="lang-ruby"><pre>FORM_CLASSES = {
+  <span class="hljs-string">'21P-530'</span> =&gt; PdfFill::Forms::Va21p53<span class="hljs-number">0</span>
+}.freeze</pre></code><ol start="4">
+<li>Run <code>PdfFill::Filler.fill_form</code></li>
+</ol>
+<code class="lang-ruby"><pre>burial_claim = SavedClaim::Burial.find(<span class="hljs-number">1</span>)
+<span class="hljs-comment"># lib/pdf_fill/forms/pdfs/#{form_id}.pdf must point to the empty pdf</span>
+<span class="hljs-comment"># and PdfFill::Filler::FORM_CLASSES[form_id] must point to the processing class you made</span>
+burial_claim.form_id <span class="hljs-comment"># =&gt; '21P-530'</span>
+<span class="hljs-comment"># returns the path to a filled out pdf</span>
+PdfFill::Filler.fill_form(burial_claim) <span class="hljs-comment"># =&gt; "tmp/pdfs/21P-530_1.pdf"</span>
+</pre></code>
     
 
 
@@ -415,6 +417,16 @@ PdfFill::Filler.fill_form(burial_claim) # =&gt; “tmp/pdfs/21P-530_1.pdf”</li
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="development.html" data-pjax>
+                <span>Development</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="authentication.html" data-pjax>
                 <span>Authentication</span>
                 
@@ -427,16 +439,6 @@ PdfFill::Filler.fill_form(burial_claim) # =&gt; “tmp/pdfs/21P-530_1.pdf”</li
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="authorization.html" data-pjax>
                 <span>Authorization</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="development.html" data-pjax>
-                <span>Development</span>
                 
             </a>
         </li>
@@ -541,8 +543,8 @@ PdfFill::Filler.fill_form(burial_claim) # =&gt; “tmp/pdfs/21P-530_1.pdf”</li
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/architecture.html" data-pjax>
-                <span>Architecture</span>
+            <a class="Tree-entityLink" href="../vets-website/development.html" data-pjax>
+                <span>Development</span>
                 
             </a>
         </li>
@@ -551,8 +553,8 @@ PdfFill::Filler.fill_form(burial_claim) # =&gt; “tmp/pdfs/21P-530_1.pdf”</li
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/development.html" data-pjax>
-                <span>Development</span>
+            <a class="Tree-entityLink" href="../vets-website/architecture.html" data-pjax>
+                <span>Architecture</span>
                 
             </a>
         </li>
