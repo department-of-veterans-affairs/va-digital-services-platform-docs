@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Site Navigation (Language and Conventions) | Veteran-facing Tools Playbook</title>
+<title>Vets.gov Design Conventions | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Site Navigation (Language and Conventions)</h1>
+        <h1 class="Document-title">Vets.gov Design Conventions</h1>
         
 
 
@@ -72,60 +72,34 @@
 
     
     
-    <h2 id="bread-crumbs">Bread Crumbs</h2>
-<p>This IA element shows the Veteran the path to the current page or where the page lives in the IA (not all pages follow a path). Bread crumb text should be headline capped.</p>
-<h2 id="buttons">Buttons</h2>
-<p>Text for buttons should be headline capped.</p>
-<h2 id="title-of-page">Title of Page</h2>
-<p>The name of each page should be headline capped.</p>
-<h2 id="top-nav">Top Nav</h2>
-<p>Text for the top nav should be sentence capped.</p>
-<h2 id="linking-conventions">Linking Conventions</h2>
-<p>Opt for links set apart from text rather than embedded links. When possible, place links outside running text, either at the end of a paragraph or on a separate line following the paragraph. However, it is ok to embed links when we want to encourage the user to browse to find a link to a deeper page. PL stresses clarity in general and the use of calls to action specifically to enhance clarity. With embedded links, it can sometimes be fuzzy what one would be linking to. With links that are clear calls to action, it tells the user exactly what they’re going to do when they click the link.</p>
+    <p>Vets.gov’s design is based on the <a href="https://designsystem.digital.gov/">United States Web Design System</a> (USWDS) with some additional specifications to meet the needs of VA’s particular audience: Veterans and their families.</p>
+<h2 id="the-design-system">The Design System</h2>
+<p>The Vets.gov Design System documents these design patterns and the React code to express them. Using a design system can radically simplify the process of getting to a first draft. In many cases, it allows you to skip high fidelity prototypes and go directly to code, based on text outlines of the form structure. But in cases where you may need to figure out a new pattern, you can also use a <a href="/assets/design/templates/vets-gov-pattern-library.sketch">Sketch template file</a> as a starting point. It will allow you to quickly build screens using common static content and form patterns. From there you can link images together in InVision or another prototyping tool of choice.</p>
+<h2 id="design-conventions">Design Conventions</h2>
+<h3 id="keep-it-simple">Keep it simple</h3>
+<p>There is a lot of unavoidable complexity in VA policy and proceedure, we endeavor not to add to it. This manifests in a few ways:</p>
 <ul>
-<li>Use descriptive and actionable words and phrases that tell users where the link will take them. Don’t use the following non-informative, general link phrases:<ul>
-<li>Click here</li>
-<li>Learn more</li>
-<li>See more</li>
-<li>Read more</li>
+<li>Limit the number of decisions that a Veteran needs to make in one screen. We usually try to keep the number of questions under five. Two or three is even better.</li>
+<li>Find out what questions we need to ask. Sometimes we will “add” a question to simplfy things. Where a paper form might have a multicolumn table to ask questions about dependents, we will ask if they have any dependents. If the answer is no, we skip the table entirely. Similar for any fields that match an “if yes, please explain” pattern.</li>
+<li>Prefer simplicity over flexibility. It can feel helpful to give Veterans multiple ways or places to enter data. But this increases complexity and can end up being more confusing (and brittle) than reassuring.</li>
+<li>Minimize the number of fields. Social Security numbers and phone numbers are one field. We deal with dashes and other formatting on the back end.</li>
+<li>Minimize obfuscation. We don’t do the •••••••••• thing with SSN. Let people see the data they are entering.</li>
 </ul>
-</li>
-</ul>
-<p>It may make sense to start a link phrase with these words if the rest of the phrase is specific and descriptive. But you can often do without these overused words altogether by using more specific verbs or starting with key words. Above all, be sure your users know what to expect (where they will land) when they click.</p>
+<h3 id="reduce-data-entry">Reduce data entry</h3>
+<p>Everyone is frustrated having to enter data repeatedly, especially if it is stuff that VA should already know. Once someone is signed in, we should do eveything we can to reduce this.</p>
 <ul>
-<li><p>Pay attention to link length. Make the link long enough that it’s easy to click on. Don’t make it so long that the relevant words are lost among the less important words.</p>
+<li>Prefill data. We get as much data from VA systems as we can. If VA already knows it, we present it for review and help Veterans update if necessary.</li>
+<li>Embed small forms. If there is a small second form involved, we add the unique questions conditionally. We fill the common stuff (name, date of birth, etc.) in from the data we’ve already collected and submit both forms if necessary.</li>
+<li>Save in progress. Any Vets.gov form can save progress so that a Veteran who is interrupted can pick up again later.</li>
+</ul>
+<h3 id="limit-required-fields">Limit required fields</h3>
 <ul>
-<li>5-8 words for embedded links. Don’t link entire sentences in running text.</li>
-<li>Entire sentences or phrases when the link is set apart from the running text, either by placing it at the end of a paragraph or by inserting a space between the running text and the link.</li>
+<li>We work with stakeholders to make sure that we are only collecting data that we <em>need</em> to be able to deliver a benefit.</li>
 </ul>
-</li>
-<li><p>Don’t link ending punctuation. You don’t want the period to be underlined. If a string of words at the end of a sentence is linked, use punctuation (usually a period) as grammar would dictate, but don’t link it.</p>
-</li>
-<li><p><strong>Don’t</strong> code hyperlinks so they open in a new window: To keep the experience consistent across the entire Vets.gov website, we code all hyperlinks to behave in the same way.</p>
-</li>
-</ul>
-<h3 id="external-linking">External Linking</h3>
-<p>Vets.gov uses an icon to alert Veterans, without being overly burdensome, that a link will take them to an external site. We don’t use a pop-up or a modal warning. This standard practice does not apply to external links in the vets.gov footer, where no icon accompanies the links to Twitter, Facebook, and other external pages.</p>
-<ul>
-<li>An icon is autogenerated whenever there is a full link beginning with http, such as: <a href="http://vabenefits.vba.va.gov/vonapp/main.asp">http://vabenefits.vba.va.gov/vonapp/main.asp</a></li>
-<li>No icon will appear when a link is relative (one that begins with a forward slash followed by the Vets.gov section or page name) and takes Veterans to an internal vets.gov page, such as:
-/disability-benefits/conditions/ptsd/.</li>
-</ul>
-<p><strong>Note:</strong> The Office of Management and Budget (OMB) does not require the use of pop-up notifications for outbound links. See <a href="https://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m10-23.pdf">M-10-23</a> and <a href="https://www.whitehouse.gov/sites/default/files/omb/memoranda/fy2005/m05-04.pdf">M-05-04</a> for this official guidance.</p>
-<h2 id="interface-elements">Interface Elements</h2>
-<p>(Adapted from the <a href="https://pages.18f.gov/content-guide/technical-and-interface-writing/">“Technical and interface writing”</a> section of the 18F Content Guide.)</p>
-<p>Guide the customer with words reflective of the interface. Take the customer step by step through the process. Be specific about what the customer needs to click on or choose from. Use clear, active verbs to tell readers how to interact with interface elements:</p>
-<ul>
-<li><em>Choose</em> from drop-down menus.</li>
-<li><em>Select</em> or <em>deselect</em> checkboxes and radio buttons.</li>
-<li><em>Click</em> or <em>tap</em> buttons.</li>
-<li><em>Follow</em> or <em>open</em> links.</li>
-</ul>
-<p>Emphasize the name of the interface label by making it bold:</p>
-<p>In the <strong>File</strong> menu, choose <strong>Save</strong>.
-Select <strong>I agree</strong>.
-Click <strong>Continue</strong>.</p>
-<p>In tools such as Resume Builder and the Health Care Application, the boxes where Veterans enter information have descriptors above them identifying what information should be entered. For instance, “First name” and “Branch of service.” Sentence cap these descriptors (so, not “First Name” and “Branch of Service”).</p>
+<h3 id="digital-signatures">Digital signatures</h3>
+<p>Every paper form has at least one signature line. So far, the agreement to terms and submission of form has been stand in for a literal signature. We have not yet dealt with multi-party signatures.</p>
+<h3 id="being-specific">Being specific</h3>
+<p>We try not to assume too much context. Most people are not expert in VA benefits. In situations where we are collecting similar information about multiple parties (e.g. contact details) we clearly level at both the chunk and field level where practical. This is especially helpful to folks with memory issues (common in cases of TBI). This approach can be aided by building a list of people first, and then looping through the questions for each.</p>
 
     
 
@@ -289,29 +263,9 @@ Click <strong>Continue</strong>.</p>
             
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../design-patterns.html" data-pjax>
-                <span>Design Conventions</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../form-design-process.html" data-pjax>
-                <span>Form Design Process</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-using-plain-language">
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-design-process">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Using Plain Language</span>
+                <span>Design Process</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -322,58 +276,8 @@ Click <strong>Continue</strong>.</p>
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="plain-language.html" data-pjax>
-                <span>Plain Language Guide</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="voice-and-tone.html" data-pjax>
-                <span>Voice And Tone</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="word-choice.html" data-pjax>
-                <span>Word Choice</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="forms.html" data-pjax>
-                <span>Forms</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="content-and-structure.html" data-pjax>
-                <span>Content And Structure</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="style-and-formatting.html" data-pjax>
-                <span>Style and Formatting</span>
+            <a class="Tree-entityLink" href="design-process.html" data-pjax>
+                <span>Design Approach</span>
                 
             </a>
         </li>
@@ -383,6 +287,122 @@ Click <strong>Continue</strong>.</p>
         
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
+                <span>Design Conventions</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="form-design-process.html" data-pjax>
+                <span>Form Design Tips</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="prototyping.html" data-pjax>
+                <span>Prototyping Solutions</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-content-guide">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Content Guide</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../content-guide/plain-language.html" data-pjax>
+                <span>Plain Language</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../content-guide/voice-and-tone.html" data-pjax>
+                <span>Voice And Tone</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../content-guide/word-choice.html" data-pjax>
+                <span>Word Choice</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../content-guide/terms-and-conventions.html" data-pjax>
+                <span>Terms & Conventions</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../content-guide/forms.html" data-pjax>
+                <span>Forms</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../content-guide/content-and-structure.html" data-pjax>
+                <span>Content And Structure</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../content-guide/style-and-formatting.html" data-pjax>
+                <span>Style and Formatting</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../content-guide/site-navigation.html" data-pjax>
                 <span>Site navigation</span>
                 
             </a>
