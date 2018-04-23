@@ -7,7 +7,7 @@ label: Getting Started
 
 This Playbook is full of resources for teams across VA to build online applications that help Veterans get the services and benefits they deserve.
 
-## To find the right place dive in, identify what you want to do:
+## To find the right spot dive in, what would you like to do?
 
 ### [Follow steps to create a product on Vets.gov](../launch-prep/steps-to-launch)
 ### [Get code for modern VA web components and design patterns](../components/detail/colors.html)
