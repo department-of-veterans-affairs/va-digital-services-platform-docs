@@ -3,7 +3,7 @@ title: VA Digital Services Platform Documentation
 label: Getting Started
 ---
 
-# Welcome! Let's build some great apps together.
+# Welcome! Let's build great apps together.
 
 This Playbook is full of resources for teams across VA to build online applications that help Veterans get the services and benefits they deserve.
 
