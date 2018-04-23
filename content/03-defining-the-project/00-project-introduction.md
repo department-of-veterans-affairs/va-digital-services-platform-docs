@@ -5,7 +5,7 @@ label: Project Introduction
 
 There are 4 main phases to any project - and it all starts with...
 
-## Discovering and Defining the right solution
+## Discovering user and business challenges and needs
 In this first phase, the goal is to connect directly with real potential users to validate your assumptions on what you *think* people will find valuable, what kind of product you *think* will solve their main problems.
 
 Remember to stay open to having your hypotheses proven wrong. Changing approach at this phase is so much easier than after a product is live.
@@ -35,6 +35,6 @@ Update your Product Outline, and the Charter if anything has changed in Discover
 Find templates for detailing out the product vision through epics and user stories, so that the design can be fully fleshed out with the appropriate scope.
 
 ## You can also skip around to read about the other phases:
-- [Designing the user experience](../design-process/design-process.html)
+- [Designing and defining the user experience](../design-process/design-process.html)
 - [Developing your application](../development-process/getting-started.html)
 - [Deploying and market your application to live users](../?)
