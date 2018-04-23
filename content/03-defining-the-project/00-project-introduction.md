@@ -37,4 +37,4 @@ Find templates for detailing out the product vision through epics and user stori
 ## You can also skip around to read about the other phases:
 - [Designing and defining the user experience](../design-process/design-process.html)
 - [Staging and testing your application](../development-process/getting-started.html)
-- [Deploying and market your application to live users](../?)
+- [Deploying and marketing your application to live users](../?)
