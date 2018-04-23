@@ -24,7 +24,7 @@ Learn how to choose the research method that's right for your project, recruit u
 
 You should now be able to decide what small thing you want to design and test with users, to further validate whether the product is on the right track. Find guidance here on how to document your approach, define your team, stakeholders, and POCs, write up a Charter, and check in with all parties for feedback/blessings before you get too far.
 
-#### [Write up epics and user storeis](./)
+#### [Write up epics and user stories](./)
 
 Find templates for detailing out the product vision through epics and user stories so that design and development efforts can kick off with enough information.
 
