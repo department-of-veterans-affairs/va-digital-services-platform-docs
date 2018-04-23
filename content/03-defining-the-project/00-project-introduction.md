@@ -10,19 +10,25 @@ In this first phase, the goal is to connect directly with real potential users t
 
 Remember to stay open to having your hypotheses proven wrong. Changing approach at this phase is so much easier than after a product is live.
 
-### Steps
+### Resources
 
-#### [Set up a Product Outline](/docs/resources/templates/product-outline)
-
-This is a living document that should become more robust as you learn more about uers and refine the product requirements. You can start at this phase by documenting your assumptions or hypotheses about user pain points, VA pain points, what you think users need, and what you think VA's goals are.
+#### [Set up your Product documentation]
+- Product Outline: (/docs/resources/templates/product-outline): This is a living document that should become more robust as you learn more about uers and refine the product requirements. You can start at this phase by documenting your assumptions or hypotheses about user pain points, VA pain points, what you think users need, and what you think VA's goals are.
+- [Product Charter]: this is a document that will you align with stakeholders on the general approach, without getting into too much solution detail (since that will be further defined as you go). You can start filling it out
 
 #### [Research your user and stakeholder needs](./understanding-user-needs)
+- [Choose your research method(s)]: this is 18F's list of different Discovery methods. Browse to find a tactic that suits your projects needs, as well as instructions for how to perform that activity.
+- [Recruit users](): this is a guide for what kinds of channels and messaging to use when looking for Veterans, their family members, VSOs, or other potential users to talk to.
+- [Draft a research plan](): this is a guide for o make the most of your research sessions, you'll want to 
+- [Synthesize your findings](): this is a Research Synthesis template for presenting your findings in a way that's relevant for  making product or feature decisions.
 
-Learn how to choose the research method that's right for your project, recruit users to talk to, draft up a research plan to capture the info you need, perform the research, and finally synthesize your findings. Update your Product Outline as you go! Design plays a heavy role here as well, as you'll be iterating and testing and re-testing with appropriate groups.
+Remember to update your Product Outline as you go!
 
-#### [Review with POCs and Stakeholders](./)
+#### [Define team and get approval](./)
 
-You should now be able to decide what small thing you want to design and test with users, to further validate whether the product is on the right track. Find guidance here on how to document your approach, define your team, stakeholders, and POCs, write up a Charter, and check in with all parties for feedback/blessings before you get too far.
+- [Document team composition]: this is a template with recommendations for what types of folks to include in which capacities to ensure your project has the appropriate implementation resources and validation resources.
+
+Update your Product Outline, and the Charter if anything has changed in Discovery. Review these again with teammates to validate that there aren't concerns before you get too far.
 
 #### [Write up epics and user stories](./)
 
