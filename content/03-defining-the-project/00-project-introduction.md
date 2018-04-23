@@ -28,7 +28,7 @@ You should now be able to decide what small thing you want to design and test wi
 
 Find templates for detailing out the product vision through epics and user stories so that design and development efforts can kick off with enough information.
 
-## You can also skip head to read about the next phases:
+## You can also skip around to read about the other phases:
 - [Phase 2: Design the user experience](../design-process/design-process.html)
 - [Phase 3: Develop your application](../development-process/getting-started.html)
 - [Phase 4: Deploy and market your application to live users](../?)
