@@ -72,101 +72,116 @@
 
     
     
-    <p><strong>Stakeholders:</strong></p>
+    <h2 id="seek-deep-understanding-of-process">Seek deep understanding of process</h2>
+<p>VA benefits can have complex processes and requirements, and as an outsider it can take time to peel back all the layers. In our experience it can be helpful for all parties to take a step back and walk through the sequence with as fresh eyes as possible.</p>
 <ul>
-<li>Form owner</li>
-<li>Subject matter experts</li>
-<li>VA employees processing form</li>
-<li>VA or VSO folks helping Veterans to complete the form</li>
+<li>How do people find out about this benefit?</li>
+<li>Who is elegible?</li>
+<li>What is required to apply?</li>
+<li>What happens next?</li>
 </ul>
-<p><strong>Users</strong>:</p>
+<h3 id="audit-the-form">Audit the form</h3>
+<p>All these questions can reveal hidden complexity and communication challenges. Schedule a field by field review of the existing paper forms (and digital if they exist) with your business owner, and front line staff if possible. Every discipline should be involved at this point.</p>
 <ul>
-<li>Veterans</li>
-<li>Family members</li>
-<li>VA employees that help Veterans to complete the form</li>
+<li>How does this field impact the decision process?</li>
+<li>Is it required? If not, could it be removed?</li>
+<li>Are there any other questions that are related? Does it only apply to a subset of applicants?</li>
+<li>Does the label use familiar language?</li>
+<li>Do applicants make any common errors with this field?</li>
+<li>Does this field require one of a list of specific answers?</li>
+<li>Is there any way we can get the answer from a VA system?<ul>
+<li>If not, could we infer the answer from another response?</li>
 </ul>
-<h3 id="what-is-the-form-">What is the form?</h3>
+</li>
+<li>Is there any helpful context that would make the question easier to answer?</li>
+</ul>
+<p>Document this in a format that is readable and sharable with your team.</p>
 <ul>
-<li>Review paper form, in detail<ul>
-<li>Is the form currently being revised by the owner?</li>
+<li>CSV files will render in GitHub and can be edited with a spreadsheet app, regardless of platform. Limited formatting. <a href="">Template</a></li>
+<li>Outlining the form in a (markdown) text file can give you more formatting and is more easily editable _in_ GitHub. <a href="">Template</a></li>
 </ul>
-</li>
-<li>If it exists, review digital form, in detail<ul>
-<li>Create detailed flow diagram using screenshots of each decision point</li>
-</ul>
-</li>
-<li>Map fields in a spreadsheet <a href="/assets/design/templates/686-form-outline.csv">Example: Form 21-686</a></li>
-<li>Document all (or relevant) content</li>
-<li><strong>Interview stakeholder</strong>: Identify elements of offline experience<ul>
-<li>What kind of communication or followup happens after the form?</li>
-<li>Can the Veteran find out anything about their status, results, etc. through another online source?</li>
-</ul>
-</li>
-</ul>
-<h3 id="how-does-this-form-process-work-">How does this form process work?</h3>
+<p>If you reach decisions about removing questions, or altering them. Write the decisions down in a <a href="">Significant Decisions</a> file within your project directory. This will come in handy during later (why did we do this) discussions.</p>
+<h3 id="talk-to-users-of-the-form">Talk to users of the form</h3>
+<p>Interview people who have gone through the process before.</p>
 <ul>
-<li><strong>Interview stakeholder</strong>: Understand backend and human processes<ul>
-<li>Identify constraints for how data needs to be collected based on backend process</li>
+<li>What parts of the process were painful?</li>
+<li>What do you wish you’d known before you applied?</li>
 </ul>
-</li>
-<li><strong>Interview stakeholder</strong>: Prod for how fields are used in processing: computer, human or otherwise<ul>
-<li>Look for things that are a greater burden on the applicant than they a time saver to VA employees</li>
-<li>Look for ways the form could be tweaked to relieve burden from VA employees<ul>
-<li>Write the big ideas down in a <a href="/assets/design/templates/significant-decisions.md">significant decisions document</a></li>
-</ul>
-</li>
-<li>Are there any work-arounds being employed to process the forms now, that we might be breaking?</li>
-</ul>
-</li>
-<li>Note confusing form fields</li>
-<li>Identify related and potentially dependent questions<ul>
-<li>Find ways to only expose questions that are relevant</li>
-</ul>
-</li>
-</ul>
-<h3 id="who-uses-the-form-">Who uses the form?</h3>
+<h3 id="discuss-what-happens-next">Discuss What happens next</h3>
+<p>Talk through what happens after an application is submitted. Discuss both the VA, and applicant side. This will often reveal information that could be communicated to the applicant to prepare them and head off questions.</p>
 <ul>
-<li><strong>Interview stakeholder</strong>: Identify use cases for the form. Who and why.</li>
-<li><strong>Interview applicants</strong>: Interview form users to identify paint points (Commonly: Which form? What does this question mean? When do I fill out the form? How am I supposed to hear back?)</li>
-<li><strong>Interview applicants</strong>: Note work arounds that applicants commonly use to complete the form</li>
+<li>How does an applicant know that they have done all they need to do?</li>
+<li>How do they find out if something is wrong?</li>
+<li>How are they notified that the benefit is awarded?</li>
+<li>How long does it take?</li>
 </ul>
-<h3 id="confirm-scope">Confirm scope</h3>
+<h3 id="what-are-the-technical-constraints-">What are the technical constraints?</h3>
+<p>What systems are available to improve the application process? What are the complicating factors?</p>
 <ul>
-<li>Use design review process to confirm that functionality identified as out of scope is truly non-critical to the success of the form process.</li>
-</ul>
-<h3 id="how-should-the-form-work-">How should the form work?</h3>
-<ul>
-<li>Create an outline for each required chapter<ul>
-<li>Identify field types</li>
-<li>Identify conditional questions (only relevant if earlier question has specific answer)</li>
+<li>Is there a place to submit structured data?</li>
+<li>Do we need to make a PDF to submit?</li>
+<li>Are any critical services unavailable frequently?<ul>
+<li>How long are the outages?<ul>
+<li>Are there useful status codes?</li>
 </ul>
 </li>
-<li>Create punchlist of copy needs (Many of the field level elements may be straightforward or direct copies from other forms)<ul>
-<li>Look for outdated formats and conventions (Husband and Wife)</li>
+<li>Are they only available during specific hours?</li>
 </ul>
 </li>
-<li>If new interactions are required, note these with development team and work on high fidelity mocks of what this new pattern would look like.<ul>
-<li>Get feedback from wider design team</li>
-<li>Ask around to make sure new patterns aren’t reinventing the wheel</li>
-<li>Test new pattern</li>
+</ul>
+<h2 id="document-your-solution">Document your solution</h2>
+<p>Find what works best for your team! But we have had good success with lightweight text based docs for screen documentation, backed by diagrams to describe flow. We try to only go to high fidelity comps in the case of new patterns. We lean heavily on our design system.</p>
+<ol>
+<li>Break the form into screens, grouped by chapter.</li>
+<li>Identify field types<ul>
+<li>List possible answers where applicable</li>
+<li>Mark required (or not)</li>
+<li>Describe conditional relationships</li>
 </ul>
 </li>
+<li>Create a punchlist for any copy needs</li>
 <li>Think about entry and exit points for the form<ul>
 <li>Does your form require changes to navigation?</li>
 <li>Is related static content up to date?</li>
 <li>Are there any other places you should be able to get to the form from?</li>
 </ul>
 </li>
-</ul>
-<h3 id="usability-testing">Usability Testing</h3>
+</ol>
+<h3 id="examples">Examples</h3>
 <ul>
-<li>Wherever possible, use a live prototype to test the form process with applicants<ul>
-<li>Identify unclear language</li>
-<li>Check whether new patterns are working</li>
+<li><a href="">Example form outline</a></li>
+<li><a href="">Example flow diagram</a></li>
+</ul>
+<h2 id="other-things-we-have-run-into">Other things we have run into</h2>
+<ul>
+<li>Is the form currently being revised by the owner?</li>
+<li>Are there any workarounds employed in the processing of applications that we might break with changes?</li>
+<li>Outdated conventions in form questions<ul>
+<li>Inflexible labels like husband and wife</li>
+<li>Gender questions asked solely for salutation purposes</li>
 </ul>
 </li>
-<li>Iterate</li>
-<li>Test again!</li>
+<li>Forms are much easier to test in live code than image based prototypes<ul>
+<li>Participants can entering data will reveal problems that mocked in data won’t.</li>
+<li>Branching logic in image based prototypes is tedious and brittle</li>
+</ul>
+</li>
+</ul>
+<h2 id="people-to-involve">People to involve</h2>
+<p>Not all of these will apply in every situation, but it’s good to check.</p>
+<h3 id="stakeholders">Stakeholders</h3>
+<ul>
+<li>Benefit business owner</li>
+<li>Subject matter experts</li>
+<li>Front line staff who process the form</li>
+<li>VA or VSO folks helping applicant to complete the form</li>
+</ul>
+<h3 id="users">Users</h3>
+<ul>
+<li>Veterans</li>
+<li>Family members</li>
+<li>VA employees that help Veterans to complete the form</li>
+<li>Servicemembers</li>
 </ul>
 
     
