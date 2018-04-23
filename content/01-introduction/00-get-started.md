@@ -9,7 +9,7 @@ This Playbook is full of resources for teams across VA to build online applicati
 
 ## To find the right spot dive in, what would you like to do?
 
-### [Follow steps to create a product on Vets.gov](../launch-prep/steps-to-launch)
+### [Follow steps to create a product on Vets.gov](/creating%20an%20app%20on%20vetsdotgov/intro.md)
 ### [Get code for modern VA web components and design patterns](../components/detail/colors.html)
 ### [Browse resources on how to research, plan, design, and build great Veteran-facing tools](../defining-the-project/project-introduction)
 
