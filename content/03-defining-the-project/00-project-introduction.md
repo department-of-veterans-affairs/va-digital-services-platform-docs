@@ -18,8 +18,11 @@ This is a living document that should become more robust as you learn more about
 [Research your user and stakeholder needs](./understanding-user-needs)
 Learn how to choose the research method that's right for your project, recruit users to talk to, draft up a research plan to capture the info you need, perform the research, and finally synthesize your findings. Update your Product Outline as you go!
 
-[Write up epics and user storeis]
-You should now be able to decide what small thing you want to design and test with users, to further validate whether you're on the right track. BUT! Before you start designing, you need to document out the details of the intended scope and feature boundaries. Epics and User Stories are common tools for doing just that.
+[Review with POCs and Stakeholders](./)
+You should now be able to decide what small thing you want to design and test with users, to further validate whether the product is on the right track. Find guidance here on how to document your approach, define your team, stakeholders, and POCs, write up a Charter, and check in with all parties for feedback/blessings before you get too far.
+
+[Write up epics and user storeis](./)
+Find templates for detailing out the product vision through epics and user stories so that design and development efforts can kick off with enough information.
 
 ## You can also skip head to read about the next phases:
 - [Phase 2: Design the user experience](../design-process/design-process.html)
