@@ -1,9 +1,9 @@
 ---
-title: Designing things for Vets.gov
+title: Design
 label: Design Introduction
 ---
 
-# Designing the user experience
+# Designing and defining the user experience
 
 ## Listening
 Solving the problems people actually have, is critical to success. Projects often come out of someone’s passion to improve services. But that perspective can omit important factors. It's important to really poke at the edges of the idea to find trouble spots early in the process. Talking to the folks on the service side of the equation is
