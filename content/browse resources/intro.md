@@ -5,7 +5,7 @@ label: Introduction
 
 # Browing Product Lifecycle Resources
 
-No matter where you are in your current product's life cycle, these resources are here to help you work through challenges at each step, and infuse your decisions with user research.
+No matter where you are in your product's lifecycle, these resources are here to help you work through challenges at each step, and infuse your decisions with user research.
 
 ## The resources in this Playbook are organized by product lifecycle phase:
 
