@@ -13,7 +13,7 @@ Remember to stay open to having your hypotheses proven wrong. Changing approach 
 
 ## Resources
 
-- [Personas, problem statement, and assumptions](https://github.com/department-of-veterans-affairs/va-digital-services-platform-docs/blob/rr-edits/content/03-defining-the-project/01-understanding-user-needs.md): a guide to setting yourself up for Discovery, by documenting who your target users are, and what you believe to be true about their challenges and needs. 
+- [Draft personas, a problem statement, and assumptions](https://github.com/department-of-veterans-affairs/va-digital-services-platform-docs/blob/rr-edits/content/03-defining-the-project/01-understanding-user-needs.md): a guide to setting yourself up for Discovery, by documenting who your target users are, and what you believe to be true about their challenges and needs. 
 - [Create a Product Outline](/): a living document that should become more robust as you learn more about uers and refine the product requirements. You can start it in this phase by filling in your problem statement and assumptions, and can come back to refine it and add more information at the end of Discovery when you've learned more.
 - [Document your Team Composition](/): a template with recommendations for what types of roles to include on your team to ensure you have the appropriate implementation and validation resources.
 - [Create a Product Charter](/): an alignment document whose purpose is to make sure your general solution approach is agreed upon by all stakeholders -- without going to deep into solution detail, since that will be further defined after Discovery. 
