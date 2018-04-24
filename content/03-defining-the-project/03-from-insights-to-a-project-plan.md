@@ -1,5 +1,5 @@
 ---
-title: Transforming Research Insights in a Project Plan
+title: Transforming Research Insights Into a Project Plan
 label: From Insights to a Project Plan
 ---
 Now that your team has a strong understanding of your users’ needs, you can combine those insights with the your organization's business requirements to define project goals.
