@@ -3,14 +3,7 @@ title: Designing things for Vets.gov
 label: Design Introduction
 ---
 
-Every project should go through a thorough discovery process. Sometimes (always) a simple seeming project has hidden complexity.
-
-1. Listen to business, technical stakeholders, and Veterans to really understand the problem area
-2. Map out potential solutions
-3. Test those solutions with all groups above
-4. Apply feedback gleaned
-5. Coordinate with content team and overall site architecture
-6. Repeat until good enough to launch...
+# Designing the user experience
 
 ## Listening
 Solving the problems people actually have, is critical to success. Projects often come out of someone’s passion to improve services. But that perspective can omit important factors. It's important to really poke at the edges of the idea to find trouble spots early in the process. Talking to the folks on the service side of the equation is
