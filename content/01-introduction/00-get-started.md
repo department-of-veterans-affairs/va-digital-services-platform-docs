@@ -20,8 +20,11 @@ There are 5 basic steps. [Here's the overall checklist](https://github.com/depar
 7. Create a launch plan and work with the Vets.gov Platform team to deploy your app to live users 
 
 
-#### [Want to browse general resources on how to research, plan, design, and build great Veteran-facing tools?](https://github.com/department-of-veterans-affairs/va-digital-services-platform-docs/blob/rr-edits/content/browse%20resources/intro.md)
-#### [Want to get code for modern VA web components and design patterns?](https://github.com/department-of-veterans-affairs/va-digital-services-platform-docs/blob/rr-edits/content/components/intro.md)
+#### Want to browse general resources on how to research, plan, design, and build great Veteran-facing tools?
+[Check out the general Discovery, Design and Define, Stage, and Deploy resources in this Playbook].(https://github.com/department-of-veterans-affairs/va-digital-services-platform-docs/blob/rr-edits/content/browse%20resources/intro.md)
+
+#### Want to get code for modern VA web components and design patterns?
+[Go to the system elements to view the patterns and grab the code to replicate them](https://github.com/department-of-veterans-affairs/va-digital-services-platform-docs/blob/rr-edits/content/components/intro.md)
 
 ## Not sure where to start?
 Email [docs@va.gov](mailto:docs@va.gov) with questions and comments!
