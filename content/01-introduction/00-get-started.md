@@ -11,7 +11,7 @@ This Playbook is full of resources for teams across VA to build online applicati
 
 ### [Follow steps to create a product on Vets.gov](https://github.com/department-of-veterans-affairs/va-digital-services-platform-docs/blob/rr-edits/content/creating%20an%20app%20on%20vetsdotgov/intro.md)
 ### [Get code for modern VA web components and design patterns](../components/detail/colors.html)
-### [Browse resources on how to research, plan, design, and build great Veteran-facing tools](../defining-the-project/project-introduction)
+### [Browse resources on how to research, plan, design, and build great Veteran-facing tools](https://github.com/department-of-veterans-affairs/va-digital-services-platform-docs/blob/rr-edits/content/browse%20resources/intro.md)
 
 ## Not sure where to start?
 Email [docs@va.gov](mailto:docs@va.gov) with questions and comments!
