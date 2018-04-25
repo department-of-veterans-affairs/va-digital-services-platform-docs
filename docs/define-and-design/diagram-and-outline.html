@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Prototyping your designs for effective feedback | Veteran-facing Tools Playbook</title>
+<title>Diagram and Outline Product Flow | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Prototyping your designs for effective feedback</h1>
+        <h1 class="Document-title">Diagram and Outline Product Flow</h1>
         
 
 
@@ -72,43 +72,22 @@
 
     
     
-    <p>We take different approaches depending on the complexity of the situation. In all cases we start with the usual discovery activities</p>
+    <h2 id="diagraming-product-flows">Diagraming product flows</h2>
 <ul>
-<li>We don’t have a hard and fast rule for how this works, just that it is done</li>
-<li>Prototyping technique should balance speed with quality of feedback you can get<ul>
-<li>Sometimes you can do an outline and go straight to code</li>
-<li>Sometimes there are novel patterns that need more fidelity to narrow options before code makes sense<ul>
-<li>If we are doing something totally new, we do more exploration before moving forward</li>
+<li>Map out the entire flow of the benefit. How do Veterans move from screen to screen of the product?</li>
+<li>What conditional logic will affect that flow?</li>
+<li>What external systems will be touched, and when?</li>
+<li>Are there points where people will move in and out of your product? Are there any pauses or waiting involved?</li>
+<li>How are notifications handled?</li>
+<li>What error states can you anticipate?</li>
 </ul>
-</li>
-<li>We try to avoid sprawling hi-fidelity comps<ul>
-<li>They are brittle, and keeping them current is extra work</li>
-<li>Branching logic is more practical to prototype in code</li>
-<li>Work done in code is more likely to be reusable</li>
-<li>Live code allows real Veteran entered data to test assumptions, rather than pretty demo data</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Start with small screens<ul>
-<li>Not every process “feels” like a mobile activity, but some folks really only have ready access to the internet through phones</li>
-<li>The constraint is helpful in keeping interactions simple</li>
-</ul>
-</li>
-<li>Negotiate with your team to find the right approach</li>
-</ul>
-<h3 id="addendum-">Addendum:</h3>
+<h2 id="outlining-products">Outlining products</h2>
 <ul>
-<li>We use a few different tools to get this done<ul>
-<li>Text outlines (.csv, .md)</li>
-<li>Diagrams (.sketch)</li>
-<li>Visual design templates (.sketch, invision)<ul>
-<li>Craft logic, not hotspots</li>
+<li>Break flow up into screens. What interactions make sense to be grouped together?</li>
+<li>What are the states for each screen?</li>
+<li>Is there contextual help you can offer to clarify decisions?</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
+<p>This is a good time to start looking at the Design System and looking around for ways that similar situations are being adressed elsewhere on Vets.gov. Don’t unnecessarily reinvent the wheel. </p>
 
     
 
@@ -311,9 +290,9 @@
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-design-and-define">
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-define-and-design">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Design And Define</span>
+                <span>Define And Design</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -324,8 +303,28 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="design-and-define-intro.html" data-pjax>
-                <span>Design and Define Intro</span>
+            <a class="Tree-entityLink" href="define-and-design-introduction.html" data-pjax>
+                <span>Define & Design Intro</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="review-and-scope.html" data-pjax>
+                <span>Review & Scope</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                <span>Diagram & Outline</span>
                 
             </a>
         </li>
@@ -344,8 +343,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="form-design-process.html" data-pjax>
-                <span>Form Design Tips</span>
+            <a class="Tree-entityLink" href="visual-exploration.html" data-pjax>
+                <span>Visual Exploration</span>
                 
             </a>
         </li>
@@ -353,9 +352,39 @@
     
         
         
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
-                <span>Prototyping Solutions</span>
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="prototyping-and-testing.html" data-pjax>
+                <span>Prototyping & Testing</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="coordinate-content.html" data-pjax>
+                <span>Coordinate Content</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="incorporating-feedback.html" data-pjax>
+                <span>Incorporating Feedback</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="document-solutions.html" data-pjax>
+                <span>Document Solution</span>
                 
             </a>
         </li>
@@ -516,8 +545,18 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="form-design-process.html" data-pjax>
+                <span>Form Design Tips</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="set-up-your-workflow.html" data-pjax>
-                <span>Setting Up Your Workflow</span>
+                <span>Set Up Your Workflow</span>
                 
             </a>
         </li>

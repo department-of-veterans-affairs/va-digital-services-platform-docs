@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Messaging Dictionary | Veteran-facing Tools Playbook</title>
+<title>Site Navigation (Language and Conventions) | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Messaging Dictionary</h1>
+        <h1 class="Document-title">Site Navigation (Language and Conventions)</h1>
         
 
 
@@ -72,623 +72,60 @@
 
     
     
-    <p><em>Categories adapted from <a href="https://www.lightningdesignsystem.com/guidelines/messaging/types">Salesforce Lightning Design System</a></em></p>
-<h2 id="system-messaging">System messaging</h2>
-<p>Alerts the user of important system-related issues or status. It’s initiated by the system and it’s not a result of the user’s actions.</p>
-<p><strong>Note:</strong> See <a href="/docs/messaging-and-error-handling/messaging-design-guide#next-step-calls-to-action">content style guide</a> for guidance on when to consider adding instruction to call the Vets.gov Help Desk or other “next-step” call to action.</p>
-<h3 id="scheduled-downtime-notice">Scheduled downtime notice</h3>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Title</th>
-<th>Description</th>
-<th>Actions</th>
-<th>Component</th>
-<th>State</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Notice of upcoming scheduled downtime (sitewide)</td>
-<td><strong>Vets.gov will be down for maintenance soon</strong></td>
-<td>We’ll be doing some work on Vets.gov on [DATE] between [TIME] and [TIME]. If you have trouble using the site during that time, please check back soon.</td>
-<td>-</td>
-<td>Overlay</td>
-<td>Informational</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Notice of upcoming scheduled downtime (application)</td>
-<td><strong>[APPLICATION NAME] will be down for maintenance soon</strong></td>
-<td>We’ll be doing some work on [APPLICATION NAME] on [DATE] between [TIME] and [TIME]. If you have trouble using this tool during that time, please check back soon.</td>
-<td>-</td>
-<td>Overlay</td>
-<td>Informational</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Notice of upcoming scheduled downtime (authentication provider)</td>
-<td><strong>[ID.ME/DS LOGON/MYHEALTHEVET] will be down for maintenance soon</strong></td>
-<td>[ID.ME/DS LOGON/MYHEALTHEVET] will be down for maintenance on [DATE] between [TIME] and [TIME]. If you have trouble signing in to your Vets.gov account during that time, please check back soon.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Informational</td>
-<td>Below sign in overlay title</td>
-</tr>
-</tbody>
-</table>
-<h3 id="updates-to-user-data-system-initiated-">Updates to user data (system-initiated)</h3>
-<p><em>Some messages written to reflect the example; other variations will be added to expanded dictionary section.</em></p>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Title</th>
-<th>Description</th>
-<th>Actions</th>
-<th>Component</th>
-<th>State</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Status update (e.g. claim closed)</td>
-<td><strong>Your [CLAIM TYPE] claim update</strong></td>
-<td>Our records show that your claim was closed on [DATE].</td>
-<td>-</td>
-<td>Alert</td>
-<td>Informational</td>
-<td>Replace affected component</td>
-</tr>
-<tr>
-<td>Action required (e.g. claim evidence request)</td>
-<td><strong>We need your help to finish reviewing your claim</strong></td>
-<td>We need you to provide more evidence (supporting documents) so we can finish reviewing your claim.</td>
-<td>See Details</td>
-<td>Alert</td>
-<td>Warning</td>
-<td>Above affected component</td>
-</tr>
-<tr>
-<td>Form prefill notice</td>
-<td><strong>We’ve started your form for you</strong></td>
-<td>We’ve filled in some of this form based on information you’ve given us in the past. Please double check the information and update as needed.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Informational</td>
-<td>Above affected component</td>
-</tr>
-<tr>
-<td>Change in application feature, neutral/positive impact (e.g. SiP now available)</td>
-<td><strong>You can now save your in-progress applications</strong></td>
-<td>Sign in to Vets.gov to save your application so you can come back later to complete it. All you’ll need to sign in is an email and password.</td>
-<td>Sign in to Vets.gov</td>
-<td>Alert</td>
-<td>Informational</td>
-<td>Above affectected component</td>
-</tr>
-</tbody>
-</table>
-<h2 id="engagement-messaging">Engagement messaging</h2>
-<p>Nudges the user to enter or update data in the system. It can be initiated by either the system or another user.</p>
-<p><strong>*Note:</strong> See <a href="/docs/messaging-and-error-handling/messaging-design-guide#next-step-calls-to-action">content style guide</a> for guidance on when to consider adding instruction to call the Vets.gov Help Desk or other “next-step” call to action.*</p>
-<h3 id="prompt-to-complete-a-task-or-enter-data">Prompt to complete a task or enter data</h3>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Title</th>
-<th>Description</th>
-<th>Actions</th>
-<th>Component</th>
-<th>State</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Continue a saved benefit application</td>
-<td><strong>Still want to apply for [BENEFIT NAME]?</strong></td>
-<td>The application you started for [BENEFIT NAME] will expire on [EXPIRATION DATE]. If you’d still like to apply, you’ll need to submit the application by this date. Or, you can start a new application any time.</td>
-<td>[BUTTON 1] Continue Your Application [BUTTON 2] Start Over</td>
-<td>Alert</td>
-<td>Informational</td>
-<td>Replace affected component</td>
-</tr>
-<tr>
-<td>Set up 2-factor authentication</td>
-<td><strong>Want to make your Vets.gov account more secure?</strong></td>
-<td>You can add an optional extra layer of security (called 2-factor authentication) to your account. This helps to make sure that no one but you can access your account—even if they get your password.</td>
-<td>Secure Your Account</td>
-<td>Alert</td>
-<td>Informational</td>
-<td>Replace affected component</td>
-</tr>
-</tbody>
-</table>
-<h2 id="access-messaging">Access messaging</h2>
-<p>Appears when the user tries to access an item that’s not available to them. It may be because the record has been deleted, the user doesn’t have access, etc. etc.</p>
-<p><strong>*Note:</strong> See <a href="/docs/messaging-and-error-handling/messaging-design-guide#next-step-calls-to-action">content style guide</a> for guidance on when to consider adding instruction to call the Vets.gov Help Desk or other “next-step” call to action.*</p>
-<h3 id="system-downtime">System downtime</h3>
-<p>Variations in messaging will be contingent on:</p>
+    <h2 id="bread-crumbs">Bread Crumbs</h2>
+<p>This IA element shows the Veteran the path to the current page or where the page lives in the IA (not all pages follow a path). Bread crumb text should be headline capped.</p>
+<h2 id="buttons">Buttons</h2>
+<p>Text for buttons should be headline capped.</p>
+<h2 id="title-of-page">Title of Page</h2>
+<p>The name of each page should be headline capped.</p>
+<h2 id="top-nav">Top Nav</h2>
+<p>Text for the top nav should be sentence capped.</p>
+<h2 id="linking-conventions">Linking Conventions</h2>
+<p>Opt for links set apart from text rather than embedded links. When possible, place links outside running text, either at the end of a paragraph or on a separate line following the paragraph. However, it is ok to embed links when we want to encourage the user to browse to find a link to a deeper page. PL stresses clarity in general and the use of calls to action specifically to enhance clarity. With embedded links, it can sometimes be fuzzy what one would be linking to. With links that are clear calls to action, it tells the user exactly what they’re going to do when they click the link.</p>
 <ul>
-<li>Whether or not the downtime is scheduled/expected</li>
-<li>If scheduled, when the application will be back up (precise timestamp if known, general estimate if not)</li>
-<li>If not expected, general estimate of when the application will be back up</li>
+<li>Use descriptive and actionable words and phrases that tell users where the link will take them. Don’t use the following non-informative, general link phrases:<ul>
+<li>Click here</li>
+<li>Learn more</li>
+<li>See more</li>
+<li>Read more</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Title</th>
-<th>Description</th>
-<th>Actions</th>
-<th>Component</th>
-<th>State</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Entire site is not accessible (scheduled downtime)</td>
-<td><strong>Vets.gov is down for maintenance right now</strong></td>
-<td>We’re sorry. Vets.gov isn’t available right now. We’re doing some work to help make this site even better for Veterans, Servicemembers, and family members like you. We hope to be finished our work by [DATE/TIME]. Please check back then.</td>
-<td>-</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace page</td>
-</tr>
-<tr>
-<td>Entire site is not accessible (expected)</td>
-<td><strong>Vets.gov isn’t working right now</strong></td>
-<td>We’re sorry. Something went wrong on our end. Please refresh this page or try again [LENGTH OF TIME (ie, “tomorrow” or “in an hour”)]</td>
-<td>-</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace page</td>
-</tr>
-<tr>
-<td>Entire site is accessible</td>
-<td><strong>We’re working on the site</strong></td>
-<td>We’re doing some work on Vets.gov right now. You should still be able to use the site applications and tools. But if you have any trouble, please check back soon.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Warning</td>
-<td>Banner</td>
-</tr>
-<tr>
-<td>Application or page is not accessible</td>
-<td><strong>[APPLICATION NAME] isn’t working right now</strong></td>
-<td>We’re sorry. Something went wrong on our end. Please refresh this page or try again [LENGTH OF TIME (ie, “tomorrow” or “in an hour”)]. If it still doesn’t work, please call the Vets.gov Help Desk at 1-855-574-7286 (TTY: 1-800-829-4833). We’re here Monday–Friday, 8:00 a.m.–8:00 p.m. (ET).</td>
-<td>Go Back to Previous Page</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace page below title</td>
-</tr>
-<tr>
-<td>Application or page is accessible (general message; specific iterations to be added later)</td>
-<td><strong>Some features here may not be working</strong></td>
-<td>Something’s not working quite right. You can still use [APPLICATION/PAGE NAME], but some features may not be working. If you’re having trouble, please try again later.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Warning</td>
-<td>Below page title</td>
-</tr>
-<tr>
-<td>Component is not accessible (general message; specific iterations to be added later)</td>
-<td><strong>[COMPONENT NAME] isn’t working right now</strong></td>
-<td>We’re sorry. Something went wrong on our end. Please refresh this page or try again [LENGTH OF TIME (ie, “tomorrow” or “in an hour”)].</td>
-<td>Go Back to Previous Page</td>
-<td>Alert</td>
-<td>Warning</td>
-<td>Replace affected component</td>
-</tr>
-<tr>
-<td>Component is accessible (general message; <a href="https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Products/Design%20System/Guidelines/Error%20handling/Dictionary/Access%20Messaging.md">see application/component specific messages</a>)</td>
-<td><strong>Some information may not be current</strong></td>
-<td>We’re sorry. Something’s not working quite right. You can still use [COMPONTENT NAME], but you may not be seeing all of your updated information. If you’re having trouble, please try again [LENGTH OF TIME (ie, “tomorrow” or “in an hour”)].</td>
-<td>-</td>
-<td>Alert</td>
-<td>Warning</td>
-<td>Above affected component</td>
-</tr>
-<tr>
-<td>Unable to complete an automated task (e.g. save application in progress)</td>
-<td><strong>We couldn’t save your form</strong></td>
-<td>We’re sorry. Something went wrong when we tried to save your form. If you’re on a secure and private computer, you can leave this page open and try saving your form again in a few minutes. If you’re on a public computer, you can continue to fill out your form, but it won’t automatically save as you fill it out.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Below affected component</td>
-</tr>
-<tr>
-<td>Unable to complete a user-initiated task, can’t proceed</td>
-<td><strong>We’ve run into a problem</strong></td>
-<td>We’re sorry. Something went wrong on our end. Please try again.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>Unable to complete a user-initiated task, can still proceed</td>
-<td><strong>We’ve run into a problem</strong></td>
-<td>We’re sorry. Something went wrong on our end. You can try again, or move onto the next step and come back to complete this later.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Warning</td>
-<td>Above page title</td>
-</tr>
-</tbody>
-</table>
-<h3 id="network-connection-loss">Network connection loss</h3>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Title</th>
-<th>Description</th>
-<th>Actions</th>
-<th>Component</th>
-<th>State</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Application/page/component is not accessible due to user connection loss</td>
-<td><strong>We can’t load [APPLICATION/PAGE/COMPONENT NAME]</strong></td>
-<td>Please make sure you’re connected to the Internet and refresh this page to try again.</td>
-<td>Try again</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Below page title</td>
-</tr>
-<tr>
-<td>Unable to complete an automated task (e.g. save application in progress) due to user connection loss</td>
-<td><strong>We can’t save your form right now</strong></td>
-<td>Please make sure you’re connected to the Internet and then try saving your form again.</td>
-<td>Try again</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Below affected component</td>
-</tr>
-<tr>
-<td>Unable to complete a user-initiated task due to user connection loss</td>
-<td><strong>We’ve run into a problem</strong></td>
-<td>Please check to make sure you’re connected to the Internet and try again.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Above page title</td>
-</tr>
-</tbody>
-</table>
-<h3 id="authorization">Authorization</h3>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Title</th>
-<th>Description</th>
-<th>Actions</th>
-<th>Component</th>
-<th>State</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(Application) user’s records are not found</td>
-<td><strong>We can’t find your records</strong></td>
-<td>We’re sorry. We can’t find your records in our system. If you think they should be here, please try again later or call the Vets.gov Help Desk at 1-855-574-7286 (TTY: 1-800-829-4833). We’re here Monday–Friday, 8:00 a.m.–8:00 p.m. (ET).</td>
-<td>-</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace content below page title</td>
-</tr>
-<tr>
-<td>(Page) user’s records are not found</td>
-<td><strong>We can’t find your records</strong></td>
-<td>We’re sorry. We can’t find your records in our system. If you think they should be here, please try again later or call the Vets.gov Help Desk at 1-855-574-7286 (TTY: 1-800-829-4833). We’re here Monday–Friday, 8:00 a.m.–8:00 p.m. (ET).</td>
-<td>-</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace content below page title</td>
-</tr>
-<tr>
-<td>(Component) user’s records are not found</td>
-<td><strong>We can’t find your records</strong></td>
-<td>We’re sorry. We can’t find your records in our system. If you think they should be here, please try again later or call the Vets.gov Help Desk at 1-855-574-7286 (TTY: 1-800-829-4833). We’re here Monday–Friday, 8:00 a.m.–8:00 p.m. (ET).</td>
-<td>-</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace affected component</td>
-</tr>
-<tr>
-<td>(Application) user is not eligible for a benefit because they aren’t a Veteran/dependent/spouse</td>
-<td><strong>We can’t offer you this benefit right now</strong></td>
-<td>It looks like you’re not eligible for this benefit based on the information you’ve given us. Please check our eligibility information again.</td>
-<td>Check Your Eligibility</td>
-<td>-</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace content below page title</td>
-</tr>
-<tr>
-<td>(Application) user is not currently enrolled in a benefit (e.g. not enrolled in Post-9/11 GI Bill benefits)</td>
-<td><strong>You’re not enrolled in this benefit right now</strong></td>
-<td>It looks like you’re not signed up for this benefit. If you think you’re eligible, you can apply now.</td>
-<td>(1) Check Your Eligibility (2) Apply Now</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace content below page title</td>
-</tr>
-<tr>
-<td>(Application) user is not a VA patient</td>
-<td><strong>We can’t give you access to this tool right now</strong></td>
-<td>We’re sorry. Only patients who’ve received care at a VA facility can use Vets.gov health tools. If you’ve received care at a VA medical center, clinic, or Vet center, please call that facility to find out if you’re in their records.</td>
-<td>Find Your VA Facility</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace content below page title</td>
-</tr>
-</tbody>
-</table>
-<h3 id="empty-state">Empty state</h3>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Title</th>
-<th>Description</th>
-<th>Actions</th>
-<th>Component</th>
-<th>State</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(Application) No data tied to the user or scenario</td>
-<td><strong>No [DATA TYPE (ie, prescription refills or health records)] to show</strong></td>
-<td>We don’t have any [DATA TYPE] in our system to show here.</td>
-<td>-</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace content below page title</td>
-</tr>
-<tr>
-<td>(Page) no data tied to the user or scenario</td>
-<td><strong>No [DATA TYPE] to show</strong></td>
-<td>We don’t have any [DATA TYPE] in our system to show here.</td>
-<td>-</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace content below page title</td>
-</tr>
-<tr>
-<td>(Component) no data tied to the user or scenario</td>
-<td><strong>No [DATA TYPE] to show</strong></td>
-<td>We don’t have any [DATA TYPE] for you in our system.</td>
-<td>-</td>
-<td>Plain text</td>
-<td>-</td>
-<td>Replace affected component</td>
-</tr>
-</tbody>
-</table>
-<h2 id="feedback-messaging">Feedback messaging</h2>
-<p>The application’s response when the user is interacting with it. The majority of create, read, update, delete (CRUD) actions will result in feedback messaging.</p>
-<p><strong>*Note:</strong> See <a href="/docs/messaging-and-error-handling/messaging-design-guide#next-step-calls-to-action">content style guide</a> for guidance on when to consider adding instruction to call the Vets.gov Help Desk or other “next-step” call to action.*</p>
-<h3 id="task-completion-success-failure">Task completion success/failure</h3>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Title</th>
-<th>Description</th>
-<th>Actions</th>
-<th>Component</th>
-<th>State</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Form save in progress success (inline)</td>
-<td><strong>Success</strong></td>
-<td>The information you’ve entered so far has been saved.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Success</td>
-<td>Below affected component</td>
-</tr>
-<tr>
-<td>Form save in progress success (exit page)</td>
-<td><strong>Success</strong></td>
-<td>Your in-progress form has been saved. Remember, you need to finish the form and click “Submit” to apply for this benefit. Continue applying now, or come back later to finish your application.</td>
-<td>Continue Your Application</td>
-<td>Alert</td>
-<td>Success</td>
-<td>Below page title</td>
-</tr>
-<tr>
-<td>Form save in progress failure (inline)</td>
-<td><strong>Your form didn’t save</strong></td>
-<td>We’re sorry. We couldn’t save your form. Please try again.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Below affected component</td>
-</tr>
-<tr>
-<td>Form general error</td>
-<td><strong>We need you to start this application over</strong></td>
-<td>We’re sorry. We know this will cause you trouble, but something’s not working with this application. Please try applying again in a few minutes.</td>
-<td>Start Over</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Replace content below page title</td>
-</tr>
-<tr>
-<td>Form submission success</td>
-<td><strong>Success</strong></td>
-<td>Your form was submitted. Thank you.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Success</td>
-<td>Below page title</td>
-</tr>
-<tr>
-<td>Form submission failure, can save in progress</td>
-<td><strong>Please save this application and try again</strong></td>
-<td>We’re sorry. Your application didn’t go through. We’re working to fix the problem, but it may take us a while. Please save your application, and try again tomorrow.</td>
-<td>Save Your Application</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>Form submission failure, unable to save in progress</td>
-<td><strong>We need you to start this application over</strong></td>
-<td>We’re sorry. Your application didn’t go through, and you’ll need to start over. We suggest you wait a day while we fix this problem.</td>
-<td>-</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>Required form field is empty</td>
-<td></td>
-<td>Please fill in this required information.</td>
-<td>-</td>
-<td>Inline</td>
-<td>Error</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Form field entry is not valid</td>
-<td></td>
-<td>Please feel in a valid [address/email address/phone number].</td>
-<td>-</td>
-<td>Inline</td>
-<td>Error</td>
-<td>-</td>
-</tr>
-<tr>
-<td>File upload success</td>
-<td><strong>Success</strong></td>
-<td>We’ve uploaded your file. Thank you.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Success</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>File upload failure</td>
-<td><strong>Your file wasn’t updated</strong></td>
-<td>We’re sorry. We weren’t able to upload your file. Please try again.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>File download success</td>
-<td><strong>Success</strong></td>
-<td>Your file has been downloaded.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Success</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>File download failure</td>
-<td><strong>Your file didn’t download</strong></td>
-<td>We’re sorry. We weren’t able to download your file. Please try again.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>Message sent</td>
-<td><strong>Success</strong></td>
-<td>Your message was sent. Thank you.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Success</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>Message failed to send</td>
-<td><strong>Your message didn’t go through</strong></td>
-<td>We’re sorry. We couldn’t send your message. Please try again.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>Creation success</td>
-<td><strong>Success</strong></td>
-<td>Your file was created. Thank you.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Success</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>Creation failure</td>
-<td><strong>Your file wasn’t created</strong></td>
-<td>We’re sorry. We couldn’t create your file. Please try again.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>Deletion success</td>
-<td><strong>Success</strong></td>
-<td>Your file was deleted. Thank you.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Success</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>Deletion failure</td>
-<td><strong>Your file wasn’t deleted</strong></td>
-<td>We’re sorry. We couldn’t delete your file. Please try again.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>Update success</td>
-<td><strong>Success</strong></td>
-<td>Your file was updated. Thank you.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Success</td>
-<td>Above page title</td>
-</tr>
-<tr>
-<td>Update failure</td>
-<td><strong>Your file didn’t upload</strong></td>
-<td>We’re sorry. We couldn’t update your file. Please try again.</td>
-<td>Dismissible</td>
-<td>Alert</td>
-<td>Error</td>
-<td>Above page title</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
+<p>It may make sense to start a link phrase with these words if the rest of the phrase is specific and descriptive. But you can often do without these overused words altogether by using more specific verbs or starting with key words. Above all, be sure your users know what to expect (where they will land) when they click.</p>
+<ul>
+<li><p>Pay attention to link length. Make the link long enough that it’s easy to click on. Don’t make it so long that the relevant words are lost among the less important words.</p>
+<ul>
+<li>5-8 words for embedded links. Don’t link entire sentences in running text.</li>
+<li>Entire sentences or phrases when the link is set apart from the running text, either by placing it at the end of a paragraph or by inserting a space between the running text and the link.</li>
+</ul>
+</li>
+<li><p>Don’t link ending punctuation. You don’t want the period to be underlined. If a string of words at the end of a sentence is linked, use punctuation (usually a period) as grammar would dictate, but don’t link it.</p>
+</li>
+<li><p><strong>Don’t</strong> code hyperlinks so they open in a new window: To keep the experience consistent across the entire Vets.gov website, we code all hyperlinks to behave in the same way.</p>
+</li>
+</ul>
+<h3 id="external-linking">External Linking</h3>
+<p>Vets.gov uses an icon to alert Veterans, without being overly burdensome, that a link will take them to an external site. We don’t use a pop-up or a modal warning. This standard practice does not apply to external links in the vets.gov footer, where no icon accompanies the links to Twitter, Facebook, and other external pages.</p>
+<ul>
+<li>An icon is autogenerated whenever there is a full link beginning with http, such as: <a href="http://vabenefits.vba.va.gov/vonapp/main.asp">http://vabenefits.vba.va.gov/vonapp/main.asp</a></li>
+<li>No icon will appear when a link is relative (one that begins with a forward slash followed by the Vets.gov section or page name) and takes Veterans to an internal vets.gov page, such as:
+/disability-benefits/conditions/ptsd/.</li>
+</ul>
+<p><strong>Note:</strong> The Office of Management and Budget (OMB) does not require the use of pop-up notifications for outbound links. See <a href="https://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m10-23.pdf">M-10-23</a> and <a href="https://www.whitehouse.gov/sites/default/files/omb/memoranda/fy2005/m05-04.pdf">M-05-04</a> for this official guidance.</p>
+<h2 id="interface-elements">Interface Elements</h2>
+<p>(Adapted from the <a href="https://pages.18f.gov/content-guide/technical-and-interface-writing/">“Technical and interface writing”</a> section of the 18F Content Guide.)</p>
+<p>Guide the customer with words reflective of the interface. Take the customer step by step through the process. Be specific about what the customer needs to click on or choose from. Use clear, active verbs to tell readers how to interact with interface elements:</p>
+<ul>
+<li><em>Choose</em> from drop-down menus.</li>
+<li><em>Select</em> or <em>deselect</em> checkboxes and radio buttons.</li>
+<li><em>Click</em> or <em>tap</em> buttons.</li>
+<li><em>Follow</em> or <em>open</em> links.</li>
+</ul>
+<p>Emphasize the name of the interface label by making it bold:</p>
+<p>In the <strong>File</strong> menu, choose <strong>Save</strong>.
+Select <strong>I agree</strong>.
+Click <strong>Continue</strong>.</p>
+<p>In tools such as Resume Builder and the Health Care Application, the boxes where Veterans enter information have descriptors above them identifying what information should be entered. For instance, “First name” and “Branch of service.” Sentence cap these descriptors (so, not “First Name” and “Branch of Service”).</p>
 
     
 
@@ -891,9 +328,9 @@
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-design-and-define">
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-define-and-design">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Design And Define</span>
+                <span>Define And Design</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -904,8 +341,28 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../design-and-define-intro.html" data-pjax>
-                <span>Design and Define Intro</span>
+            <a class="Tree-entityLink" href="../define-and-design-introduction.html" data-pjax>
+                <span>Define & Design Intro</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../review-and-scope.html" data-pjax>
+                <span>Review & Scope</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../diagram-and-outline.html" data-pjax>
+                <span>Diagram & Outline</span>
                 
             </a>
         </li>
@@ -924,8 +381,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../form-design-process.html" data-pjax>
-                <span>Form Design Tips</span>
+            <a class="Tree-entityLink" href="../visual-exploration.html" data-pjax>
+                <span>Visual Exploration</span>
                 
             </a>
         </li>
@@ -934,8 +391,38 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../prototyping.html" data-pjax>
-                <span>Prototyping Solutions</span>
+            <a class="Tree-entityLink" href="../prototyping-and-testing.html" data-pjax>
+                <span>Prototyping & Testing</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../coordinate-content.html" data-pjax>
+                <span>Coordinate Content</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../incorporating-feedback.html" data-pjax>
+                <span>Incorporating Feedback</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../document-solutions.html" data-pjax>
+                <span>Document Solution</span>
                 
             </a>
         </li>
@@ -955,7 +442,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../content-guide/plain-language.html" data-pjax>
+            <a class="Tree-entityLink" href="plain-language.html" data-pjax>
                 <span>Plain Language</span>
                 
             </a>
@@ -965,7 +452,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../content-guide/voice-and-tone.html" data-pjax>
+            <a class="Tree-entityLink" href="voice-and-tone.html" data-pjax>
                 <span>Voice And Tone</span>
                 
             </a>
@@ -975,7 +462,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../content-guide/word-choice.html" data-pjax>
+            <a class="Tree-entityLink" href="word-choice.html" data-pjax>
                 <span>Word Choice</span>
                 
             </a>
@@ -985,7 +472,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../content-guide/terms-and-conventions.html" data-pjax>
+            <a class="Tree-entityLink" href="terms-and-conventions.html" data-pjax>
                 <span>Terms & Conventions</span>
                 
             </a>
@@ -995,7 +482,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../content-guide/forms.html" data-pjax>
+            <a class="Tree-entityLink" href="forms.html" data-pjax>
                 <span>Forms</span>
                 
             </a>
@@ -1005,7 +492,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../content-guide/content-and-structure.html" data-pjax>
+            <a class="Tree-entityLink" href="content-and-structure.html" data-pjax>
                 <span>Content And Structure</span>
                 
             </a>
@@ -1015,7 +502,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../content-guide/style-and-formatting.html" data-pjax>
+            <a class="Tree-entityLink" href="style-and-formatting.html" data-pjax>
                 <span>Style and Formatting</span>
                 
             </a>
@@ -1024,8 +511,8 @@
     
         
         
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../content-guide/site-navigation.html" data-pjax>
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 <span>Site navigation</span>
                 
             </a>
@@ -1051,7 +538,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="messaging-and-errors.html" data-pjax>
+            <a class="Tree-entityLink" href="../messaging-and-errors/messaging-and-errors.html" data-pjax>
                 <span>Messaging and Errors</span>
                 
             </a>
@@ -1061,7 +548,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="messaging-design-guide.html" data-pjax>
+            <a class="Tree-entityLink" href="../messaging-and-errors/messaging-design-guide.html" data-pjax>
                 <span>Messaging Design Guide</span>
                 
             </a>
@@ -1070,8 +557,8 @@
     
         
         
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../messaging-and-errors/messaging-dictionary.html" data-pjax>
                 <span>Messaging Dictionary</span>
                 
             </a>
@@ -1081,7 +568,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="downtime-notifications.html" data-pjax>
+            <a class="Tree-entityLink" href="../messaging-and-errors/downtime-notifications.html" data-pjax>
                 <span>Downtime Notifications</span>
                 
             </a>
@@ -1096,8 +583,18 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../form-design-process.html" data-pjax>
+                <span>Form Design Tips</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../set-up-your-workflow.html" data-pjax>
-                <span>Setting Up Your Workflow</span>
+                <span>Set Up Your Workflow</span>
                 
             </a>
         </li>
