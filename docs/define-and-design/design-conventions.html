@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Vets.gov Design Conventions | Veteran-facing Tools Playbook</title>
+<title>Design Conventions | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Vets.gov Design Conventions</h1>
+        <h1 class="Document-title">Design Conventions</h1>
         
 
 
@@ -72,15 +72,11 @@
 
     
     
-    <p>Vets.gov’s design is based on the <a href="https://designsystem.digital.gov/">United States Web Design System</a> (USWDS) with some additional specifications to meet the needs of VA’s particular audience: Veterans and their families.</p>
-<h2 id="the-design-system">The Design System</h2>
-<p>The Vets.gov Design System documents these design patterns and the React code to express them. Using a design system can radically simplify the process of getting to a first draft. In many cases, it allows you to skip high fidelity prototypes and go directly to code, based on text outlines of the form structure. But in cases where you may need to figure out a new pattern, you can also use a <a href="/assets/design/templates/vets-gov-pattern-library.sketch">Sketch template file</a> as a starting point. It will allow you to quickly build screens using common static content and form patterns. From there you can link images together in InVision or another prototyping tool of choice.</p>
-<h2 id="design-conventions">Design Conventions</h2>
-<h3 id="keep-it-simple">Keep it simple</h3>
+    <h3 id="keep-it-simple">Keep it simple</h3>
 <p>There is a lot of unavoidable complexity in VA policy and procedure, we endeavor not to add to it. This manifests in a few ways:</p>
 <ul>
 <li>Limit the number of decisions that a Veteran needs to make in one screen. We usually try to keep the number of questions under five. Two or three is even better.</li>
-<li>Find out what questions we need to ask. Sometimes we will “add” a question to simplfy things. Where a paper form might have a multicolumn table to ask questions about dependents, we will ask if they have any dependents. If the answer is no, we skip the table entirely. Similar for any fields that match an “if yes, please explain” pattern.</li>
+<li>Find out what questions we need to ask. Sometimes we will “add” a question to simplify things. Where a paper form might have a multicolumn table to ask questions about dependents, we will ask if they have any dependents. If the answer is no, we skip the table entirely. Similar for any fields that match an “if yes, please explain” pattern.</li>
 <li>Prefer simplicity over flexibility. It can feel helpful to give Veterans multiple ways or places to enter data. But this increases complexity and can end up being more confusing (and brittle) than reassuring.</li>
 <li>Minimize the number of fields. Social Security numbers and phone numbers are one field. We deal with dashes and other formatting on the back end.</li>
 <li>Minimize obfuscation. We don’t do the •••••••••• thing with SSN. Let people see the data they are entering.</li>
@@ -100,6 +96,8 @@
 <p>Every paper form has at least one signature line. So far, the agreement to terms and submission of form has been stand in for a literal signature. We have not yet dealt with multi-party signatures.</p>
 <h3 id="being-specific">Being specific</h3>
 <p>We try not to assume too much context. Most people are not expert in VA benefits. In situations where we are collecting similar information about multiple parties (e.g. contact details) we clearly level at both the chunk and field level where practical. This is especially helpful to folks with memory issues (common in cases of TBI). This approach can be aided by building a list of people first, and then looping through the questions for each.</p>
+<!-- Next Button -->
+<p><a href='./visual-design'><div class="next-button"><h5 class="next-text">Next: Vets.gov Visual Design</h5></div></a></p>
 
     
 
@@ -355,8 +353,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="visual-exploration.html" data-pjax>
-                <span>Visual Exploration</span>
+            <a class="Tree-entityLink" href="visual-design.html" data-pjax>
+                <span>Visual Design</span>
                 
             </a>
         </li>
@@ -518,7 +516,7 @@
         
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../building-and-testing/building-and-testing-intro.html" data-pjax>
-                <span>Building and Testing Intro</span>
+                <span>Build and Test Intro</span>
                 
             </a>
         </li>
@@ -539,6 +537,72 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../building-and-testing/qa.html" data-pjax>
                 <span>Quality Assurance</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-deploy-your-app">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Deploy Your App</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../deploy-your-app/deploy-intro.html" data-pjax>
+                <span>Deploy Intro</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../deploy-your-app/ato.html" data-pjax>
+                <span>ATO</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../deploy-your-app/url-creation.html" data-pjax>
+                <span>URL Creation</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../deploy-your-app/contact-call-center.html" data-pjax>
+                <span>Contact Call Center</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../deploy-your-app/prepare-marketing-material.html" data-pjax>
+                <span>Prepare Marketing Material</span>
                 
             </a>
         </li>
@@ -778,9 +842,20 @@
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-docs-collection-forms">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Forms</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/form-tutorial.html" data-pjax>
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/form-tutorial.html" data-pjax>
                 <span>Form Tutorial</span>
                 
             </a>
@@ -790,7 +865,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/form-intermediate.html" data-pjax>
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/form-intermediate.html" data-pjax>
                 <span>Form Intermediate</span>
                 
             </a>
@@ -800,7 +875,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/common-definitions.html" data-pjax>
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/common-definitions.html" data-pjax>
                 <span>Common Definitions</span>
                 
             </a>
@@ -810,10 +885,45 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/unit-tests.html" data-pjax>
-                <span>Unit Tests</span>
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/tests.html" data-pjax>
+                <span>Tests</span>
                 
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/submitting.html" data-pjax>
+                <span>Submitting</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/save-in-progress.html" data-pjax>
+                <span>Save In Progress</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/production.html" data-pjax>
+                <span>Production</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -827,72 +937,6 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../vets-developer-docs/google-analytics.html" data-pjax>
                 <span>Google Analytics</span>
-                
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-deploy-your-app">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Deploy Your App</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../deploy-your-app/deploy-intro.html" data-pjax>
-                <span>Deploy Intro</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../deploy-your-app/ato.html" data-pjax>
-                <span>ATO</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../deploy-your-app/url-creation.html" data-pjax>
-                <span>URL Creation</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../deploy-your-app/contact-call-center.html" data-pjax>
-                <span>Contact Call Center</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../deploy-your-app/prepare-marketing-material.html" data-pjax>
-                <span>Prepare Marketing Material</span>
                 
             </a>
         </li>

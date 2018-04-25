@@ -72,20 +72,17 @@
 
     
     
-    <h3 id="what-are-the-technical-constraints-">What are the technical constraints?</h3>
-<p>What systems are available to improve the application process? What are the complicating factors?</p>
+    <p>At this point it is great to do a technical assessment of the decisions that are happening in design. There may be technical constraints to consider or data flows that impact design. Here are some questions to discuss with your engineering team that can help bring clarity to your team’s design and development approach.</p>
 <ul>
-<li>Is there a place to submit structured data?</li>
-<li>Do we need to make a PDF to submit?</li>
-<li>Are any critical services unavailable frequently?<ul>
-<li>How long are the outages?<ul>
-<li>Are there useful status codes?</li>
+<li>How does the information architecture and conditional logic effect the way the engineers develop their schemas?</li>
+<li>Does any information need to be uploaded by the user? How will that uploaded information be stored/sent?</li>
+<li>Does your user experience have any unique scenarios that aren’t currently present in the Vets.gov Design Patterns?</li>
+<li>Does the user submit data? How will the submitted data be structured? Does a PDF need to be generated?</li>
+<li>Are any backend services that are relied upon frequently unavailable? How does that affect error messaging to the user?</li>
 </ul>
-</li>
-<li>Are they only available during specific hours?</li>
-</ul>
-</li>
-</ul>
+<p>These questions and the decisions that stem from them are integral to both defining an ideal user experience and determining the appropriate development strategies. Try to communicate decisions between design and engineering frequently, while continuing to document decisions in your Product Outline.</p>
+<!-- Next Button -->
+<p><a href='./prototyping-and-testing'><div class="next-button"><h5 class="next-text">Next: Prototyping Your Designs for Effective Feedback</h5></div></a></p>
 
     
 
@@ -341,8 +338,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="visual-exploration.html" data-pjax>
-                <span>Visual Exploration</span>
+            <a class="Tree-entityLink" href="visual-design.html" data-pjax>
+                <span>Visual Design</span>
                 
             </a>
         </li>
@@ -504,7 +501,7 @@
         
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../building-and-testing/building-and-testing-intro.html" data-pjax>
-                <span>Building and Testing Intro</span>
+                <span>Build and Test Intro</span>
                 
             </a>
         </li>
@@ -525,6 +522,72 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../building-and-testing/qa.html" data-pjax>
                 <span>Quality Assurance</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-deploy-your-app">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Deploy Your App</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../deploy-your-app/deploy-intro.html" data-pjax>
+                <span>Deploy Intro</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../deploy-your-app/ato.html" data-pjax>
+                <span>ATO</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../deploy-your-app/url-creation.html" data-pjax>
+                <span>URL Creation</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../deploy-your-app/contact-call-center.html" data-pjax>
+                <span>Contact Call Center</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../deploy-your-app/prepare-marketing-material.html" data-pjax>
+                <span>Prepare Marketing Material</span>
                 
             </a>
         </li>
@@ -764,9 +827,20 @@
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-docs-collection-forms">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Forms</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/form-tutorial.html" data-pjax>
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/form-tutorial.html" data-pjax>
                 <span>Form Tutorial</span>
                 
             </a>
@@ -776,7 +850,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/form-intermediate.html" data-pjax>
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/form-intermediate.html" data-pjax>
                 <span>Form Intermediate</span>
                 
             </a>
@@ -786,7 +860,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/common-definitions.html" data-pjax>
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/common-definitions.html" data-pjax>
                 <span>Common Definitions</span>
                 
             </a>
@@ -796,10 +870,45 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/unit-tests.html" data-pjax>
-                <span>Unit Tests</span>
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/tests.html" data-pjax>
+                <span>Tests</span>
                 
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/submitting.html" data-pjax>
+                <span>Submitting</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/save-in-progress.html" data-pjax>
+                <span>Save In Progress</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../vets-developer-docs/vets-website/forms/production.html" data-pjax>
+                <span>Production</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -813,72 +922,6 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../vets-developer-docs/google-analytics.html" data-pjax>
                 <span>Google Analytics</span>
-                
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-deploy-your-app">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Deploy Your App</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../deploy-your-app/deploy-intro.html" data-pjax>
-                <span>Deploy Intro</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../deploy-your-app/ato.html" data-pjax>
-                <span>ATO</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../deploy-your-app/url-creation.html" data-pjax>
-                <span>URL Creation</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../deploy-your-app/contact-call-center.html" data-pjax>
-                <span>Contact Call Center</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../deploy-your-app/prepare-marketing-material.html" data-pjax>
-                <span>Prepare Marketing Material</span>
                 
             </a>
         </li>
