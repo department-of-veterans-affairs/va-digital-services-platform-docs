@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Quality Assurance | Veteran-facing Tools Playbook</title>
+<title>Automated Testing | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Quality Assurance</h1>
+        <h1 class="Document-title">Automated Testing</h1>
         
 
 
@@ -72,69 +72,144 @@
 
     
     
-    <h2 id="cross-browser-testing">Cross Browser Testing</h2>
-<p>Before your app is ready to go live, it’s important to run through the user experience in different browsers to ensure that nothing breaks.</p>
+    <h2 id="automated-508-accessibility-tests">Automated 508 Accessibility Tests</h2>
+<p>The intent of this script is to create a common language, extensible functions, and predictable test runs for automated keyboard testing. For the initial test script, I used custom <code>data-</code> attributes that take cues from Java and BEM naming conventions:</p>
 <ul>
-<li><a href="/assets/launch/templates/manual-testing.csv">Cross Browser Testing Template</a></li>
-<li><a href="/assets/launch/templates/test-users.csv">Test User Accounts</a></li>
+<li><code>data-nwId=&quot;</code></li>
+<li><code>page-name</code></li>
+<li><code>-blockContainer-N-</code></li>
+<li><code>-htmlElement-N&quot;</code></li>
 </ul>
-<p><em>Manual Testing Example</em>
-<img src="/assets/launch/images/manual-testing-example.png" alt=""></p>
-<h2 id="manual-508-accessibility-testing">Manual 508 Accessibility Testing</h2>
-<p>Manual accessibility testing often comes down to subjective reasoning. If something doesn’t feel right, it probably isn’t, and should be logged as an error. Your answers will help determine the accessibility heat index score for the application or site being tested.</p>
-<h4 id="screen-readers-five-or-more-errors">Screen readers - five or more errors</h4>
-<p>Screen reader errors can fall under any of the following categories. Additionally, if an interface, page update, timing, etc. doesn’t feel right during testing, consider it an error.</p>
-<h5 id="errors-might-include-">Errors might include:</h5>
-<ul>
-<li>Buttons or links that do not provide clear understanding of their function. This could sound like “Edit”, without telling a non-sighted user “Edit…what?”</li>
-<li>Dynamic content being added or removed from the page without announcing a change. * Alert boxes, forms with hidden questions, continue links, are good items to consider.</li>
-<li>Overly long explanations</li>
-<li>Content that is too far removed from an explanation, or with no explanation at all</li>
-<li>Heading mistakes:<ul>
-<li>H1 at top of page, then next heading is an H4</li>
-<li>Headings that are nested improperly (H3 inside an H4, for instance)</li>
-<li>Content that looks like a heading, but is marked up as a div or paragraph</li>
-</ul>
-</li>
-<li>Missing landmark HTML. This includes banner, navigation, main, aside, footer elements, or divs with role attributes. These help screen reader users navigate through pages.</li>
-</ul>
-<h5 id="screen-reader-pairings-">Screen reader pairings:</h5>
-<ul>
-<li><a href="https://webaim.org/articles/jaws/">Test using JAWS + IE11 on Win7/10</a></li>
-<li><a href="https://www.youtube.com/watch?v=Vx1vSd5uYS8">Test using NVDA + Firefox on Win7/10 - VIDEO</a></li>
-<li><a href="https://webaim.org/articles/voiceover/">Test using VoiceOver + Safari on OSX</a></li>
-</ul>
-<h4 id="keyboard-navigation-five-or-more-errors">Keyboard navigation - five or more errors</h4>
-<p>Errors can fall under any of the following categories. Additionally, if during your testing or user testing, something doesn’t feel quite right, consider it an error.</p>
-<ul>
-<li><a href="https://webaim.org/techniques/keyboard/">Ensure all pages can be navigated with keyboard</a></li>
-<li>Ensure no links, buttons, or form elements are unreachable using Tab, Shift + Tab</li>
-<li>Ensure custom rich components can be navigated using keyboard, arrow keys</li>
-<li>Skip navigation link should be on all pages with navigation, large numbers of links</li>
-<li>Ensure users are not having to Tab multiple times through menus, large lists, or other navigational elements to get to main content blocks.</li>
-</ul>
-<h4 id="active-focus-management-single-page-apps-only-two-or-more-errors">Active focus management (single-page apps only) - two or more errors</h4>
-<p>Developer-driven focus management is programmatically setting keyboard focus after users take an action. This usually becomes an error when we load a new “page” in a React, Angular, Vue application. The URL bar might change, but most likely a small fragment of the page is the only thing being changed. If we do not actively tell the browser to put focus at the top of that fragment, keyboard and screen reader users are at a significant disadvantage.</p>
-<ul>
-<li><a href="https://adhocteam.us/2018/02/20/developer-driven-focus-management-for-single-page-applications/">Developer-driven focus management</a></li>
-</ul>
-<h4 id="color-blindness-five-or-more-errors">Color blindness - five or more errors</h4>
-<ul>
-<li>Check for colorblindness issues in live sites using the Chrome <a href="https://chrome.google.com/webstore/detail/colorblinding/dgbgleaofjainknadoffbjkclicbbgaa?hl=en">Colorblinding plugin</a></li>
-<li>Make sure images, actionable buttons, links, alerts, etc. have enough context when color is removed. For instance:<ul>
-<li>If links look like regular text when color is removed</li>
-<li>Calls to action in hero banners or images should be legible across the spectrum</li>
-</ul>
-</li>
-</ul>
-<h4 id="zoom-your-screen-to-400-three-or-more-errors">Zoom your screen to 400% - three or more errors</h4>
-<ul>
-<li>Set your browser to 1280px width, and scale up to 400%</li>
-<li>Mobile menus that take over the whole page should receive focus when opened, so users don’t have to tab multiple times</li>
-<li>Content should not overlap, or force users to scroll horizontally</li>
-<li>All content should still be available. Do not hide things from mobile users.</li>
-</ul>
+<p>So a typical data attribute might look like <code>data-nwID=&quot;index-form-1-input-1&quot;</code>. The naming scheme is verbose, but I believe it offers a way for UX and research to map user workflows with respect to forms and rich widgets.</p>
+<code class="lang-javascript"><pre><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-string">'INDEX: Assert 1 TAB to load page Content 1'</span>: <span class="hljs-function"><span class="hljs-params">client</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> { ENTER, TAB } = client.Keys;
 
+    client
+      .url(<span class="hljs-string">'http://localhost:8080'</span>)
+      .waitForElementVisible(<span class="hljs-string">'[data-nwId="body-index"]'</span>)
+      .assert.isActiveElement(<span class="hljs-string">'[data-nwId="body-index"]'</span>)
+      .keys(TAB)
+      .assert.isActiveElement(<span class="hljs-string">'[data-nwId="link-content-1"]'</span>)
+      .keys(ENTER);
+  },
+
+  <span class="hljs-string">'CONTENT-1: Assert text inputs can be tabbed'</span>: <span class="hljs-function"><span class="hljs-params">client</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> { TAB } = client.Keys;
+    <span class="hljs-keyword">const</span> base = <span class="hljs-string">'[data-nwId="content-1'</span>;
+    <span class="hljs-keyword">const</span> body = <span class="hljs-string">`<span class="hljs-subst">${base}</span>-body"]`</span>;
+    <span class="hljs-keyword">const</span> form1 = <span class="hljs-string">`<span class="hljs-subst">${base}</span>-form-1`</span>;
+    <span class="hljs-keyword">const</span> inputs = [
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-input-1"]`</span>, <span class="hljs-string">'Josephine Rogers'</span>],
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-input-2"]`</span>, <span class="hljs-string">'29'</span>],
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-input-3"]`</span>, <span class="hljs-string">'josephine@test.com'</span>],
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-input-4"]`</span>, <span class="hljs-string">'5551234567'</span>],
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-input-5"]`</span>, <span class="hljs-string">'itsjrogers'</span>],
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-input-6"]`</span>, <span class="hljs-string">'jrogers99'</span>],
+    ];
+
+    <span class="hljs-comment">// Assert content-1.html is loaded and that</span>
+    <span class="hljs-comment">// the &lt;body&gt; tag has keyboard focus</span>
+    client
+      .assert.urlContains(<span class="hljs-string">'content/content1.html'</span>)
+      .waitForElementVisible(body)
+      .assert.isActiveElement(body);
+
+    <span class="hljs-comment">// Assert inputs can be reached with TAB,</span>
+    <span class="hljs-comment">// and that proper values can be entered</span>
+    <span class="hljs-comment">// by keyboard entry</span>
+    inputs.forEach(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> {
+      <span class="hljs-keyword">const</span> [element, input] = i;
+
+      client
+        .keys(TAB)
+        .assert.isActiveElement(element)
+        .sendKeys(element, input)
+        .assert.attributeContains(element, <span class="hljs-string">'value'</span>, input);
+    });
+  },
+
+  <span class="hljs-string">'CONTENT-1: Assert checkboxes can be toggled with SPACEBAR'</span>: <span class="hljs-function"><span class="hljs-params">client</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> { SPACE, TAB } = client.Keys;
+    <span class="hljs-keyword">const</span> base = <span class="hljs-string">'[data-nwId="content-1'</span>;
+    <span class="hljs-keyword">const</span> form1 = <span class="hljs-string">`<span class="hljs-subst">${base}</span>-form-1`</span>;
+    <span class="hljs-keyword">const</span> checkboxes = [
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-checkbox-1"]`</span>],
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-checkbox-2"]`</span>],
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-checkbox-3"]`</span>],
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-checkbox-4"]`</span>],
+    ];
+
+    <span class="hljs-comment">// Assert that checkobxes can be reached with TAB,</span>
+    <span class="hljs-comment">// and that they can be checked with SPACE (spacebar)</span>
+    checkboxes.forEach(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> {
+      <span class="hljs-keyword">const</span> [element] = i;
+
+      client
+        .keys(TAB)
+        .assert.isActiveElement(element)
+        .keys(SPACE)
+        .assert.attributeContains(element, <span class="hljs-string">'checked'</span>, <span class="hljs-string">'true'</span>);
+    });
+  },
+
+  <span class="hljs-string">'CONTENT-1: Assert radio buttons can be toggled with arrow keys'</span>: <span class="hljs-function"><span class="hljs-params">client</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> {
+      ARROW_DOWN,
+      ARROW_LEFT,
+      ARROW_RIGHT,
+      ARROW_UP,
+      TAB,
+    } = client.Keys;
+    <span class="hljs-keyword">const</span> base = <span class="hljs-string">'[data-nwId="content-1'</span>;
+    <span class="hljs-keyword">const</span> form1 = <span class="hljs-string">`<span class="hljs-subst">${base}</span>-form-1`</span>;
+    <span class="hljs-keyword">const</span> radioButtons = [
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-radio-1"]`</span>],
+      [<span class="hljs-string">`<span class="hljs-subst">${form1}</span>-radio-2"]`</span>],
+    ];
+
+    client
+      .keys(TAB)
+      .assert.isActiveElement(radioButtons[<span class="hljs-number">0</span>])
+      .keys(ARROW_DOWN)
+      .assert.isActiveElement(radioButtons[<span class="hljs-number">1</span>])
+      .keys(ARROW_UP)
+      .assert.isActiveElement(radioButtons[<span class="hljs-number">0</span>])
+      .keys(ARROW_RIGHT)
+      .assert.isActiveElement(radioButtons[<span class="hljs-number">1</span>])
+      .keys(ARROW_LEFT)
+      .assert.isActiveElement(radioButtons[<span class="hljs-number">0</span>]);
+  },
+
+  <span class="hljs-string">'CONTENT-1: Assert button can submit form by pressing SPACEBAR'</span>: <span class="hljs-function"><span class="hljs-params">client</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> { SPACE, TAB } = client.Keys;
+    <span class="hljs-keyword">const</span> button = <span class="hljs-string">'button[data-nwId="content-1-form-1-button-1"]'</span>;
+
+    client
+      .keys(TAB)
+      .assert.elementPresent(button)
+      .assert.isActiveElement(button)
+      .keys(SPACE)
+      .assert.urlContains(<span class="hljs-string">'http://localhost:8080/content/content1.html?name=Josephine+Rogers&amp;age=29&amp;email=josephine%40test.com&amp;telephone=5551234567&amp;twitter=itsjrogers&amp;keybase=jrogers99&amp;checkbox-contacts=checkbox-email&amp;checkbox-contacts=checkbox-telephone&amp;checkbox-contacts=checkbox-twitter&amp;checkbox-contacts=checkbox-keybase&amp;radio-subscribe=radio-yes#'</span>);
+  },
+
+
+  <span class="hljs-string">'CONTENT-1: Assert button can submit form by pressing ENTER'</span>: <span class="hljs-function"><span class="hljs-params">client</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> { ENTER, SHIFT, TAB } = client.Keys;
+    <span class="hljs-keyword">const</span> button = <span class="hljs-string">'button[data-nwId="content-1-form-1-button-1"]'</span>;
+
+    client
+      .keys(SHIFT + TAB)
+      .assert.elementPresent(button)
+      .assert.isActiveElement(button)
+      .keys(ENTER)
+      .assert.urlContains(<span class="hljs-string">'http://localhost:8080/content/content1.html?name=Josephine+Rogers&amp;age=29&amp;email=josephine%40test.com&amp;telephone=5551234567&amp;twitter=itsjrogers&amp;keybase=jrogers99&amp;checkbox-contacts=checkbox-email&amp;checkbox-contacts=checkbox-telephone&amp;checkbox-contacts=checkbox-twitter&amp;checkbox-contacts=checkbox-keybase&amp;radio-subscribe=radio-yes#'</span>);
+  },
+
+  <span class="hljs-attr">after</span>: <span class="hljs-function"><span class="hljs-params">client</span> =&gt;</span> {
+    client.end();
+  },
+};</pre></code>
     
 
 
@@ -538,9 +613,9 @@
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-staging-and-testing">
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-building-and-testing">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Staging And Testing</span>
+                <span>Building And Testing</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -551,18 +626,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="staging-and-testing-intro.html" data-pjax>
-                <span>Staging and Testing Intro</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="automated-testing.html" data-pjax>
-                <span>Automated Testing</span>
+            <a class="Tree-entityLink" href="building-and-testing-intro.html" data-pjax>
+                <span>Building and Testing Intro</span>
                 
             </a>
         </li>
@@ -572,6 +637,16 @@
         
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
+                <span>Automated Testing</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="qa.html" data-pjax>
                 <span>Quality Assurance</span>
                 
             </a>
