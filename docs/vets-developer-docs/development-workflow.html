@@ -92,12 +92,12 @@ a “Work in Progress”, and should not be considered a candidate for merge.</p
 <p>TIP: Prefix your branch name with your team’s initials for improved management.</p>
 <h2 id="review-instances">Review Instances</h2>
 <p>Open Pull Requests are automatically deployed to an isolated “Review Instance”
-in the [name].gov’s development environment. A “View deployment” button on
+in the Vets.gov’s development environment. A “View deployment” button on
 the Pull Request page will provide the instance address. This can be
 particularly useful for [WIP] testing and review.</p>
-<p>Further Reading (TODO migrate to contrib):</p>
+<p>Further Reading:</p>
 <ul>
-<li><a href="https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Engineering/Review%20Instances.md">https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Engineering/Review%20Instances.md</a></li>
+<li><a href="./review-instances">Review Instances</a></li>
 </ul>
 <h2 id="automated-testing">Automated Testing</h2>
 <p>Each Pull Request is automatically tested within the Platform’s CI environment.
@@ -114,13 +114,13 @@ staging environments. These can be previewed at <a href="https://dev.vets.gov/">
 production Monday through Friday at 3:00PM ET.</p>
 <p>Further Reading: (TODO migrate to contrib):</p>
 <ul>
-<li><a href="https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Engineering/Deployment%20Process.md">https://github.com/department-of-veterans-affairs/vets.gov-team/blob/master/Work%20Practices/Engineering/Deployment%20Process.md</a></li>
+<li><a href="./deployment">Deployment</a></li>
 </ul>
 <h2 id="security-considerations">Security Considerations</h2>
-<p>The [name].gov code base is public, but deployed to and hosted on heavily secured
+<p>The Vets.gov code base is public, but deployed to and hosted on heavily secured
 infrastructure with connectivity to the VA network. Code is expected to
 follow industry-standard best security practices, and never relies on secuirty
-by obscurity. Refer to the <a href="./Settings.md">Settings</a> to learn how to access
+by obscurity. Refer to the <a href="./vets-api/settings">Settings</a> to learn how to access
 private information / secrets that are required by your integration when
 running in a protected environment.</p>
 <p>While the automated security scanning referenced above offers some protections,
@@ -683,6 +683,138 @@ integration.</p>
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-vets-website">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Vets Website</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/vets-website-readme.html" data-pjax>
+                <span>ReadMe</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/development.html" data-pjax>
+                <span>Development</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/architecture.html" data-pjax>
+                <span>Architecture</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-docs-collection-forms">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Forms</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/forms/form-tutorial.html" data-pjax>
+                <span>Form Tutorial</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/forms/form-intermediate.html" data-pjax>
+                <span>Form Intermediate</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/forms/common-definitions.html" data-pjax>
+                <span>Common Definitions</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/forms/tests.html" data-pjax>
+                <span>Tests</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/forms/submitting.html" data-pjax>
+                <span>Submitting</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/forms/save-in-progress.html" data-pjax>
+                <span>Save In Progress</span>
+                
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="vets-website/forms/production.html" data-pjax>
+                <span>Production</span>
+                
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="creating-form-schema.html" data-pjax>
@@ -819,21 +951,10 @@ integration.</p>
         
     
         
-        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-docs-collection-vets-website">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Vets Website</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-website/vets-website-readme.html" data-pjax>
-                <span>ReadMe</span>
+            <a class="Tree-entityLink" href="review-instances.html" data-pjax>
+                <span>Review Instances</span>
                 
             </a>
         </li>
@@ -842,111 +963,10 @@ integration.</p>
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-website/development.html" data-pjax>
-                <span>Development</span>
+            <a class="Tree-entityLink" href="deployment.html" data-pjax>
+                <span>Deployment Process</span>
                 
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-website/architecture.html" data-pjax>
-                <span>Architecture</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-docs-collection-forms">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Forms</span>
-            </h4>
-            <ul class="Tree-collectionItems" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-website/forms/form-tutorial.html" data-pjax>
-                <span>Form Tutorial</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-website/forms/form-intermediate.html" data-pjax>
-                <span>Form Intermediate</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-website/forms/common-definitions.html" data-pjax>
-                <span>Common Definitions</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-website/forms/tests.html" data-pjax>
-                <span>Tests</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-website/forms/submitting.html" data-pjax>
-                <span>Submitting</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-website/forms/save-in-progress.html" data-pjax>
-                <span>Save In Progress</span>
-                
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-website/forms/production.html" data-pjax>
-                <span>Production</span>
-                
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     

@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Progress bar | Veteran-facing Tools Playbook</title>
+<title>Deployment Process | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -51,364 +51,144 @@
             <div class="Frame-inner" id="pjax-container">
             
 
+<div class="Document">
 
-    
-    
-
-<div class="Pen" data-behaviour="pen" id="pen-476781135b075a0dc45a288b66d86682">
-
-    
-
-    <div class="Pen-panel Pen-header">
-    <h1 class="Pen-title">
-        <a class="Pen-previewLink" href="../preview/progressbar.html" title="Component preview">
-            Progress bar
-            <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-
-        </a>
-    </h1>
-    
-
-<div class="Status Status--tag">
-
-<label class="Status-label" style="background-color: #f9c642; border-color: #f9c642;">WIP</label>
-
-</div>
+    <div class="Document-header">
+        
+        <h1 class="Document-title">Deployment Process</h1>
+        
 
 
-</div>
-
-
-    <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-476781135b075a0dc45a288b66d86682">
-    <div class="Preview-wrapper" data-role="resizer">
-        <div class="Preview-resizer">
-            
-             <iframe
-                class="Preview-iframe"
-                data-role="window"
-                src="../preview/progressbar.html"
-                sandbox="allow-same-origin allow-scripts allow-forms"
-                 style=""
-                marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
-            </iframe>
-        </div>
-        <div class="Preview-handle" data-role="resize-handle"></div>
-        <div class="Preview-overlay"></div>
-    </div>
-</div>
-
-
-    <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
-
-    <div class="Pen-panel Pen-info" data-role="info">
-    <div class="Browser" data-behaviour="browser" id="browser-476781135b075a0dc45a288b66d86682">
-
-    
-
-<div class="Browser-controls">
-    <ul class="Browser-tabs">
-        
-        
-        <li class="Browser-tab Browser-tab--notes is-active " data-role="tab">
-            <a href="#browser-476781135b075a0dc45a288b66d86682-panel-notes">Notes</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--props" data-role="tab">
-            <a href="#browser-476781135b075a0dc45a288b66d86682-panel-props">Props</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--html" data-role="tab">
-            <a href="#browser-476781135b075a0dc45a288b66d86682-panel-html">HTML</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--view" data-role="tab">
-            <a href="#browser-476781135b075a0dc45a288b66d86682-panel-view">View</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-476781135b075a0dc45a288b66d86682-panel-context">Context</a>
-        </li>
-        
-        
-        
-        
-        
-        <li class="Browser-tab Browser-tab--resources" data-role="tab">
-            <a href="#browser-476781135b075a0dc45a288b66d86682-panel-assets">Assets</a>
-        </li>
-        
-        
-        
-        
-        
-        <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-476781135b075a0dc45a288b66d86682-panel-info">Info</a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-
-    
-    <div class="Browser-panel Browser-notes" data-role="tab-panel" id="browser-476781135b075a0dc45a288b66d86682-panel-notes">
-    <div class="Prose Prose--condensed">
-        
-        <p class="Browser-isEmptyNote">There are no notes for this item.</p>
         
     </div>
-</div>
+
+    <div class="Document-content">
 
     
-    <div class="Browser-panel Browser-props" data-role="tab-panel" id="browser-476781135b075a0dc45a288b66d86682-panel-props">
-    <div class="Prose Prose--condensed">
-        <table>
-          <tr><th>Prop</th><th>Required?</th><th>Type</th><th>Default</th><th>Description</th></tr>
-          
-            <tr>
-              <td>percent</td>
-              <td>Yes</td>
-              <td>number</td>
-              <td></td>
-              <td>Percent of progress made</td>
-            </tr>
-          
-        </table>
+
+<div class="Prose">
+
+
+
+    
+    
+    <p>Code goes through several steps to get to production. This document describes this process. It should also be noted that this is the same flow for both content and code changes.</p>
+<h2 id="automated-deployment-schedule">Automated Deployment Schedule</h2>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Branch</th>
+<th>Changes in by</th>
+<th>Deployment Start</th>
+<th>Release History</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vets-website</td>
+<td>master</td>
+<td>2:00pm ET M-F</td>
+<td>3:00pm ET M-F</td>
+<td><a href="https://github.com/department-of-veterans-affairs/vets-website/releases">https://github.com/department-of-veterans-affairs/vets-website/releases</a></td>
+</tr>
+<tr>
+<td>vets-api</td>
+<td>master</td>
+<td>2:00pm ET M-F</td>
+<td>3:00pm ET M-F</td>
+<td><a href="https://github.com/department-of-veterans-affairs/vets-api/releases">https://github.com/department-of-veterans-affairs/vets-api/releases</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="summary">Summary</h2>
+<p>For feature and hotfix development (code changes and content changes), the process looks like:</p>
+<ol>
+<li>Dev/Content: Create feature branch from <code>master</code> branch</li>
+<li>Dev/Content: Commit changes to feature branch</li>
+<li>Dev/Content: Feature branch merged to the <code>master</code> branch (via Pull Request)</li>
+<li>Automatic: Build run from <code>master</code> branch to create an artifact</li>
+<li>Automatic: Deploy newly created artifact to dev and staging</li>
+<li>Automatic: Create a release in GitHub from master, tag artifacts of that commit sha with release name</li>
+<li>Automatic: Deploy to production using artifacts</li>
+</ol>
+<h2 id="process-details">Process Details</h2>
+<p>The first half of the steps of are:</p>
+<blockquote>
+<p>1. Dev: Create feature branch from <code>master</code> branch</p>
+</blockquote>
+<blockquote>
+<p>2. Dev: Commit changes to feature branch</p>
+</blockquote>
+<blockquote>
+<p>3. Dev: Feature branch merged to the <code>master</code> branch (via Pull Request)</p>
+</blockquote>
+<blockquote>
+<p>4. Automatic: Build run from <code>master</code> branch to create an artifact</p>
+</blockquote>
+<blockquote>
+<p>5. Automatic: Deploy newly created artifact to dev and staging</p>
+</blockquote>
+<p>During the pull request phase (step 3), the following things happen:</p>
+<ul>
+<li>Code is reviewed</li>
+<li>GitHub triggers Jenkins to run unit tests, linting, and security scans.</li>
+<li>Committing and code reviewing developers are responsible for running automated <strong><em>and</em></strong> manual integration tests locally before closing the pull request</li>
+</ul>
+<p>All Vets.gov GitHub repos are setup to do squash merges (via the GitHub PR interface), leaving behind a clean revision history that is feature based.</p>
+<p>A big assumption in this process is that the <code>master</code> should always be deployable. As such, the deployment to the staging environment is configured to happen automatically and can be used to see what something would look like in a production-like environment for any kind of manual testing/verification.</p>
+<p>Because <code>master</code> is designed to always be deployable, long running features that should <em>not</em> be deployed should utilize feature flags in the code that disable the feature for the actual production environment. Notifying the DevOps team on what feature flags should be enabled/disabled in staging and production environment is an important part of this process. However, it’s likely that breakages in staging will occur and that this is necessary to discover these prior to moving anything to the production steps.</p>
+<p>Speaking of production steps, things kick off with the daily production push</p>
+<blockquote>
+<p>6. Create a release in GitHub from master, tag artifacts of that commit sha with release name</p>
+</blockquote>
+<p>Every work day at the configured time a Jenkins automerge job sends a link to the #vetsgov-engineers Slack channel with a diff between the last release and the most recent changes in <code>master</code>. This commit reference is stored to ensure the diff and released version is deterministic.</p>
+<p>After a time has elapsed ( currently set to 60m ) release is created at the reference from above.</p>
+<blockquote>
+<p>7. Automated: Deploy to production using artifacts</p>
+</blockquote>
+<p>From here, Jenkins can kickoff a production deployment. After the deployment occurs, the normal site monitoring infrastructure will be used to valide it is working. As this process is automatic any new features should have monitoring in place before, or as a part of their deployment</p>
+<h2 id="other-notes">Other Notes</h2>
+<ul>
+<li>The code that appears in the <code>master</code> branch <em>actually</em> gets deployed to both dev and staging environments. This is done to support different configurations for the DevOps team as they work to support any configuration changes (i.e. in dev first).</li>
+</ul>
+<h2 id="deployment-rollbacks">Deployment Rollbacks</h2>
+<p>If a production deployment introduces issues that affect Service Level Objectives (SLOs) established for the project, the DevOps team may restore service to users by rolling back the deployment. This is accomplished by triggering a new deploy job in Jenkins using a previous release tag.</p>
+<p>The use of hotfixes is discouraged, but may be useful in an emergency situation when <code>master</code> has significantly deviated from the release and a fix to the failed production release is critical. To create a hotfix, create a branch from the last stable release tag, make changes necessary (with review), create a new release tag following the correct naming scheme, and trigger a deploy in Jenkins with the release name as a parameter.</p>
+<p>If SLOs are not affected and a fix is not critical, no rollback will be issued. Instead the fix should be applied through the standard development workflow.</p>
+<h2 id="problems-concerns">Problems / Concerns</h2>
+<p>The creation of this deployment process was triggered and influenced by the following problems (expected or currently experienced) and feedback (based on previous drafts). Not a mandatory read, but explanations for how each is addressed is documented below:</p>
+<h3 id="complexity-of-branching-strategy">Complexity of branching strategy</h3>
+<p>This concern hovers around two things:</p>
+<ul>
+<li>Will people be able to do it without much learning or frequent git mistakes?</li>
+<li>Is our approach an industry standard such that it has a low learning curve?</li>
+</ul>
+<p>The process originally followed most closely aligned with <a href="https://guides.github.com/introduction/flow/">GitHub Flow</a>, but this process proved to be overly simple for multiple projects being committed to our <code>vets-website</code> and <code>vets-api</code> repositories.</p>
+<p>Other popular flows such as <a href="http://nvie.com/posts/a-successful-git-branching-model/">Git Flow</a> and <a href="https://about.gitlab.com/2014/09/29/gitlab-flow/">GitLab Flow</a> were suggested, but have the opposite problem. While being industry standards (like GitHub Flow), they tend to be more complex than our team’s needs demand. They are complex enough that they require expert Git knowledge, merging mistakes are commonly made by teams that use them, and they require more active management to maintain clean merge trees. Git Flow and Git Lab do some things really well though: clear guidance on what is being developed and what is in which environment.</p>
+<p>While it’s not ideal to create our own strategy, none of the strategies seemed to fit the bill with priority being on simplicity. Instead this one was written and does the following things to meet its goals:</p>
+<ul>
+<li>Stays very close to GitHub Flow, the simplest of the industry standards and the easiest to learn/manage</li>
+<li>Uses Git Flow’s emphasis on <code>master</code> always being deployable, which eases deployment and rollback</li>
+<li>Just seven repeatable steps for any kind of development (feature or hotfix)</li>
+<li>Integrates our team’s people work flow (i.e. interactions between development and DevOps teams)</li>
+</ul>
+<p>During a quick unscientific survey of the team, most had experience with GitHub Flow, while only a few folks had worked with Git Flow or GitLab Flow in practice (esp. GitLab Flow). Most folks had heard of Git Flow, but only a small subset had used it explicitly. By keeping the chosen flow close to GitHub Flow (and close what the team has been doing), meant this likely has the least cognitive overhead.</p>
+<h3 id="confusion-about-what-has-to-happen-during-code-reviews-pull-requests">Confusion about what has to happen during code reviews / pull requests</h3>
+<p>Unfortunately, it’s hard to codify this outside of running some things automatically such as the tests and scanners. However, it’s really important that teams give each other clear feedback and code reviews are the single most important quality gate for the code.</p>
+<h3 id="lack-of-clear-process-for-getting-code-changes-from-development-to-production">Lack of clear process for getting code changes from development to production</h3>
+<p>Before, we didn’t have anything written down that described how things went to production. This process is different from the other Git* Flows in that it says <em>who</em> performs each step. This means that teams know exactly who to involve and who to delegate responsibility to for each part of getting things to go live.</p>
+<h3 id="different-flows-between-features-and-hotfixes">Different flows between features and hotfixes</h3>
+<p>This is one of the weaknesses with Git Flow, which requires additional management. We’ve simplified this by creating a process that is the same for both features and hotfixes. It’s expected that things will go to production at least weekly, meaning that there shouldn’t be any feature or hotfix branches to manage for long periods of time.</p>
+
+    
+
+
+</div>
+
+
+
     </div>
-</div>
-
-    
-    
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-476781135b075a0dc45a288b66d86682-panel-html">
-    <code class="Code Code--lang-html">
-        
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reactMount"</span> <span class="hljs-attr">data-tpl</span>=<span class="hljs-string">"progressbar"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"progress-bar"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"progressbar"</span> <span class="hljs-attr">aria-valuenow</span>=<span class="hljs-string">"35"</span> <span class="hljs-attr">aria-valuemin</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">aria-valuemax</span>=<span class="hljs-string">"100"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"progress-bar-inner"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:35%;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-    <span class="hljs-built_in">window</span>.currentProps = {
-        <span class="hljs-string">"package"</span>: {
-            <span class="hljs-string">"name"</span>: <span class="hljs-string">"department-of-veteran-affairs/jean-pants"</span>,
-            <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.1.0"</span>
-        },
-        <span class="hljs-string">"assetPath"</span>: <span class="hljs-string">"/design-system/"</span>,
-        <span class="hljs-string">"isProduction"</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-string">"componentSourcePath"</span>: <span class="hljs-string">"ProgressBar.jsx"</span>,
-        <span class="hljs-string">"percent"</span>: <span class="hljs-number">35</span>
-    }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre>
-        
-    </code>
-</div>
-
-    
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-476781135b075a0dc45a288b66d86682-panel-view">
-    <code class="Code Code--lang-text">
-        <pre><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> ProgressBar <span class="hljs-keyword">from</span> <span class="hljs-string">'./ProgressBar'</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ProgressBarExample</span>(<span class="hljs-params">props</span>) </span>{
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ProgressBar</span>
-      <span class="hljs-attr">percent</span>=<span class="hljs-string">{props.percent}/</span>&gt;</span>
-  );
-}</span></pre>
-    </code>
-</div>
-
-    
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-476781135b075a0dc45a288b66d86682-panel-context">
-    <code class="Code Code--lang-yaml">
-        
-            
-            <pre><span class="hljs-attr">package:</span>
-<span class="hljs-attr">  name:</span> <span class="hljs-string">department-of-veteran-affairs/jean-pants</span>
-<span class="hljs-attr">  version:</span> <span class="hljs-number">0.1</span><span class="hljs-number">.0</span>
-<span class="hljs-attr">assetPath:</span> <span class="hljs-string">/design-system/</span>
-<span class="hljs-attr">isProduction:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">componentSourcePath:</span> <span class="hljs-string">ProgressBar.jsx</span>
-<span class="hljs-attr">percent:</span> <span class="hljs-number">35</span>
-</pre>
-            
-        
-    </code>
-</div>
-
-    
-    
-
-
-<div class="Browser-panel Browser-resources" data-role="tab-panel" id="browser-476781135b075a0dc45a288b66d86682-panel-assets">
-    <div class="FileBrowser">
-
-        <div class="FileBrowser-selectWrapper">
-            <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
-            <select class="FileBrowser-select" id="filebrowser-select">
-                
-                <option value="file-ce7b735aec2d48182337f6b6ec70f6e8">ProgressBar.jsx</option>
-                
-                <option value="file-b4388ab5b5f0f7ef92276e1ee321d444">ProgressBar.unit.spec.jsx</option>
-                
-            </select>
-        </div>
-
-        
-        <div class="FileBrowser-item is-active" id="file-ce7b735aec2d48182337f6b6ec70f6e8" data-role="resource-preview">
-            <ul class="Meta">
-                <li class="Meta-item">
-                    <strong class="Meta-key">Content:</strong>
-                    <span class="Meta-value">
-                        <div class="FileBrowser-itemPreview">
-                            
-                            <code class="Code Code--lang-JSX FileBrowser-code">
-                                <pre><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ProgressBar</span>(<span class="hljs-params">{ percent }</span>) </span>{
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"progress-bar"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"progressbar"</span> <span class="hljs-attr">aria-valuenow</span>=<span class="hljs-string">{percent}</span> <span class="hljs-attr">aria-valuemin</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">aria-valuemax</span>=<span class="hljs-string">"100"</span> <span class="hljs-attr">tabIndex</span>=<span class="hljs-string">"0"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"progress-bar-inner"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">width:</span> `${<span class="hljs-attr">percent</span>}%` }}/&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  );
-}
-
-ProgressBar.propTypes = {
-  /**
-   * Percent of progress made
-   */
-  percent: PropTypes.number.isRequired,
-};
-</span></pre>
-                            </code>
-                            
-                        </div>
-                    </span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/progressbar/ProgressBar.jsx"><span>/components/raw/progressbar/ProgressBar.jsx</span></a></span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">src/components/form/ProgressBar/ProgressBar.jsx</span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">462 Bytes</span>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="FileBrowser-item" id="file-b4388ab5b5f0f7ef92276e1ee321d444" data-role="resource-preview">
-            <ul class="Meta">
-                <li class="Meta-item">
-                    <strong class="Meta-key">Content:</strong>
-                    <span class="Meta-value">
-                        <div class="FileBrowser-itemPreview">
-                            
-                            <code class="Code Code--lang-JSX FileBrowser-code">
-                                <pre><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> { shallow } <span class="hljs-keyword">from</span> <span class="hljs-string">'enzyme'</span>;
-<span class="hljs-keyword">import</span> { expect } <span class="hljs-keyword">from</span> <span class="hljs-string">'chai'</span>;
-<span class="hljs-keyword">import</span> { axeCheck } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../../lib/testing/helpers'</span>;
-
-<span class="hljs-keyword">import</span> ProgressBar <span class="hljs-keyword">from</span> <span class="hljs-string">'./ProgressBar.jsx'</span>;
-
-describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
-  it(<span class="hljs-string">'should render'</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> tree = shallow(&lt;ProgressBar percent={35}/&gt;);
-    expect(tree.find('.progress-bar-inner')).to.have.length(1);
-  });
-
-  it('should pass aXe check', () =&gt; {
-    return axeCheck(&lt;ProgressBar percent={35}/&gt;);
-  });
-});
-</pre>
-                            </code>
-                            
-                        </div>
-                    </span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/progressbar/ProgressBar.unit.spec.jsx"><span>/components/raw/progressbar/ProgressBar.unit.spec.jsx</span></a></span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">src/components/form/ProgressBar/ProgressBar.unit.spec.jsx</span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">488 Bytes</span>
-                </li>
-            </ul>
-        </div>
-        
-    </div>
-</div>
-
-
-
-    
-    <div class="Browser-panel" data-role="tab-panel" id="browser-476781135b075a0dc45a288b66d86682-panel-info">
-    <ul class="Meta">
-        <li class="Meta-item">
-            <strong class="Meta-key">Handle:</strong>
-            <span class="Meta-value">@progressbar</span>
-        </li>
-        
-        
-        
-        
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Preview:</strong>
-            <span class="Meta-value">
-                <ul>
-                    <li><a data-no-pjax href="../preview/progressbar.html"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-</a></li>
-                    <li><a data-no-pjax href="../render/progressbar.html"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
-</svg>
-</a></li>
-                </ul>
-            </span>
-        </li>
-        <li class="Meta-item">
-            <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">src/components/form/ProgressBar/ProgressBar.njk</span>
-        </li>
-        
-        
-    </ul>
-</div>
-
-    
-
-</div>
-
-</div>
-
-
-    
 
 </div>
 
@@ -443,7 +223,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/introduction/get-started.html" data-pjax>
+            <a class="Tree-entityLink" href="../introduction/get-started.html" data-pjax>
                 <span>Getting Started</span>
                 
             </a>
@@ -453,7 +233,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/introduction/why-use-this.html" data-pjax>
+            <a class="Tree-entityLink" href="../introduction/why-use-this.html" data-pjax>
                 <span>Why Use This?</span>
                 
             </a>
@@ -463,7 +243,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/introduction/launch-guide.html" data-pjax>
+            <a class="Tree-entityLink" href="../introduction/launch-guide.html" data-pjax>
                 <span>Vets.gov Launch Guide</span>
                 
             </a>
@@ -473,7 +253,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/introduction/browse-resources.html" data-pjax>
+            <a class="Tree-entityLink" href="../introduction/browse-resources.html" data-pjax>
                 <span>Browse Resources</span>
                 
             </a>
@@ -499,7 +279,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/discovery/discovery-introduction.html" data-pjax>
+            <a class="Tree-entityLink" href="../discovery/discovery-introduction.html" data-pjax>
                 <span>Discovery Intro</span>
                 
             </a>
@@ -509,7 +289,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/discovery/problem-statements-and-assumptions.html" data-pjax>
+            <a class="Tree-entityLink" href="../discovery/problem-statements-and-assumptions.html" data-pjax>
                 <span>Problem Statement and Assumptions</span>
                 
             </a>
@@ -519,7 +299,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/discovery/product-outline.html" data-pjax>
+            <a class="Tree-entityLink" href="../discovery/product-outline.html" data-pjax>
                 <span>Product Outline</span>
                 
             </a>
@@ -529,7 +309,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/discovery/draft-research-plan.html" data-pjax>
+            <a class="Tree-entityLink" href="../discovery/draft-research-plan.html" data-pjax>
                 <span>Research Plan</span>
                 
             </a>
@@ -539,7 +319,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/discovery/recruit-users.html" data-pjax>
+            <a class="Tree-entityLink" href="../discovery/recruit-users.html" data-pjax>
                 <span>Recruit Users</span>
                 
             </a>
@@ -549,7 +329,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/discovery/talk-with-users-and-stakeholders.html" data-pjax>
+            <a class="Tree-entityLink" href="../discovery/talk-with-users-and-stakeholders.html" data-pjax>
                 <span>Talk With Users and Stakeholders</span>
                 
             </a>
@@ -559,7 +339,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/discovery/synthesize-your-findings.html" data-pjax>
+            <a class="Tree-entityLink" href="../discovery/synthesize-your-findings.html" data-pjax>
                 <span>Synthesize Your Findings</span>
                 
             </a>
@@ -569,7 +349,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/discovery/rudimentary-technical-review.html" data-pjax>
+            <a class="Tree-entityLink" href="../discovery/rudimentary-technical-review.html" data-pjax>
                 <span>Rudimentary Technical Review</span>
                 
             </a>
@@ -595,7 +375,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/define-and-design-introduction.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/define-and-design-introduction.html" data-pjax>
                 <span>Define & Design Intro</span>
                 
             </a>
@@ -605,7 +385,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/review-and-scope.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/review-and-scope.html" data-pjax>
                 <span>Review & Scope</span>
                 
             </a>
@@ -615,7 +395,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/diagram-and-outline.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/diagram-and-outline.html" data-pjax>
                 <span>Diagram & Outline</span>
                 
             </a>
@@ -625,7 +405,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/design-conventions.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/design-conventions.html" data-pjax>
                 <span>Design Conventions</span>
                 
             </a>
@@ -635,7 +415,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/visual-design.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/visual-design.html" data-pjax>
                 <span>Visual Design</span>
                 
             </a>
@@ -645,7 +425,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/review-technical-capabilities.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/review-technical-capabilities.html" data-pjax>
                 <span>Review Technical Capabilities</span>
                 
             </a>
@@ -655,7 +435,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/prototyping-and-testing.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/prototyping-and-testing.html" data-pjax>
                 <span>Prototyping & Testing</span>
                 
             </a>
@@ -676,7 +456,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/content-guide/coordinate-content.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/content-guide/coordinate-content.html" data-pjax>
                 <span>Coordinate Content</span>
                 
             </a>
@@ -686,7 +466,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/content-guide/voice-and-tone.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/content-guide/voice-and-tone.html" data-pjax>
                 <span>Voice And Tone</span>
                 
             </a>
@@ -696,7 +476,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/content-guide/word-choice.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/content-guide/word-choice.html" data-pjax>
                 <span>Word Choice</span>
                 
             </a>
@@ -706,7 +486,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/content-guide/terms-and-conventions.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/content-guide/terms-and-conventions.html" data-pjax>
                 <span>Terms & Conventions</span>
                 
             </a>
@@ -716,7 +496,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/content-guide/forms.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/content-guide/forms.html" data-pjax>
                 <span>Forms</span>
                 
             </a>
@@ -726,7 +506,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/content-guide/content-and-structure.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/content-guide/content-and-structure.html" data-pjax>
                 <span>Content And Structure</span>
                 
             </a>
@@ -736,7 +516,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/content-guide/style-and-formatting.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/content-guide/style-and-formatting.html" data-pjax>
                 <span>Style and Formatting</span>
                 
             </a>
@@ -746,7 +526,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/content-guide/site-navigation.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/content-guide/site-navigation.html" data-pjax>
                 <span>Site navigation</span>
                 
             </a>
@@ -761,7 +541,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/incorporating-feedback.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/incorporating-feedback.html" data-pjax>
                 <span>Incorporating Feedback</span>
                 
             </a>
@@ -771,7 +551,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/define-and-design/document-solutions.html" data-pjax>
+            <a class="Tree-entityLink" href="../define-and-design/document-solutions.html" data-pjax>
                 <span>Document Solution</span>
                 
             </a>
@@ -797,7 +577,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/building-and-testing/building-and-testing-intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../building-and-testing/building-and-testing-intro.html" data-pjax>
                 <span>Build and Test Intro</span>
                 
             </a>
@@ -807,7 +587,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/building-and-testing/automated-testing.html" data-pjax>
+            <a class="Tree-entityLink" href="../building-and-testing/automated-testing.html" data-pjax>
                 <span>Automated Testing</span>
                 
             </a>
@@ -817,7 +597,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/building-and-testing/qa.html" data-pjax>
+            <a class="Tree-entityLink" href="../building-and-testing/qa.html" data-pjax>
                 <span>Quality Assurance</span>
                 
             </a>
@@ -843,7 +623,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/deploy-your-app/deploy-intro.html" data-pjax>
+            <a class="Tree-entityLink" href="../deploy-your-app/deploy-intro.html" data-pjax>
                 <span>Deploy Intro</span>
                 
             </a>
@@ -853,7 +633,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/deploy-your-app/ato.html" data-pjax>
+            <a class="Tree-entityLink" href="../deploy-your-app/ato.html" data-pjax>
                 <span>ATO</span>
                 
             </a>
@@ -863,7 +643,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/deploy-your-app/url-creation.html" data-pjax>
+            <a class="Tree-entityLink" href="../deploy-your-app/url-creation.html" data-pjax>
                 <span>URL Creation</span>
                 
             </a>
@@ -873,7 +653,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/deploy-your-app/contact-call-center.html" data-pjax>
+            <a class="Tree-entityLink" href="../deploy-your-app/contact-call-center.html" data-pjax>
                 <span>Contact Call Center</span>
                 
             </a>
@@ -883,7 +663,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/deploy-your-app/prepare-marketing-material.html" data-pjax>
+            <a class="Tree-entityLink" href="../deploy-your-app/prepare-marketing-material.html" data-pjax>
                 <span>Prepare Marketing Material</span>
                 
             </a>
@@ -909,7 +689,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/getting-started.html" data-pjax>
+            <a class="Tree-entityLink" href="getting-started.html" data-pjax>
                 <span>Getting Started</span>
                 
             </a>
@@ -919,7 +699,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/environments.html" data-pjax>
+            <a class="Tree-entityLink" href="environments.html" data-pjax>
                 <span>Environments</span>
                 
             </a>
@@ -929,7 +709,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/development-workflow.html" data-pjax>
+            <a class="Tree-entityLink" href="development-workflow.html" data-pjax>
                 <span>Development Workflow</span>
                 
             </a>
@@ -939,7 +719,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/internal-tools-access.html" data-pjax>
+            <a class="Tree-entityLink" href="internal-tools-access.html" data-pjax>
                 <span>Internal Tools Access</span>
                 
             </a>
@@ -960,7 +740,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-website/vets-website-readme.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/vets-website-readme.html" data-pjax>
                 <span>ReadMe</span>
                 
             </a>
@@ -970,7 +750,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-website/development.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/development.html" data-pjax>
                 <span>Development</span>
                 
             </a>
@@ -980,7 +760,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-website/architecture.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/architecture.html" data-pjax>
                 <span>Architecture</span>
                 
             </a>
@@ -1001,7 +781,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-website/forms/form-tutorial.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/forms/form-tutorial.html" data-pjax>
                 <span>Form Tutorial</span>
                 
             </a>
@@ -1011,7 +791,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-website/forms/form-intermediate.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/forms/form-intermediate.html" data-pjax>
                 <span>Form Intermediate</span>
                 
             </a>
@@ -1021,7 +801,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-website/forms/common-definitions.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/forms/common-definitions.html" data-pjax>
                 <span>Common Definitions</span>
                 
             </a>
@@ -1031,7 +811,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-website/forms/tests.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/forms/tests.html" data-pjax>
                 <span>Tests</span>
                 
             </a>
@@ -1041,7 +821,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-website/forms/submitting.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/forms/submitting.html" data-pjax>
                 <span>Submitting</span>
                 
             </a>
@@ -1051,7 +831,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-website/forms/save-in-progress.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/forms/save-in-progress.html" data-pjax>
                 <span>Save In Progress</span>
                 
             </a>
@@ -1061,7 +841,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-website/forms/production.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/forms/production.html" data-pjax>
                 <span>Production</span>
                 
             </a>
@@ -1081,7 +861,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/creating-form-schema.html" data-pjax>
+            <a class="Tree-entityLink" href="creating-form-schema.html" data-pjax>
                 <span>Creating Form Schema</span>
                 
             </a>
@@ -1102,7 +882,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-api/vets-api-readme.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/vets-api-readme.html" data-pjax>
                 <span>ReadMe</span>
                 
             </a>
@@ -1112,7 +892,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-api/development.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/development.html" data-pjax>
                 <span>Development</span>
                 
             </a>
@@ -1122,7 +902,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-api/authentication.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/authentication.html" data-pjax>
                 <span>Authentication</span>
                 
             </a>
@@ -1132,7 +912,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-api/authorization.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/authorization.html" data-pjax>
                 <span>Authorization</span>
                 
             </a>
@@ -1142,7 +922,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-api/documentation.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/documentation.html" data-pjax>
                 <span>Documentation</span>
                 
             </a>
@@ -1152,7 +932,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-api/forms.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/forms.html" data-pjax>
                 <span>Forms</span>
                 
             </a>
@@ -1162,7 +942,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-api/pdf-generation.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/pdf-generation.html" data-pjax>
                 <span>PDF Generation</span>
                 
             </a>
@@ -1172,7 +952,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-api/request-processing.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/request-processing.html" data-pjax>
                 <span>Request Processing</span>
                 
             </a>
@@ -1182,7 +962,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-api/response-serialization.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/response-serialization.html" data-pjax>
                 <span>Response Serialization</span>
                 
             </a>
@@ -1192,7 +972,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-api/service-objects.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/service-objects.html" data-pjax>
                 <span>Service Objects</span>
                 
             </a>
@@ -1202,7 +982,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/vets-api/settings.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-api/settings.html" data-pjax>
                 <span>Settings</span>
                 
             </a>
@@ -1217,7 +997,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/review-instances.html" data-pjax>
+            <a class="Tree-entityLink" href="review-instances.html" data-pjax>
                 <span>Review Instances</span>
                 
             </a>
@@ -1226,8 +1006,8 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
     
         
         
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/deployment.html" data-pjax>
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 <span>Deployment Process</span>
                 
             </a>
@@ -1237,7 +1017,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../docs/vets-developer-docs/google-analytics.html" data-pjax>
+            <a class="Tree-entityLink" href="google-analytics.html" data-pjax>
                 <span>Google Analytics</span>
                 
             </a>
@@ -1268,7 +1048,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="colors.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/colors.html" data-pjax>
                 <span>Color palette</span>
                 
 
@@ -1303,7 +1083,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="fonts.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/fonts.html" data-pjax>
                 <span>Fonts</span>
                 
 
@@ -1327,7 +1107,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="links.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/links.html" data-pjax>
                 <span>Links</span>
                 
 
@@ -1351,7 +1131,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="lists.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/lists.html" data-pjax>
                 <span>Lists</span>
                 
 
@@ -1375,7 +1155,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="typesetting.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/typesetting.html" data-pjax>
                 <span>Typesetting</span>
                 
 
@@ -1404,7 +1184,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="grid.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/grid.html" data-pjax>
                 <span>Grid</span>
                 
 
@@ -1428,7 +1208,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="buttons.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/buttons.html" data-pjax>
                 <span>Buttons</span>
                 
 
@@ -1452,7 +1232,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="tables.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/tables.html" data-pjax>
                 <span>Tables</span>
                 
 
@@ -1487,7 +1267,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="alertbox.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/alertbox.html" data-pjax>
                 <span>AlertBox</span>
                 
 
@@ -1511,7 +1291,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="crisis-alerts.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/crisis-alerts.html" data-pjax>
                 <span>Crisis Alerts</span>
                 
 
@@ -1535,7 +1315,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="standard-alerts.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/standard-alerts.html" data-pjax>
                 <span>Standard Alerts</span>
                 
 
@@ -1575,7 +1355,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="best-practice.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/best-practice.html" data-pjax>
                 <span>How to build a good form</span>
                 
 
@@ -1610,7 +1390,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="address-form.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/address-form.html" data-pjax>
                 <span>Address Form</span>
                 
 
@@ -1634,7 +1414,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="name-form.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/name-form.html" data-pjax>
                 <span>Name Form</span>
                 
 
@@ -1674,7 +1454,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorablecheckbox.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorablecheckbox.html" data-pjax>
                 <span>ErrorableCheckbox</span>
                 
 
@@ -1698,7 +1478,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorabledate.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorabledate.html" data-pjax>
                 <span>Errorable Date</span>
                 
 
@@ -1722,7 +1502,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorablefileinput.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorablefileinput.html" data-pjax>
                 <span>Errorable File Input</span>
                 
 
@@ -1746,7 +1526,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorablenumberinput.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorablenumberinput.html" data-pjax>
                 <span>Errorable Number Input</span>
                 
 
@@ -1770,7 +1550,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorableradiobuttons.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorableradiobuttons.html" data-pjax>
                 <span>Errorable Radio Buttons</span>
                 
 
@@ -1794,7 +1574,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorableselect.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorableselect.html" data-pjax>
                 <span>Errorable Select</span>
                 
 
@@ -1818,7 +1598,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="errorabletextinput.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/errorabletextinput.html" data-pjax>
                 <span>Errorable Text Input</span>
                 
 
@@ -1842,7 +1622,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="expandinggroup.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/expandinggroup.html" data-pjax>
                 <span>ExpandingGroup</span>
                 
 
@@ -1866,7 +1646,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="progressbutton.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/progressbutton.html" data-pjax>
                 <span>Progress Button</span>
                 
 
@@ -1894,8 +1674,8 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
     
         
         
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../components/detail/progressbar.html" data-pjax>
                 <span>Progress bar</span>
                 
 
@@ -1919,7 +1699,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="segmentedprogressbar.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/segmentedprogressbar.html" data-pjax>
                 <span>Segmented progress bar</span>
                 
 
@@ -1959,7 +1739,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="header.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/header.html" data-pjax>
                 <span>Vets.gov Header</span>
                 
 
@@ -1983,7 +1763,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="banner.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/banner.html" data-pjax>
                 <span>U.S. Government banner</span>
                 
 
@@ -2007,7 +1787,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="helpmenu.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/helpmenu.html" data-pjax>
                 <span>Help Menu</span>
                 
 
@@ -2042,7 +1822,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="search--default.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/search--default.html" data-pjax>
                 <span>Default</span>
                 
 
@@ -2066,7 +1846,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="search--header.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/search--header.html" data-pjax>
                 <span>Header</span>
                 
 
@@ -2095,7 +1875,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="searchmenu.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/searchmenu.html" data-pjax>
                 <span>Search Menu</span>
                 
 
@@ -2119,7 +1899,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vcl.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/vcl.html" data-pjax>
                 <span>Veterans Crisis Line modal</span>
                 
 
@@ -2148,7 +1928,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="footer.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/footer.html" data-pjax>
                 <span>Footer</span>
                 
 
@@ -2172,7 +1952,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="accepttermsprompt.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/accepttermsprompt.html" data-pjax>
                 <span>Accept Terms Prompt</span>
                 
 
@@ -2196,7 +1976,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="additionalinfo.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/additionalinfo.html" data-pjax>
                 <span>Additional Info</span>
                 
 
@@ -2220,7 +2000,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="addressblock.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/addressblock.html" data-pjax>
                 <span>Address block</span>
                 
 
@@ -2244,7 +2024,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="collapsiblepanel.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/collapsiblepanel.html" data-pjax>
                 <span>Collapsible Panel</span>
                 
 
@@ -2279,7 +2059,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout--docs.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/layout--docs.html" data-pjax>
                 <span>Documentation</span>
                 
 
@@ -2303,7 +2083,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout--landing.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/layout--landing.html" data-pjax>
                 <span>Landing</span>
                 
 
@@ -2327,7 +2107,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-l2.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/vets-l2.html" data-pjax>
                 <span>Vets.gov Level 2</span>
                 
 
@@ -2351,7 +2131,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-l3.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/vets-l3.html" data-pjax>
                 <span>Vets.gov Level 3</span>
                 
 
@@ -2380,7 +2160,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="loadingindicator.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/loadingindicator.html" data-pjax>
                 <span>Loading Indicator</span>
                 
 
@@ -2404,7 +2184,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="modal.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/modal.html" data-pjax>
                 <span>Modal</span>
                 
 
@@ -2439,7 +2219,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="navigation.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/navigation.html" data-pjax>
                 <span>Global Navigation</span>
                 
 
@@ -2463,7 +2243,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="breadcrumbs.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/breadcrumbs.html" data-pjax>
                 <span>Breadcrumbs</span>
                 
 
@@ -2487,7 +2267,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="dropdownpanel.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/dropdownpanel.html" data-pjax>
                 <span>Dropdown Panel</span>
                 
 
@@ -2511,7 +2291,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="pagination.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/pagination.html" data-pjax>
                 <span>Pagination</span>
                 
 
@@ -2535,7 +2315,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="sidenav.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/sidenav.html" data-pjax>
                 <span>Side navigation</span>
                 
 
@@ -2564,7 +2344,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="omb-info.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/omb-info.html" data-pjax>
                 <span>OMB Info</span>
                 
 
@@ -2588,7 +2368,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="privacyagreement.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/privacyagreement.html" data-pjax>
                 <span>PrivacyAgreement</span>
                 
 
@@ -2612,7 +2392,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="sortabletable.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/sortabletable.html" data-pjax>
                 <span>Sortable Table</span>
                 
 
@@ -2647,7 +2427,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="iconhelp.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/iconhelp.html" data-pjax>
                 <span>IconHelp</span>
                 
 
@@ -2671,7 +2451,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="iconsearch.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/iconsearch.html" data-pjax>
                 <span>IconSearch</span>
                 
 
@@ -2695,7 +2475,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="iconuser.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/iconuser.html" data-pjax>
                 <span>IconUser</span>
                 
 
@@ -2724,7 +2504,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="systemdownview.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/systemdownview.html" data-pjax>
                 <span>System Down View</span>
                 
 
@@ -2748,7 +2528,7 @@ describe(<span class="hljs-string">'&lt;ProgressBar/&gt;'</span>, () =&gt; {
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="tooltip.html" data-pjax>
+            <a class="Tree-entityLink" href="../../components/detail/tooltip.html" data-pjax>
                 <span>Tooltip</span>
                 
 
