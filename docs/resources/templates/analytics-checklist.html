@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Request Processing | Veteran-facing Tools Playbook</title>
+<title>Google Analytics Checklist | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Request Processing</h1>
+        <h1 class="Document-title">Google Analytics Checklist</h1>
         
 
 
@@ -72,16 +72,24 @@
 
     
     
-    <p>Request processing occurs after <a href="./routing.md">Routing</a>, <a href="./authentication">Authentication</a>, and <a href="./authorization">Authorization</a>. It consists of validating any user input or parameters, processing that input, and generating a response.</p>
-<h2 id="example">Example</h2>
-<h2 id="caching">Caching</h2>
-<h2 id="error-handling">Error Handling</h2>
-<h2 id="instrumentation">Instrumentation</h2>
-<h2 id="external-service-client-instantiation">External Service Client Instantiation</h2>
-<h2 id="implementation-considerations">Implementation Considerations</h2>
-<h3 id="security">Security</h3>
-<h3 id="performance">Performance</h3>
-<p>Take into consideration the time and resources that are required to process a request. In order to improve the user experience and prevent resource exhaustion at the infrastructure level, try to minimize the request process time, and ensure that implementations are as performant as is realistic given the requirements. Generally, Vets-API recommends request processing not exceed 100ms. If this is unavoidable, consider running the process <a href="./AsynchronousProcessing.md">asynchronously</a>, and ensure that the user experience takes this processing time into account.</p>
+    <p>Here are the steps required to prepare a new product for Google Analytics</p>
+<ol>
+<li>Product owner determines what they want tracked in the product</li>
+<li>Analytics reviews and makes recommendations about how to track (page views, custom events, etc.)</li>
+<li>Analytics determines a prefix for events/variables and adds to documentation</li>
+<li>For custom events, either sprint team front-end developer or analytics can submit PR for adding custom events</li>
+<li>Product owner determines what will represent a “Transaction”, if anything on the site.</li>
+<li>Based on custom events, transactions, etc. the analytics team adds:<ul>
+<li>Triggers to pick up events and variables</li>
+<li>Tags to report out those triggers</li>
+<li>A folder in GTM to hold those items together</li>
+<li>Adding goals and funnels for any transactions</li>
+<li>Custom dimensions to coverage usage of the site</li>
+<li>Update custom dimensions for broad usage areas as needed</li>
+</ul>
+</li>
+<li>Analytics team performs verification in staging to ensure tags/triggers are firing correctly</li>
+</ol>
 
     
 
@@ -601,7 +609,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../getting-started.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/getting-started.html" data-pjax>
                 <span>Getting Started</span>
                 
             </a>
@@ -611,7 +619,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../environments.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/environments.html" data-pjax>
                 <span>Environments</span>
                 
             </a>
@@ -621,7 +629,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../development-workflow.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/development-workflow.html" data-pjax>
                 <span>Development Workflow</span>
                 
             </a>
@@ -631,7 +639,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../internal-tools-access.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/internal-tools-access.html" data-pjax>
                 <span>Internal Tools Access</span>
                 
             </a>
@@ -652,7 +660,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/vets-website-readme.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-website/vets-website-readme.html" data-pjax>
                 <span>ReadMe</span>
                 
             </a>
@@ -662,7 +670,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/development.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-website/development.html" data-pjax>
                 <span>Development</span>
                 
             </a>
@@ -672,7 +680,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/architecture.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-website/architecture.html" data-pjax>
                 <span>Architecture</span>
                 
             </a>
@@ -693,7 +701,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/forms/form-tutorial.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-website/forms/form-tutorial.html" data-pjax>
                 <span>Form Tutorial</span>
                 
             </a>
@@ -703,7 +711,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/forms/form-intermediate.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-website/forms/form-intermediate.html" data-pjax>
                 <span>Form Intermediate</span>
                 
             </a>
@@ -713,7 +721,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/forms/common-definitions.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-website/forms/common-definitions.html" data-pjax>
                 <span>Common Definitions</span>
                 
             </a>
@@ -723,7 +731,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/forms/tests.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-website/forms/tests.html" data-pjax>
                 <span>Tests</span>
                 
             </a>
@@ -733,7 +741,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/forms/submitting.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-website/forms/submitting.html" data-pjax>
                 <span>Submitting</span>
                 
             </a>
@@ -743,7 +751,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/forms/save-in-progress.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-website/forms/save-in-progress.html" data-pjax>
                 <span>Save In Progress</span>
                 
             </a>
@@ -753,7 +761,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../vets-website/forms/production.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-website/forms/production.html" data-pjax>
                 <span>Production</span>
                 
             </a>
@@ -773,7 +781,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../creating-form-schema.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/creating-form-schema.html" data-pjax>
                 <span>Creating Form Schema</span>
                 
             </a>
@@ -794,7 +802,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-api-readme.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-api/vets-api-readme.html" data-pjax>
                 <span>ReadMe</span>
                 
             </a>
@@ -804,7 +812,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="development.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-api/development.html" data-pjax>
                 <span>Development</span>
                 
             </a>
@@ -814,7 +822,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="authentication.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-api/authentication.html" data-pjax>
                 <span>Authentication</span>
                 
             </a>
@@ -824,7 +832,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="authorization.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-api/authorization.html" data-pjax>
                 <span>Authorization</span>
                 
             </a>
@@ -834,7 +842,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="documentation.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-api/documentation.html" data-pjax>
                 <span>Documentation</span>
                 
             </a>
@@ -844,7 +852,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="forms.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-api/forms.html" data-pjax>
                 <span>Forms</span>
                 
             </a>
@@ -854,7 +862,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="pdf-generation.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-api/pdf-generation.html" data-pjax>
                 <span>PDF Generation</span>
                 
             </a>
@@ -863,8 +871,8 @@
     
         
         
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-api/request-processing.html" data-pjax>
                 <span>Request Processing</span>
                 
             </a>
@@ -874,7 +882,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="response-serialization.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-api/response-serialization.html" data-pjax>
                 <span>Response Serialization</span>
                 
             </a>
@@ -884,7 +892,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="service-objects.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-api/service-objects.html" data-pjax>
                 <span>Service Objects</span>
                 
             </a>
@@ -894,7 +902,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="settings.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/vets-api/settings.html" data-pjax>
                 <span>Settings</span>
                 
             </a>
@@ -909,7 +917,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../review-instances.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/review-instances.html" data-pjax>
                 <span>Review Instances</span>
                 
             </a>
@@ -919,7 +927,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../deployment.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/deployment.html" data-pjax>
                 <span>Deployment Process</span>
                 
             </a>
@@ -929,7 +937,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../google-analytics.html" data-pjax>
+            <a class="Tree-entityLink" href="../../vets-developer-docs/google-analytics.html" data-pjax>
                 <span>Google Analytics</span>
                 
             </a>
@@ -965,8 +973,8 @@
     
         
         
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../resources/templates/analytics-checklist.html" data-pjax>
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 <span>Google Analytics Checklist</span>
                 
             </a>
@@ -976,7 +984,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../resources/templates/conversation-guide.html" data-pjax>
+            <a class="Tree-entityLink" href="conversation-guide.html" data-pjax>
                 <span>Conversation Guide</span>
                 
             </a>
@@ -986,7 +994,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../../resources/templates/planning-template.html" data-pjax>
+            <a class="Tree-entityLink" href="planning-template.html" data-pjax>
                 <span>Planning Template</span>
                 
             </a>
