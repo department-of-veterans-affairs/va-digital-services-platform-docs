@@ -72,83 +72,139 @@
 
     
     
-    <p><span style="color: red">
+    <h3 id="veteran-tools-platform-ato">Veteran Tools Platform ATO</h3>
+<p>The Veteran Tools Platform (vets.gov) has <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/ATO%20Memo%20for%20Vets_Gov%202017MAR07.pdf">a full ATO from VA</a>. The DSVA team is responsible for maintaining that ATO by updating it when new tools and services are added to the platform.</p>
+<p><strong>Connect with the DSVA team as early as possible to start the process to update the ATO for the tool or service your team is planning to build.</strong></p>
+<h3 id="preliminary-ato-assessment">Preliminary ATO assessment</h3>
+<p>Start this as early as possible in your team’s project.</p>
+<ol>
+<li><p>Create an issue in the <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato">vets.gov-ato</a> repository.</p>
+</li>
+<li><p>Assign the issue to Brian Gryth (<strong>@briangryth</strong>).</p>
+</li>
+<li><p>Label the issue with the <strong>devops label</strong>.</p>
+</li>
+<li><p>Title the issue <strong>Request to update ATO</strong>.</p>
+</li>
+<li><p>Provide the following information in the issue content.</p>
+<ul>
+<li>What data are you collecting? For example, what data are you requesting from users?</li>
+<li>What data are you using? For example, what data are you requesting from some VA service?</li>
+<li>Where does that data come from? For example, what API endpoint are you getting the data from?</li>
+</ul>
+</li>
+<li><p>DSVA will examine the existing ATO documents and determine if they need to be updated based on the information you’ve provided.</p>
+<ul>
+<li>Plan for some back and forth conversation in the Github issue to get all the information DSVA needs.</li>
+</ul>
+</li>
+<li><p>If the ATO does need to be updated:</p>
+<ul>
+<li>DSVA will update the relevant ATO documents.</li>
+<li>DSVA will provide a link to the updated ATO documents for your team’s reference.</li>
+</ul>
+</li>
+<li><p>If the ATO does not need to be updated:</p>
+<ul>
+<li>DSVA will let you know, and you can use the existing ATO for your team’s reference.</li>
+</ul>
+</li>
+</ol>
+<h3 id="final-ato-assessment">Final ATO assessment</h3>
+<p>You need a final ATO assessment before you can launch your tool or service. You can complete this step as soon as know that the tool/service <strong>will not</strong> change before launch.</p>
+<ol>
+<li><p>Create an issue in the <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato">vets.gov-ato</a> repository.</p>
+</li>
+<li><p>Assign the issue to Brian Gryth (<strong>@briangryth</strong>).</p>
+</li>
+<li><p>Label the issue with the <strong>devops label</strong>.</p>
+</li>
+<li><p>Title the issue <strong>Request for final ATO assessment</strong>.</p>
+</li>
+<li><p>Provide the following information in the issue content.</p>
+<ul>
+<li>What data are you collecting? For example, what data are you requesting from users?</li>
+<li>What data are you using? For example, what data are you requesting from some VA service?</li>
+<li>Where does that data come from? For example, what API endpoint are you getting the data from?</li>
+</ul>
+</li>
+<li><p>DSVA will examine the existing ATO documents and determine if they need to be updated based on the information you’ve provided.</p>
+<ul>
+<li>Plan for some back and forth conversation in the Github issue to get all the information DSVA needs.</li>
+</ul>
+</li>
+<li><p>If the ATO does need to be updated:</p>
+<ul>
+<li>DSVA will update the relevant ATO documents.</li>
+<li>DSVA will provide a link to the updated ATO documents for your team’s reference.</li>
+<li>DSVA will submit the updated ATO to VA on our regular schedule (quarterly).</li>
+</ul>
+</li>
+<li><p>If the ATO does not need to be updated:</p>
+<ul>
+<li>DSVA will let you know, and you can use the existing ATO for your team’s reference.</li>
+</ul>
+</li>
+</ol>
+<!--span style="color: red">
 This needs to be further discussed as a group and refined for scalability, but here are some initial thoughts:
 <br><br>Ad Hoc / DSVA probably shouldn’t handle or check for ATO. Anyone building things should probably be responsible for going through that whole process themselves and making sure they’re covered. All teams could build under one overarching ATO for the platform, but ensuring all products have appropriate ATO requirements met will be the responsibility of those building the products and an ATO Lead at VA.
-</span></p>
-<h3 id="contacts-">Contacts:</h3>
-<ul>
-<li><strong>System Owner:</strong> Angela Gant-Curtis, Deputy Portfolio Director, Office Phone: (540)760-7222, <a href="mailto:angela.gant-curtis@va.gov">angela.gant-curtis@va.gov</a></li>
-<li><strong>ISO:</strong> Griselda Gallegos, NDC AITC Information Security Officer (ISO), Office:(512) 326-6037, <a href="mailto:griselda.gallegos@va.gov">griselda.gallegos@va.gov</a></li>
-<li><strong>Privacy Officer:</strong> Rita Grewal, <a href="mailto:Rita.Grewal@va.gov">Rita.Grewal@va.gov</a></li>
-</ul>
-<h2 id="steps-for-obtaining-a-new-connection">Steps for Obtaining a New Connection</h2>
-<ol>
-<li>Create new GitHub issue with <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/assets/VetsGov%20ISAMOUs/NewConnectionTemplate.md">THIS TEMPLATE</a></li>
-<li>Determine if you need an ISA MOU between Vets.gov and the New System.<ul>
-<li>You do not need a MOU if the AO for the system Vets.gov is connecting to is the same AO as Vets.gov - check <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/assets/Support%20Documents/System%20Names%20and%20AOs%20June%208%202017.xlsx">THIS</a> list</li>
-<li>You do not need an MOU if the existing ISA/MOU covers all systems hosted within the VA accreditation boundary.  </li>
-<li><a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/VetsGov%20ISAMOUs">Create ISA MOU</a></li>
-</ul>
-</li>
-<li>Determine if you need to update the PTA/PIA due to the data being transfered in the new connection.<ul>
-<li>If you need to update PTA/PIA, continue to <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA">Update PTA/PIA</a></li>
-<li>If you don’t need to update the PTA/PIA, continue to <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/ESCCB">Submit ESCCB Request</a></li>
-</ul>
-</li>
-<li>Determine if you need to submit an ESCCB Request or a S2S Request<ul>
-<li>ESCCB requests are for creating new VPN connections and/or new or modifying port traffic.</li>
-<li>S2S requests are for new connections back to VA Services over already approved ports.</li>
-<li><a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/ESCCB">Submit ESCCB Request</a></li>
-<li><a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/assets/s2s/readme.md">Submit S2S Request</a></li>
-</ul>
-</li>
-<li>Uploade Signed Documents<ul>
-<li>Collect the above documents (ISA MOU, PTA, PIA, ESCCB Response) and upload to RiskVision</li>
-</ul>
-</li>
-<li>Provide approval and close ticket<ul>
-<li>Inform all parties involved of system and ISO approval to move to production</li>
-</ul>
-</li>
-<li>Close GitHub Issue created in <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/assets/VetsGov%20ISAMOUs/README.md">Step 1</a></li>
-<li>Update RiskVision if any controls need to be updated with any new information.</li>
-</ol>
-<h2 id="steps-for-modifying-an-existing-connection">Steps for Modifying an Existing Connection</h2>
-<p>Existing ISA MOUs should be modified, as-needed, when additional functionality/data is utilized from the system or IPs/URLs change.  For example, the current scope of MyHealtheVet is Secure Messaging and Prescription Refill – beyond that you’ll likely need to update the ISA MOU. Run the draft by the existing system ISO before submitting for signatures.</p>
-<ul>
-<li>Existing editable and signed ISA MOUs should be <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/VetsGov%20ISAMOUs">HERE</a> and final signed documents in RiskVision.</li>
-<li>Steps for updating existing MOU’s can be found <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/VetsGov%20ISAMOUs#modifying-existing-isa-mou">HERE</a></li>
-</ul>
-<h2 id="steps-for-making-a-change-in-the-system-description">Steps for Making a Change in the System Description</h2>
-<ul>
-<li><a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/System%20Description.md">System Description</a> can be updated when new connections have been made to back-end VA services.</li>
-<li>New data elements being added, used, stored? Ensure <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/Data.md">Data.md</a> is up to date.</li>
-</ul>
-<h2 id="steps-for-updating-privacy-documentation">Steps for Updating Privacy Documentation</h2>
-<ul>
-<li>Each time something new is added, especially data, the <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA">Privacy Threat Analysis (PTA)</a> and <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA">Privacy Impact Analysis (PIA)</a> need to be updated and approved by the Privacy Office (<a href="mailto:PIASupport@va.gov">PIASupport@va.gov</a>)</li>
-<li>Update the <a href="https://www.vets.gov/privacy/">vets.gov Privacy Statement</a> according to steps <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA#updating-privacy-statement">HERE</a></li>
-</ul>
-<h2 id="steps-for-performing-a-web-application-security-assessment-wasa-">Steps for Performing a Web Application Security Assessment (WASA)</h2>
-<ul>
-<li>Each time major functionality is rolled out, a NEW WASA should be requested.  </li>
-<li>Steps for completing the WASA are found <a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/WASA">HERE</a></li>
-</ul>
-<h2 id="steps-for-creating-the-nessus-report">Steps for Creating the NESSUS Report</h2>
-<ul>
-<li>NESSUS: Each month, the NESSUS report (devops team has access to this) needs to be uploaded to RiskVision, along with a remediation plan)<ul>
-<li><a href="https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/assets/Nessus%20Scan%20Results/README.md">Nessus Montly Scan Proceedures</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="steps-for-updating-riskvision-findings">Steps for Updating RiskVision Findings</h2>
-<ul>
-<li>RiskVision needs to be updated each time additional components are being rolled out.  Once you complete a section you submit it.  ISO can view them as they are submitted, but it can’t be moved through the workflow until all sections are submitted.
-<em><code>TO-DO: More details to be provided</code></em></li>
-<li>If you are experiencing an issue with RiskVision (aka GRC) send email to the helpdesk: <a href="mailto:vaGRCservicedesk@va.gov">vaGRCservicedesk@va.gov</a></li>
-<li>If you get jammed up on RiskVision/ATO items and ISO can’t help, reach out to Sandra Hedtke (<a href="mailto:Sandra.Hedtke@va.gov">Sandra.Hedtke@va.gov</a>), she’s awesome.</li>
-</ul>
+</span>
+
+
+### Contacts:
+- **System Owner:** Angela Gant-Curtis, Deputy Portfolio Director, Office Phone: (540)760-7222, angela.gant-curtis@va.gov
+- **ISO:** Griselda Gallegos, NDC AITC Information Security Officer (ISO), Office:(512) 326-6037, griselda.gallegos@va.gov
+- **Privacy Officer:** Rita Grewal, Rita.Grewal@va.gov
+
+## Steps for Obtaining a New Connection
+1. Create new GitHub issue with [THIS TEMPLATE](https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/assets/VetsGov%20ISAMOUs/NewConnectionTemplate.md)
+2. Determine if you need an ISA MOU between Vets.gov and the New System.
+  - You do not need a MOU if the AO for the system Vets.gov is connecting to is the same AO as Vets.gov - check [THIS](https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/assets/Support%20Documents/System%20Names%20and%20AOs%20June%208%202017.xlsx) list
+  - You do not need an MOU if the existing ISA/MOU covers all systems hosted within the VA accreditation boundary.  
+  - [Create ISA MOU](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/VetsGov%20ISAMOUs)
+3. Determine if you need to update the PTA/PIA due to the data being transfered in the new connection.
+  - If you need to update PTA/PIA, continue to [Update PTA/PIA](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA)
+  - If you don't need to update the PTA/PIA, continue to [Submit ESCCB Request](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/ESCCB)
+4. Determine if you need to submit an ESCCB Request or a S2S Request
+  - ESCCB requests are for creating new VPN connections and/or new or modifying port traffic.
+  - S2S requests are for new connections back to VA Services over already approved ports.
+  - [Submit ESCCB Request](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/ESCCB)
+  - [Submit S2S Request](https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/assets/s2s/readme.md)
+5. Uploade Signed Documents
+   - Collect the above documents (ISA MOU, PTA, PIA, ESCCB Response) and upload to RiskVision
+6. Provide approval and close ticket
+   - Inform all parties involved of system and ISO approval to move to production
+7. Close GitHub Issue created in [Step 1](https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/assets/VetsGov%20ISAMOUs/README.md)
+8. Update RiskVision if any controls need to be updated with any new information.
+
+## Steps for Modifying an Existing Connection
+Existing ISA MOUs should be modified, as-needed, when additional functionality/data is utilized from the system or IPs/URLs change.  For example, the current scope of MyHealtheVet is Secure Messaging and Prescription Refill -- beyond that you’ll likely need to update the ISA MOU. Run the draft by the existing system ISO before submitting for signatures.
+
+- Existing editable and signed ISA MOUs should be [HERE](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/VetsGov%20ISAMOUs) and final signed documents in RiskVision.
+- Steps for updating existing MOU's can be found [HERE](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/VetsGov%20ISAMOUs#modifying-existing-isa-mou)
+
+## Steps for Making a Change in the System Description
+- [System Description](https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/System%20Description.md) can be updated when new connections have been made to back-end VA services.
+- New data elements being added, used, stored? Ensure [Data.md](https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/Data.md) is up to date.
+
+## Steps for Updating Privacy Documentation
+- Each time something new is added, especially data, the [Privacy Threat Analysis (PTA)](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA) and [Privacy Impact Analysis (PIA)](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA) need to be updated and approved by the Privacy Office (PIASupport@va.gov)
+- Update the [vets.gov Privacy Statement](https://www.vets.gov/privacy/) according to steps [HERE](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA#updating-privacy-statement)
+
+## Steps for Performing a Web Application Security Assessment (WASA)
+- Each time major functionality is rolled out, a NEW WASA should be requested.  
+- Steps for completing the WASA are found [HERE](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/WASA)
+
+## Steps for Creating the NESSUS Report
+- NESSUS: Each month, the NESSUS report (devops team has access to this) needs to be uploaded to RiskVision, along with a remediation plan)
+  - [Nessus Montly Scan Proceedures](https://github.com/department-of-veterans-affairs/vets.gov-ato/blob/master/assets/Nessus%20Scan%20Results/README.md)
+
+## Steps for Updating RiskVision Findings
+- RiskVision needs to be updated each time additional components are being rolled out.  Once you complete a section you submit it.  ISO can view them as they are submitted, but it can’t be moved through the workflow until all sections are submitted.
+*`TO-DO: More details to be provided`*
+- If you are experiencing an issue with RiskVision (aka GRC) send email to the helpdesk: vaGRCservicedesk@va.gov
+- If you get jammed up on RiskVision/ATO items and ISO can’t help, reach out to Sandra Hedtke (Sandra.Hedtke@va.gov), she’s awesome.-->
 
     
 
