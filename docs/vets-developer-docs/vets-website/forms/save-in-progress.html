@@ -92,7 +92,7 @@
 }</pre></code><p>This is from our health care application. The most important piece of information is <code>formId</code>, which is the key that will be used to save the form data on the backend. Once you choose this, you can’t change it in production. We also set a version, typically to 0, which can be incremented if you need to migrate form data in production.</p>
 <p>There are also a couple of messages you can set, which show up in various places on the form (primarily on the intro page).</p>
 <h2 id="user-profile">User profile</h2>
-<p>You will also need to make a couple changes in the user profile code, so that your form can show up in the list of saved forms on the account page. In <code>src/js/user-profile/helpers.jsx</code>, you should add your form to the three configuration objects: <code>formBenefits</code>, <code>formLinks</code>, <code>trackingPrefixes</code>, and <code>sipEnabledForms</code>. The information for each of these should be in your form config file.</p>
+<p>You will also need to make a couple changes in the user profile code, so that your form can show up in the list of saved forms on the account page. In <code>src/applications/personalization/profile360/util/helpers.jsx</code>, you should add your form to the three configuration objects: <code>formBenefits</code>, <code>formLinks</code>, <code>trackingPrefixes</code>, and <code>sipEnabledForms</code>. The information for each of these should be in your form config file.</p>
 <h2 id="static-pages">Static pages</h2>
 <p>Your form will likely be linked somewhere in the static content for Vets.gov. In those places, we have the ability to replace something like an “Apply now” button with a widget to resume or start over an in progress form.</p>
 <p>In your content page, you can add front matter to set up a widget:</p>
@@ -104,7 +104,7 @@
 <code class="lang-html"><pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"react-applicationStatus"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"static-page-widget"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"usa-button-primary va-button-primary"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/health-care/apply/application/"</span>&gt;</span>Apply for Health Care Benefits<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre></code><p>Note that the id matches the <code>root</code> property in the front matter. This is the link that will show up will the Javascript code is loading or if it fails to load.</p>
-<p>Once that’s done, you can open up the static pages entry file at <code>src/js/static-pages/static-pages-entry.js</code> and make your changes. Here’s an example for the healh care application:</p>
+<p>Once that’s done, you can open up the static pages entry file at <code>src/applications/static-pages/static-pages-entry.js</code> and make your changes. Here’s an example for the healh care application:</p>
 <code class="lang-js"><pre><span class="hljs-keyword">const</span> healthcarePages = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-string">'/health-care/'</span>, <span class="hljs-string">'/health-care/apply/'</span>, <span class="hljs-string">'/health-care/eligibility/'</span>]);
 
 ...
