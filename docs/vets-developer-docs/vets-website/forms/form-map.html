@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Production Support | Veteran-facing Tools Playbook</title>
+<title>Form Map - Where Does This Stuff Come From? | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Production Support</h1>
+        <h1 class="Document-title">Form Map - Where Does This Stuff Come From?</h1>
         
 
 
@@ -72,48 +72,52 @@
 
     
     
-    <p>Now that you have a form in production, making future changes requires some extra care.</p>
-<h2 id="changing-your-form-schema">Changing your form schema</h2>
-<p>Once you’re in production and you’re also using the save in progress functionality, you have a dilemma when you want to change some fields or some validation on your form. Since there are forms that are saved, if you change the structure of the form, the saved data may no longer match and result in confusing validation errors for a user. Similarly, if validation changes, a user might have already gone past that field and won’t know how to fix the new error.</p>
-<p>To address this issue, we have the ability to write “migrations” for form data. This way, you can update a user’s data to match the new structure, as well as move their position in the form back, if they need to adjust something. Migrations are functions, run in a sequence, based on the “version” of the form, which is saved along with the form data.</p>
-<p>Migrations go in the form config object:</p>
-<code class="lang-js"><pre><span class="hljs-keyword">const</span> formConfig = {
-   ...
-   version: <span class="hljs-number">1</span>,
-   <span class="hljs-attr">migrations</span>: [
-     <span class="hljs-function">(<span class="hljs-params">{ formData, metadata, formId }</span>) =&gt;</span> {
-       <span class="hljs-comment">// do something</span>
-       <span class="hljs-keyword">return</span> {
-         formData,
-         metadata
-       };
-     }
-   ]
-   ...
-};</pre></code><p>We typically start at version 0 and increment each time we need to add a migration. Migrations are functions that get <code>formData</code>, <code>metadata</code>, and <code>formId</code> as arguments. And they must return the <code>formData</code> and <code>metadata</code>, with any changes that they have made. For example, here is a migration that the health care application uses to convert an old url:</p>
-<code class="lang-js"><pre>({ formData, metadata }) =&gt; {
-  <span class="hljs-keyword">const</span> url = metadata.returnUrl || metadata.return_url;
-  <span class="hljs-keyword">let</span> newMetadata = metadata;
-
-  <span class="hljs-keyword">if</span> (url === <span class="hljs-string">'/household-information/child-information'</span>) {
-    newMetadata = _.set(<span class="hljs-string">'returnUrl'</span>, <span class="hljs-string">'/household-information/dependent-information'</span>, metadata);
-  }
-
-  <span class="hljs-keyword">return</span> { formData, <span class="hljs-attr">metadata</span>: newMetadata };
-}</pre></code><p>If the current return URL (which is the URL a user will return to when the load a saved form) matches the outdated one, we update it. The <code>formData</code> is not changed in this case.</p>
-<p>Another example from the health care application was to fix a bug in our form structure:</p>
-<code class="lang-js"><pre>(savedData) =&gt; {
-  <span class="hljs-keyword">const</span> newData = savedData;
-  newData.formData = _.unset(<span class="hljs-string">'isSpanishHispanicLatino'</span>, savedData.formData);
-
-  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> _.get(<span class="hljs-string">'view:demographicCategories.isSpanishHispanicLatino'</span>, newData.formData) === <span class="hljs-string">'undefined'</span>) {
-    newData.formData = _.set(<span class="hljs-string">'view:demographicCategories.isSpanishHispanicLatino'</span>, <span class="hljs-literal">false</span>, newData.formData);
-    <span class="hljs-keyword">return</span> newData;
-  }
-
-  <span class="hljs-keyword">return</span> newData;
-}</pre></code><p>In this example, we’re moving an incorrectly located <code>isSpanishHispanicLatino</code> flag and setting it in the right spot.</p>
-<p>Writing migrations is not very common, but you may need to do it if you end up modifying a form that’s already in production.</p>
+    <p>In this doc, we’ll explain where the content you see on the form actually comes from. The file locations in this doc assumes you created a simple form using the Yeoman generator, saving the app in <code>new-form</code> and giving it a root URL of <code>/new-form</code> (questions 2 and 4 in the generator).</p>
+<h2 id="form-introduction-page">Form Introduction Page</h2>
+<p><img src="/va-digital-services-platform-docs/assets/develop/images/forms/form-map-1.png" alt="Annotated Form Introduction Page"></p>
+<ol>
+<li>Form title in breadcrumb: <code>title</code> field in <code>content/pages/new-form.md</code>. This value also sets the web page’s title in the browser tab/window.</li>
+<li>Form title: The <code>FormTitle</code> component rendered by <code>src/applications/new-form/containers/IntroductionPage.jsx</code>. Initially set in the Yeoman generator.</li>
+<li>Form number: Rendered by <code>src/applications/new-form/containers/IntroductionPage.jsx</code>. Initially set in the Yeoman generator.</li>
+<li>Form title: Rendered by <code>src/applications/new-form/containers/IntroductionPage.jsx</code>. Initially set in the Yeoman generator.</li>
+<li>Form benefits: The <code>SaveInProgressIntro</code> component rendered by <code>src/applications/new-form/containers/IntroductionPage.jsx</code>. Initially set in the Yeoman generator.</li>
+<li>Subway text: Rendered by <code>src/applications/new-form/containers/IntroductionPage.jsx</code>.</li>
+<li>Time burder: The <code>OMBInfo</code> component rendered by <code>src/applications/new-form/containers/IntroductionPage.jsx</code>. Initially set in the Yeoman generator.</li>
+<li>OMB control number: The <code>OMBInfo</code> component rendered by <code>src/applications/new-form/containers/IntroductionPage.jsx</code>. Initially set in the Yeoman generator.</li>
+<li>Expiration date: The <code>OMBInfo</code> component rendered by <code>src/applications/new-form/containers/IntroductionPage.jsx</code>. Initially set in the Yeoman generator.</li>
+</ol>
+<h2 id="chapter-1-page-1">Chapter 1, Page 1</h2>
+<p><img src="/va-digital-services-platform-docs/assets/develop/images/forms/form-map-2.png" alt="Annotated Form Chapter One, Page One"></p>
+<ol>
+<li>Form title in breadcrumb: <em>Same as above</em></li>
+<li>Form title: The <code>formConfig.title</code> property in <code>src/applications/new-form/config/form.js</code>. Initially set in the Yeoman generator.</li>
+<li>Form subtitle: The <code>formConfig.subTitle</code> property in <code>src/applications/new-form/config/form.js</code>. The Yeoman generator does not set this by default.</li>
+<li>Chapter title: The <code>formConfig.chapters.chapter1.title</code> property in <code>src/applications/new-form/config/form.js</code>.</li>
+<li>Input field title: The <code>formConfig.chapters.chapter1.pages.page1.uiSchema</code> property in <code>src/applications/new-form/config/form.js</code>.</li>
+<li>Required indicator: Shown because this particular field ID is included in the <code>formConfig.chapters.chapter1.pages.page1.schema.required</code> array.</li>
+</ol>
+<h2 id="chapter-1-page-2">Chapter 1, Page 2</h2>
+<p><img src="/va-digital-services-platform-docs/assets/develop/images/forms/form-map-3.png" alt="Annotated Form Chapter One, Page Two"></p>
+<ol>
+<li>Form title in breadcrumb: <em>Same as above</em></li>
+<li>Form title: <em>Same as above</em></li>
+<li>Form subtitle: <em>Same as above</em></li>
+<li>Chapter title: <em>Same as above</em></li>
+<li>Input field title: The <code>formConfig.chapters.chapter1.pages.page2.uiSchema</code> property in <code>src/applications/new-form/config/form.js</code>.</li>
+</ol>
+<h2 id="form-review-page">Form Review Page</h2>
+<p><img src="/va-digital-services-platform-docs/assets/develop/images/forms/form-map-4.png" alt="Annotated Form Review Page"></p>
+<ol>
+<li>Form title in breadcrumb: <em>Same as above</em></li>
+<li>Form title: <em>Same as above</em></li>
+<li>Form subtitle: <em>Same as above</em></li>
+<li>Chapter title: <em>Same as above</em></li>
+<li>Page title: The <code>formConfig.chapters.chapter1.pages.page1.title</code> property in <code>src/applications/new-form/config/form.js</code>.</li>
+<li>Page title: The <code>formConfig.chapters.chapter1.pages.page2.title</code> property in <code>src/applications/new-form/config/form.js</code>.</li>
+</ol>
+<blockquote>
+<p><strong>NOTE:</strong> Page titles are not shown on the review page if the chapter they belong to only has a single page.</p>
+</blockquote>
 
     
 
@@ -498,8 +502,8 @@
     
         
         
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="production.html" data-pjax>
                 <span>Production</span>
                 
             </a>
@@ -508,8 +512,8 @@
     
         
         
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="form-map.html" data-pjax>
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 <span>Form Map</span>
                 
             </a>
