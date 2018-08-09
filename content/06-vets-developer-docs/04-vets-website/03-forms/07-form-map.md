@@ -6,7 +6,7 @@ In this doc, we'll explain where the content you see on the form actually comes 
 
 ## Form Introduction Page
 
-![](/va-digital-services-platform-docs/assets/develop/images/forms/form-map-1.png)
+![Annotated Form Introduction Page](/va-digital-services-platform-docs/assets/develop/images/forms/form-map-1.png)
 
 1. Form title in breadcrumb: `title` field in `content/pages/new-form.md`. This value also sets the web page's title in the browser tab/window.
 2. Form title: The `FormTitle` component rendered by `src/applications/new-form/containers/IntroductionPage.jsx`. Initially set in the Yeoman generator.
@@ -20,7 +20,7 @@ In this doc, we'll explain where the content you see on the form actually comes 
 
 ## Chapter 1, Page 1
 
-![](/va-digital-services-platform-docs/assets/develop/images/forms/form-map-2.png)
+![Annotated Form Chapter One, Page One](/va-digital-services-platform-docs/assets/develop/images/forms/form-map-2.png)
 
 1. Form title in breadcrumb: *Same as above*
 2. Form title: The `formConfig.title` property in `src/applications/new-form/config/form.js`. Initially set in the Yeoman generator.
@@ -31,7 +31,7 @@ In this doc, we'll explain where the content you see on the form actually comes 
 
 ## Chapter 1, Page 2
 
-![](/va-digital-services-platform-docs/assets/develop/images/forms/form-map-3.png)
+![Annotated Form Chapter One, Page Two](/va-digital-services-platform-docs/assets/develop/images/forms/form-map-3.png)
 
 1. Form title in breadcrumb: *Same as above*
 2. Form title: *Same as above*
@@ -41,7 +41,7 @@ In this doc, we'll explain where the content you see on the form actually comes 
 
 ## Form Review Page
 
-![](/va-digital-services-platform-docs/assets/develop/images/forms/form-map-4.png)
+![Annotated Form Review Page](/va-digital-services-platform-docs/assets/develop/images/forms/form-map-4.png)
 
 1. Form title in breadcrumb: *Same as above*
 2. Form title: *Same as above*
