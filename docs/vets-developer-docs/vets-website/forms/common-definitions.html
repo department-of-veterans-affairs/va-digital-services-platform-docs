@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../../../fractal-styles.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Using Common Definitions | Veteran-facing Tools Playbook</title>
+<title>Advanced - Using Common Definitions | Veteran-facing Tools Playbook</title>
 
 </head>
 <body>
@@ -55,7 +55,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Using Common Definitions</h1>
+        <h1 class="Document-title">Advanced - Using Common Definitions</h1>
         
 
 
@@ -77,23 +77,23 @@
 <p>Assuming you’ve created your form using our form scaffolding generator, you should have some commented out lines in your <code>config/form.js</code> file:</p>
 <code class="lang-js"><pre><span class="hljs-comment">// import fullSchema from 'vets-json-schema/dist/VIC-schema.json';</span>
 
-...
+<span class="hljs-comment">// ...code omitted...</span>
 
 <span class="hljs-comment">// const { } = fullSchema.properties;</span>
 
 <span class="hljs-comment">// const { } = fullSchema.definitions;</span></pre></code><p>If you uncomment those lines and update the import path to match your schema’s file name, you can start pulling in individual definitions and properties to use in your form. We try to use the properties from the shared schema as much as possible, since it helps keep the front-end and back-end in sync and avoid validation errors in production. For example, if you want to import an <code>email</code> field from your schema, you can do something like this:</p>
 <code class="lang-js"><pre><span class="hljs-keyword">import</span> fullSchema <span class="hljs-keyword">from</span> <span class="hljs-string">'vets-json-schema/dist/VIC-schema.json'</span>;
 
-...
+<span class="hljs-comment">// ...code omitted...</span>
 
-const {
+<span class="hljs-keyword">const</span> {
   email
 } = fullSchema.properties;
 
 <span class="hljs-comment">// const { } = fullSchema.definitions;</span>
 
 <span class="hljs-keyword">const</span> formConfig = {
-   ...
+   <span class="hljs-comment">// ...code omitted...</span>
    page1: {
      <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
      <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
@@ -109,15 +109,15 @@ const {
        }
      }
    }
-   ...
+   <span class="hljs-comment">// ...code omitted...</span>
 };</pre></code><p>Here we’re using Javascript’s object shorthand syntax to set the <code>email</code> property to the object from the shared schema properties. That way we know we’re using the same field name and using the same definition type as what will be used by the back-end. Note that we still need to be careful that we include all the fields we need from <code>fullSchema</code>.</p>
 <h2 id="using-a-common-front-end-definition">Using a common front-end definition</h2>
 <p>We have a collection of common definitions and fields on the front-end for you to use in your form, which are detailed in our <a href="https://github.com/department-of-veterans-affairs/vets-website/blob/master/docs/schemaform/field-library.md">field library doc</a>. Let’s try using our common full name field:</p>
 <code class="lang-js"><pre><span class="hljs-keyword">import</span> fullSchema <span class="hljs-keyword">from</span> <span class="hljs-string">'vets-json-schema/dist/VIC-schema.json'</span>;
 <span class="hljs-keyword">import</span> fullNameUI <span class="hljs-keyword">from</span> <span class="hljs-string">'../../common/schemaform/definitions/fullName'</span>;
-...
+<span class="hljs-comment">// ...code omitted...</span>
 
-const {
+<span class="hljs-keyword">const</span> {
   veteranFullName
 } = fullSchema.properties;
 
@@ -126,11 +126,11 @@ const {
 } = fullSchema.definitions;
 
 <span class="hljs-keyword">const</span> formConfig = {
-   ...
+  <span class="hljs-comment">// ...code omitted...</span>
   definitions: {
     fullName
   },
-  ...
+  <span class="hljs-comment">// ...code omitted...</span>
     page1: {
       <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
       <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
@@ -144,7 +144,7 @@ const {
         }
       }
     }
-   ...
+   <span class="hljs-comment">// ...code omitted...</span>
 };</pre></code><p>There are a few things going on here. One, we’ve pulled the <code>fullName</code> definition from <code>fullSchema</code>. JSON Schema’s method of code reuse has you put definitions in a <code>definitions</code> object in the schema, then reference them with a <code>$ref</code> property, so we have to account for that on the front-end. We can do that by importing it from <code>fullSchema.definitions</code> and adding it to the <code>definitions</code> object in our form config object.</p>
 <p>Second, we’ve imported <code>fullNameUI</code> from our common front-end definitions. For this field, we just have some <code>uiSchema</code> configuration that sets labels and widget types. Other fields are more complex, and may require you to call a function to generate the right configuration, and possibly import something for the regular <code>schema</code> object as well.</p>
 <p>Finally, in the code you can see that we’re using <code>fullNameUI</code> in the <code>uiSchema</code> object, and we’re using <code>veteranFullName</code> like we used <code>email</code> previously.</p>
@@ -153,9 +153,9 @@ const {
 <code class="lang-js"><pre><span class="hljs-keyword">import</span> fullSchema <span class="hljs-keyword">from</span> <span class="hljs-string">'vets-json-schema/dist/VIC-schema.json'</span>;
 <span class="hljs-keyword">import</span> fullNameUI <span class="hljs-keyword">from</span> <span class="hljs-string">'../../common/schemaform/definitions/fullName'</span>;
 <span class="hljs-keyword">import</span> merge <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../platform/utilities/data/merge'</span>;
-...
+<span class="hljs-comment">// ...code omitted...</span>
 
-const {
+<span class="hljs-keyword">const</span> {
   veteranFullName
 } = fullSchema.properties;
 
@@ -164,11 +164,11 @@ const {
 } = fullSchema.definitions;
 
 <span class="hljs-keyword">const</span> formConfig = {
-   ...
+   <span class="hljs-comment">// ...code omitted...</span>
   definitions: {
     fullName
   },
-  ...
+  <span class="hljs-comment">// ...code omitted...</span>
     page1: {
       <span class="hljs-attr">path</span>: <span class="hljs-string">'first-page'</span>,
       <span class="hljs-attr">title</span>: <span class="hljs-string">'First Page'</span>,
@@ -191,7 +191,7 @@ const {
         }
       }
     }
-   ...
+   <span class="hljs-comment">// ...code omitted...</span>
 };</pre></code><p>We’ve imported our merge function from <code>platform/utilities/data</code> and we’re merging our <code>ui:options</code> into the <code>fullNameUI</code> object, so that we don’t have to redefine all of the configuration in there. All of the utilities in <code>platform/utilities/data</code> treat objects as immutable, and do not modify anythin you pass in to them, so you can reuse <code>fullNameUI</code> in another spot in your form without worrying about having to remove the <code>ui:options</code> configuration we added.</p>
 <h2 id="things-to-watch-out-for">Things to watch out for</h2>
 <p>The point of having these common definitions and sharing a schema between the front-end and back-end is to encourage consistency in our forms and to reduce errors when submitting a form to a <code>vets-api</code> endpoint. But following the guide above won’t completely prevent those issues. Here are some things to keep in mind:</p>
@@ -545,7 +545,7 @@ const {
         
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
-                <span>Common Definitions</span>
+                <span>Form Advanced</span>
                 
             </a>
         </li>
