@@ -112,7 +112,7 @@
    <span class="hljs-comment">// ...code omitted...</span>
 };</pre></code><p>Here we’re using Javascript’s object shorthand syntax to set the <code>email</code> property to the object from the shared schema properties. That way we know we’re using the same field name and using the same definition type as what will be used by the back-end. Note that we still need to be careful that we include all the fields we need from <code>fullSchema</code>.</p>
 <h2 id="using-a-common-front-end-definition">Using a common front-end definition</h2>
-<p>We have a collection of common definitions and fields on the front-end for you to use in your form, which are detailed in our <a href="https://github.com/department-of-veterans-affairs/vets-website/blob/master/docs/schemaform/field-library.md">field library doc</a>. Let’s try using our common full name field:</p>
+<p>We have a collection of common definitions and fields on the front-end for you to use in your form. Let’s try using our common full name field:</p>
 <code class="lang-js"><pre><span class="hljs-keyword">import</span> fullSchema <span class="hljs-keyword">from</span> <span class="hljs-string">'vets-json-schema/dist/VIC-schema.json'</span>;
 <span class="hljs-keyword">import</span> fullNameUI <span class="hljs-keyword">from</span> <span class="hljs-string">'../../common/schemaform/definitions/fullName'</span>;
 <span class="hljs-comment">// ...code omitted...</span>
@@ -150,9 +150,9 @@
 <p>Finally, in the code you can see that we’re using <code>fullNameUI</code> in the <code>uiSchema</code> object, and we’re using <code>veteranFullName</code> like we used <code>email</code> previously.</p>
 <h2 id="modifying-common-definitions">Modifying common definitions</h2>
 <p>Often you’ll need to slightly modify common definitions on the front-end to change a label or some conditional logic. The way we typically do that is to use our data utilities to set values on the schema. For example, say we needed to make our <code>veteranFullName</code> field expand underneath another field:</p>
-<code class="lang-js"><pre><span class="hljs-keyword">import</span> fullSchema <span class="hljs-keyword">from</span> <span class="hljs-string">'vets-json-schema/dist/VIC-schema.json'</span>;
+<code class="lang-js"><pre><span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash/fp'</span>;
+<span class="hljs-keyword">import</span> fullSchema <span class="hljs-keyword">from</span> <span class="hljs-string">'vets-json-schema/dist/VIC-schema.json'</span>;
 <span class="hljs-keyword">import</span> fullNameUI <span class="hljs-keyword">from</span> <span class="hljs-string">'../../common/schemaform/definitions/fullName'</span>;
-<span class="hljs-keyword">import</span> merge <span class="hljs-keyword">from</span> <span class="hljs-string">'../../../platform/utilities/data/merge'</span>;
 <span class="hljs-comment">// ...code omitted...</span>
 
 <span class="hljs-keyword">const</span> {
@@ -177,7 +177,7 @@
           <span class="hljs-string">'ui:title'</span>: <span class="hljs-string">'My field'</span>,
           <span class="hljs-string">'ui:widget'</span>: <span class="hljs-string">'yesNo'</span>
         },
-        <span class="hljs-attr">veteranFullName</span>: merge(fullNameUI, {
+        <span class="hljs-attr">veteranFullName</span>: _.merge(fullNameUI, {
           <span class="hljs-string">'ui:options'</span>: {
             <span class="hljs-attr">expandUnder</span>: <span class="hljs-string">'myField'</span>
           }
@@ -192,7 +192,7 @@
       }
     }
    <span class="hljs-comment">// ...code omitted...</span>
-};</pre></code><p>We’ve imported our merge function from <code>platform/utilities/data</code> and we’re merging our <code>ui:options</code> into the <code>fullNameUI</code> object, so that we don’t have to redefine all of the configuration in there. All of the utilities in <code>platform/utilities/data</code> treat objects as immutable, and do not modify anythin you pass in to them, so you can reuse <code>fullNameUI</code> in another spot in your form without worrying about having to remove the <code>ui:options</code> configuration we added.</p>
+};</pre></code><p>We’ve imported the <a href="https://github.com/lodash/lodash/wiki/FP-Guide">Lodash FP (functional programming) library</a> and using its <code>merge</code> function to merge our <code>ui:options</code> into the <code>fullNameUI</code> object, so that we don’t have to redefine all of the configuration in there. All of the Lodash FP methods treat objects as immutable, not modifying anything you pass in to them, so you can reuse <code>fullNameUI</code> in another spot in your form without worrying about having to remove the <code>ui:options</code> configuration we added.</p>
 <h2 id="things-to-watch-out-for">Things to watch out for</h2>
 <p>The point of having these common definitions and sharing a schema between the front-end and back-end is to encourage consistency in our forms and to reduce errors when submitting a form to a <code>vets-api</code> endpoint. But following the guide above won’t completely prevent those issues. Here are some things to keep in mind:</p>
 <ul>
@@ -525,7 +525,7 @@
         
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="form-tutorial.html" data-pjax>
-                <span>Form Tutorial</span>
+                <span>Form - Basic</span>
                 
             </a>
         </li>
@@ -535,7 +535,7 @@
         
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="form-intermediate.html" data-pjax>
-                <span>Form Intermediate</span>
+                <span>Form - Intermediate</span>
                 
             </a>
         </li>
@@ -545,7 +545,7 @@
         
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
-                <span>Form Advanced</span>
+                <span>Form - Advanced</span>
                 
             </a>
         </li>
