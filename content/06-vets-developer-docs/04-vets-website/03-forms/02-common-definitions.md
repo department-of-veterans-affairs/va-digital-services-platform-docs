@@ -56,7 +56,7 @@ Here we're using Javascript's object shorthand syntax to set the `email` propert
 
 ## Using a common front-end definition
 
-We have a collection of [common definitions](https://github.com/usds/us-forms-system/blob/master/docs/building-a-form/common-definitions.md) and [fields](https://github.com/usds/us-forms-system/blob/master/docs/building-a-form/available-widgets.md) on the front-end for you to use in your form. Let's try using our common full name field:
+We have a collection of common definitions and fields on the front-end for you to use in your form. Let's try using our common full name field:
 
 ```js
 import fullSchema from 'vets-json-schema/dist/VIC-schema.json';
