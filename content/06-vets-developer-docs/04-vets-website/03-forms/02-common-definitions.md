@@ -150,7 +150,7 @@ const formConfig = {
 };
 ```
 
-We've imported the [Lodash FP (functional programming) library](https://github.com/lodash/lodash/wiki/FP-Guide) and using its `merge` function to merge our `ui:options` into the `fullNameUI` object, so that we don't have to redefine all of the configuration in there. All of the Lodash FP methods and utilities in `platform/utilities/data` treat objects as immutable, not modifying anything you pass in to them, so you can reuse `fullNameUI` in another spot in your form without worrying about having to remove the `ui:options` configuration we added.
+We've imported the [Lodash FP (functional programming) library](https://github.com/lodash/lodash/wiki/FP-Guide) and using its `merge` function to merge our `ui:options` into the `fullNameUI` object, so that we don't have to redefine all of the configuration in there. All of the Lodash FP methods treat objects as immutable, not modifying anything you pass in to them, so you can reuse `fullNameUI` in another spot in your form without worrying about having to remove the `ui:options` configuration we added.
 
 ## Things to watch out for
 
