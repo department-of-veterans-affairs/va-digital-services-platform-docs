@@ -92,6 +92,8 @@
 <p>ID.me SAML configuration requires explicitly defining a callback URL via a manual process. This callback URL receives authentication information after a successful authentication process. The review instance requires a special nginx configuration that intercepts the callback to the dev-api.vets.gov server, and forwards the authentication information to the appropriate review instance (mapped by the <code>RelayState</code> parameter, which is provided to the review instance vets-api config with the <code>REVIEW_INSTANCE_SLUG</code> environment variable).</p>
 <p>For implementation specific details, see the <a href="https://github.com/department-of-veterans-affairs/devops/blob/master/ansible/roles/revproxy-configure/templates/nginx_revproxy.conf">revproxy nginx configuration</a>. The following sequence diagram presents an overview of this process:</p>
 <p><img src="/va-digital-services-platform-docs/assets/develop/images/review-instance-sequence.png" alt=""></p>
+<!-- Next Button -->
+<p><a href='./deployment'><div class="next-button"><h5 class="next-text">Next: Deployment</h5></div></a></p>
 
     
 
@@ -437,7 +439,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="vets-website/forms/common-definitions.html" data-pjax>
+            <a class="Tree-entityLink" href="vets-website/forms/form-advanced.html" data-pjax>
                 <span>Form - Advanced</span>
                 
             </a>
