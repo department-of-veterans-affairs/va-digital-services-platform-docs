@@ -10,7 +10,7 @@ label: Welcome
 ### External Contractor teams should follow the general user-centered agile delivery processes outlined in the <a title="go to VA Digital Service Handbook" href="https://department-of-veterans-affairs.github.io/va-digital-service-handbook/delivery/index.html" target="_blank">VA Digital Service Handbook</a>.
 
 
-### Developers on External Contractor teams can find the Developer Documentation in the <a href="https://github.com/department-of-veterans-affairs/vets-work-practices/tree/master/External-Contractors-DeveloperDocs" target="_blank">Work Practices repo</a>.
+### Developers on External Contractor teams can find the Developer Documentation in the <a href="https://github.com/department-of-veterans-affairs/vets-external-teams/tree/master/DeveloperDocs" target="_blank">vets-external-teams repo</a>.
 
 
 *If you have any questions about this documentation, ask in your team's Slack channel or reach out to your DSVA Contact.*
