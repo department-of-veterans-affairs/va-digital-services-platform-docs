@@ -40,7 +40,7 @@ These words or phrases are not captured by, or run counter to, entries in Chicag
 - character of service (more casually referred to as "type of service"): This is a "block" or box on the DD214 that states one of the following: honorable, general/under honorable conditions, under other than honorable conditions, uncharacterized, or bad conduct.
 - chronic: Use "long-lasting", or when needed, "illness that lasts for a long time."
 - claim exam: This is the C&P exam. The correct way to refer to it is "VA claim exam."
-- click: Avoid using this word (especially the phrase "click here") to prompt users to click on a link; instead link the appropriate words. For example: “[Find an accredited representative to help you](https://www.vets.gov/disability-benefits/apply-for-benefits/help/index.html).” or “[Learn more about evidence requirements](https://www.vets.gov/disability-benefits/claims-process/evidence/).”
+- click: Avoid using this word (especially the phrase "click here") to prompt users to click on a link; instead link the appropriate words. For example: “[Find an accredited representative to help you](https://www.va.gov/disability-benefits/apply-for-benefits/help/index.html).” or “[Learn more about evidence requirements](https://www.va.gov/disability-benefits/claims-process/evidence/).”
 - compensation: use "payment" or "payments."
 - competent: defined as of legal age and sound mind.
 - conditions: on first mention use "illness" or "injury." All other mentions "condition" or "conditions" is OK.

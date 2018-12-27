@@ -24,7 +24,7 @@ To build a service on the Veteran Tools Platform, which can be anything from a d
 
   * Have access to the [Veteran Tools Platform code repositories](#code-repositories)
 
-  * Have credentials for the shared testing environments &mdash;  <a title="go to dev.vets.gov" href="https://dev.vets.gov" target="_blank">dev.vets.gov</a> and <a title="go to staging.vets.gov" href="https://staging.vets.gov" target="_blank">staging.vets.gov</a>
+  * Have credentials for the shared testing environments &mdash;  <a title="go to dev.va.gov" href="https://dev.va.gov" target="_blank">dev.va.gov</a> and <a title="go to staging.va.gov" href="https://staging.va.gov" target="_blank">staging.va.gov</a>
 
   * Have access to [Internal Tools](./internal-tools-access)
 

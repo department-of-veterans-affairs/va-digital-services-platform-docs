@@ -110,7 +110,7 @@ label: Guide to Launch a Product
 
 
 ## Samples
-- Sample Health Care Application (Form 10-10EZ) [https://www.vets.gov/health-care/apply/application/veteran-information/personal-information](https://www.vets.gov/health-care/apply/application/veteran-information/personal-information)
+- Sample Health Care Application (Form 10-10EZ) [https://www.va.gov/health-care/apply/application/veteran-information/personal-information](https://www.va.gov/health-care/apply/application/veteran-information/personal-information)
 
 - Sample Health Care Application (Form 10-10EZ) schema: [https://github.com/department-of-veterans-affairs/vets-json-schema/blob/master/src/schemas/10-10EZ/schema.js](https://github.com/department-of-veterans-affairs/vets-json-schema/blob/master/src/schemas/10-10EZ/schema.js)
 

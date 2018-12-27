@@ -48,7 +48,7 @@ Existing ISA MOUs should be modified, as-needed, when additional functionality/d
 
 ## Steps for Updating Privacy Documentation
 - Each time something new is added, especially data, the [Privacy Threat Analysis (PTA)](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA) and [Privacy Impact Analysis (PIA)](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA) need to be updated and approved by the Privacy Office (PIASupport@va.gov)
-- Update the [vets.gov Privacy Statement](https://www.vets.gov/privacy/) according to steps [HERE](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA#updating-privacy-statement)
+- Update the [vets.gov Privacy Statement](https://www.va.gov/privacy/) according to steps [HERE](https://github.com/department-of-veterans-affairs/vets.gov-ato/tree/master/assets/PTA_PIA#updating-privacy-statement)
 
 ## Steps for Performing a Web Application Security Assessment (WASA)
 - Each time major functionality is rolled out, a NEW WASA should be requested.  
