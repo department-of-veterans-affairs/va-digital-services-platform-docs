@@ -45,7 +45,7 @@ Typical steps in determining a new URL:
 
  For forms, use both the form number, as well as keywords from the form name.
   *	/form-1234-keywords-from-form-name
-  *	Example:  https://www.vets.gov/pension/application/form-527EZ-veteran-pension   (This example is not live)
+  *	Example:  https://www.va.gov/pension/application/form-527EZ-veteran-pension   (This example is not live)
 
   More standards will be added as they are identified.
 -->

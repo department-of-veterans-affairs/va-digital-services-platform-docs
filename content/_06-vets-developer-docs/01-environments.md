@@ -7,9 +7,9 @@ Vets-API and Vets-Website are automatically deployed to three shared environment
 
 | Environment | Vets-API | Vets-Website |
 | ----------- | -------- | ------------ |
-| development | dev-api.vets.gov | dev.vets.gov |
-| staging | staging-api.vets.gov | staging.vets.gov |
-| production | api.vets.gov | www.vets.gov |
+| development | dev-api.va.gov | dev.va.gov |
+| staging | staging-api.va.gov | staging.va.gov |
+| production | api.va.gov | www.va.gov |
 
 <!-- Next Button -->
 <a href='./development-workflow'><div class="next-button"><h5 class="next-text">Next: Development Workflow</h5></div></a>

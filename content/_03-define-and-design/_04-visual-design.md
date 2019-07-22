@@ -10,8 +10,8 @@ The <a href="https://department-of-veterans-affairs.github.io/design-system/" ta
 In cases where you may need to figure out a new pattern, you can also use this [Sketch file](/va-digital-services-platform-docs/assets/design/templates/vets-gov-pattern-library.sketch) as a starting point. It will allow you to quickly build screens using common static content and form patterns. From there you can link images together in InVision or another prototyping tool of choice.
 
 #### Additional Resources
-- <a href="https://www.vets.gov/playbook/design/templates/" target="blank">Vets.gov Templates</a>
-- <a href="https://www.vets.gov/playbook/design/visual/" target="blank">Vets.gov Fonts & Colors</a>
+- <a href="https://www.va.gov/playbook/design/templates/" target="blank">Vets.gov Templates</a>
+- <a href="https://www.va.gov/playbook/design/visual/" target="blank">Vets.gov Fonts & Colors</a>
 
 <!-- Next Button -->
 <a href='./review-technical-capabilities'><div class="next-button"><h5 class="next-text">Next: Review Technical Capabilities</h5></div></a>
